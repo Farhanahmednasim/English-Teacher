@@ -1,0 +1,20 @@
+{
+  "name": "English Guru — ইংরেজি শেখার সহজ উপায়",
+  "short_name": "English Guru",
+  "description": "বাংলা ভাষাভাষীদের জন্য সম্পূর্ণ ইংরেজি শেখার অ্যাপ — ডিকশনারি, লেসন, AI প্র্যাকটিস, কিডস ইংরেজি",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0e9f6e",
+  "lang": "bn",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230e9f6e'/><text x='50' y='72' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'>E</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

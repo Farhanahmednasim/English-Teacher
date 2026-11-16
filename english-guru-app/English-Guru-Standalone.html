@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0e9f6e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>English Guru — ইংরেজি শেখার সহজ উপায়</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   English Guru — Premium Design System
+   ============================================================ */
+:root{
+  --brand:#0e9f6e;
+  --brand-2:#10b981;
+  --brand-deep:#0b7a55;
+  --brand-soft:#e7f8f1;
+  --gold:#f59e0b;
+  --gold-soft:#fef3e2;
+  --ink:#101828;
+  --ink-2:#344054;
+  --ink-3:#667085;
+  --line:#eaecf0;
+  --bg:#f6f8f7;
+  --card:#ffffff;
+  --danger:#ef4444;
+  --radius:20px;
+  --radius-sm:14px;
+  --shadow:0 1px 2px rgba(16,24,40,.04), 0 4px 16px rgba(16,24,40,.06);
+  --shadow-lg:0 8px 32px rgba(16,24,40,.12);
+  --font-bn:'Hind Siliguri',system-ui,sans-serif;
+  --font-en:'Poppins',system-ui,sans-serif;
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+}
+[data-theme="dark"]{
+  --brand:#19c48d;
+  --brand-2:#22d69e;
+  --brand-deep:#0e9f6e;
+  --brand-soft:#0f2b22;
+  --gold:#fbbf24;
+  --gold-soft:#2b2210;
+  --ink:#f2f4f7;
+  --ink-2:#d0d5dd;
+  --ink-3:#98a2b3;
+  --line:#1f2937;
+  --bg:#0c1412;
+  --card:#131f1c;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:var(--font-bn);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:15.5px;
+  line-height:1.65;
+  overscroll-behavior-y:none;
+  -webkit-font-smoothing:antialiased;
+}
+[data-theme="dark"] body{color-scheme:dark}
+.hidden{display:none !important}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
+::selection{background:var(--brand);color:#fff}
+
+#app{
+  max-width:520px;margin:0 auto;min-height:100dvh;position:relative;
+  background:var(--bg);
+}
+@media(min-width:560px){
+  body{background:linear-gradient(160deg,#0c1412 0%,#123b2e 50%,#0c1412 100%)}
+  [data-theme="light"] body{background:linear-gradient(160deg,#dfeee7 0%,#eef4f1 40%,#d8e9e1 100%)}
+  #app{box-shadow:0 0 80px rgba(0,0,0,.25);min-height:100dvh}
+}
+
+/* ============ Splash ============ */
+#splash{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 100% at 50% 0%, #123b2e 0%, #0a1915 70%);
+  z-index:1000;transition:opacity .5s ease, visibility .5s;
+}
+#splash.out{opacity:0;visibility:hidden}
+.splash-logo{text-align:center;animation:splashIn .9s cubic-bezier(.2,.8,.2,1)}
+.splash-emblem{
+  width:104px;height:104px;margin:0 auto 22px;border-radius:30px;
+  background:linear-gradient(145deg,var(--brand-2),var(--brand-deep));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 20px 60px rgba(14,159,110,.45), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.splash-emblem span{font-family:Georgia,serif;font-size:58px;font-weight:700;color:#fff;transform:translateY(-3px)}
+.splash-title{color:#fff;font-family:var(--font-en);font-size:30px;font-weight:700;letter-spacing:.3px}
+.splash-tag{color:#9fd8c3;font-size:15px;margin-top:6px}
+@keyframes splashIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+
+/* ============ Onboarding ============ */
+#onboarding{
+  min-height:100dvh;display:flex;flex-direction:column;
+  background:
+    radial-gradient(100% 60% at 50% -10%, var(--brand-soft), transparent),
+    var(--bg);
+  padding:calc(30px + var(--safe-t)) 26px calc(24px + var(--safe-b));
+}
+.onb-slides{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.onb-slide{animation:fadeUp .45s ease}
+.onb-slide.hidden{display:none}
+.onb-art{
+  width:170px;height:170px;border-radius:50%;margin:0 auto 30px;
+  background:linear-gradient(145deg,var(--brand-soft),var(--card));
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+}
+.onb-art::before{
+  content:"";position:absolute;inset:-14px;border-radius:50%;
+  border:2px dashed var(--brand);opacity:.25;
+}
+.onb-art-inner{font-size:74px;line-height:1}
+.onb-slide h2{font-size:24px;font-weight:700;margin-bottom:10px;letter-spacing:-.2px}
+.onb-slide p{color:var(--ink-3);max-width:330px;margin:0 auto;font-size:15.5px}
+.onb-footer{padding-top:16px}
+.onb-dots{display:flex;gap:8px;justify-content:center;margin-bottom:20px}
+.dot{width:8px;height:8px;border-radius:99px;background:var(--line);transition:all .3s}
+.dot.active{width:26px;background:var(--brand)}
+.onb-row{display:flex;gap:12px}
+.onb-row .btn{flex:1}
+#onbName{margin-top:14px;text-align:center}
+
+/* ============ Buttons & fields ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 22px;border-radius:16px;font-weight:600;font-size:16px;
+  transition:transform .12s ease, box-shadow .2s, background .2s;
+  user-select:none;
+}
+.btn:active{transform:scale(.97)}
+.btn.primary{
+  background:linear-gradient(135deg,var(--brand-2),var(--brand-deep));
+  color:#fff;
+  box-shadow:0 6px 18px color-mix(in srgb, var(--brand) 35%, transparent);
+}
+.btn.ghost{background:transparent;color:var(--ink-3);font-weight:500}
+.btn.soft{background:var(--brand-soft);color:var(--brand-deep)}
+[data-theme="dark"] .btn.soft{color:var(--brand-2)}
+.btn.gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#442b03;box-shadow:0 6px 18px rgba(245,158,11,.3)}
+.btn.wide{width:100%}
+.btn.sm{padding:9px 14px;font-size:14px;border-radius:12px}
+.btn.danger{background:color-mix(in srgb, var(--danger) 12%, transparent);color:var(--danger)}
+.btn:disabled{opacity:.5;pointer-events:none}
+
+.field{
+  width:100%;padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);
+  background:var(--card);font-size:15.5px;outline:none;transition:border .2s, box-shadow .2s;
+}
+.field:focus{border-color:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb, var(--brand) 15%, transparent)}
+.field.center{text-align:center}
+.pin-field{font-size:24px;letter-spacing:8px;font-family:var(--font-en)}
+textarea.field{resize:vertical;min-height:80px}
+.field-label{display:block;font-size:13.5px;font-weight:600;color:var(--ink-3);margin:14px 0 6px}
+
+/* ============ Top bar ============ */
+#topbar{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:calc(12px + var(--safe-t)) 20px 12px;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+}
+.top-left{display:flex;align-items:center;gap:10px}
+.app-emblem{
+  width:40px;height:40px;border-radius:13px;
+  background:linear-gradient(145deg,var(--brand-2),var(--brand-deep));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 4px 12px color-mix(in srgb, var(--brand) 35%, transparent);
+}
+.app-emblem span{font-family:Georgia,serif;font-weight:700;color:#fff;font-size:23px;transform:translateY(-1px)}
+.app-emblem.sm{width:34px;height:34px;border-radius:11px}
+.app-emblem.sm span{font-size:19px}
+.app-title{font-family:var(--font-en)}
+.topbar-title{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.top-right{display:flex;gap:6px}
+.icon-btn{
+  width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:19px;transition:background .15s;
+}
+.icon-btn:active{background:var(--line)}
+.icon-btn .ic{line-height:1}
+
+/* ============ Main view ============ */
+#view{padding:6px 20px calc(92px + var(--safe-b));animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ============ Bottom nav ============ */
+#bottomnav{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:520px;z-index:70;
+  display:flex;justify-content:space-around;
+  padding:8px 8px calc(8px + var(--safe-b));
+  background:color-mix(in srgb, var(--card) 92%, transparent);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--line);
+}
+.nav-btn{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  font-size:11px;font-weight:500;color:var(--ink-3);
+  padding:6px 10px;border-radius:14px;transition:color .2s, background .2s;
+  flex:1;
+}
+.nav-btn .nv{font-size:21px;line-height:1.2;transition:transform .2s}
+.nav-btn.active{color:var(--brand-deep)}
+[data-theme="dark"] .nav-btn.active{color:var(--brand-2)}
+.nav-btn.active .nv{transform:translateY(-1px) scale(1.08)}
+.nav-btn.active::after{
+  content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);
+  position:absolute;margin-top:44px;
+}
+
+/* ============ Home ============ */
+.hellocard{
+  position:relative;overflow:hidden;border-radius:24px;margin-top:8px;
+  background:linear-gradient(135deg,#0d3d2e 0%, #0e9f6e 85%);
+  color:#fff;padding:24px 22px;
+  box-shadow:var(--shadow-lg);
+}
+.hellocard::before{
+  content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
+  border-radius:50%;background:rgba(255,255,255,.08);
+}
+.hellocard::after{
+  content:"";position:absolute;right:30px;bottom:-60px;width:140px;height:140px;
+  border-radius:50%;background:rgba(255,255,255,.06);
+}
+.hello-hi{font-size:14.5px;opacity:.85;font-weight:500}
+.hello-name{font-family:var(--font-en);font-size:23px;font-weight:700;margin:1px 0 14px;letter-spacing:-.2px}
+.hello-stats{display:flex;gap:20px;position:relative;z-index:1}
+.hstat{display:flex;align-items:center;gap:8px}
+.hstat .h-ic{
+  width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.hstat b{font-family:var(--font-en);font-size:16px;display:block;line-height:1.15}
+.hstat small{font-size:11px;opacity:.8}
+.hello-ghost{position:absolute;right:16px;top:14px;font-size:56px;opacity:.14;z-index:1}
+
+.goal-card{
+  margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:18px;box-shadow:var(--shadow);
+}
+.goal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.goal-top h3{font-size:15.5px;font-weight:700}
+.goal-top span{font-size:13px;color:var(--ink-3);font-family:var(--font-en)}
+.progress{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.progress .fill{
+  height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--brand-2),var(--brand-deep));
+  transition:width .8s cubic-bezier(.2,.8,.2,1);
+}
+.goal-foot{display:flex;justify-content:space-between;margin-top:8px;font-size:12.5px;color:var(--ink-3)}
+
+.streak-banner{
+  margin-top:16px;display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,var(--gold-soft),var(--card));
+  border:1px solid color-mix(in srgb, var(--gold) 30%, var(--line));
+  border-radius:20px;padding:14px 18px;
+}
+.streak-flame{font-size:30px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.streak-banner b{font-size:15px}
+.streak-banner small{display:block;color:var(--ink-3);font-size:12.5px;line-height:1.4}
+
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;margin:26px 2px 12px}
+.sec-head h2{font-size:18px;font-weight:700;letter-spacing:-.2px}
+.sec-head button{font-size:13.5px;color:var(--brand-deep);font-weight:600}
+[data-theme="dark"] .sec-head button{color:var(--brand-2)}
+
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature-card{
+  position:relative;overflow:hidden;border-radius:20px;padding:18px 16px;
+  border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);
+  text-align:left;transition:transform .15s;
+  display:flex;flex-direction:column;gap:2px;
+}
+.feature-card:active{transform:scale(.97)}
+.feature-card .fc-ic{
+  width:44px;height:44px;border-radius:14px;font-size:22px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:9px;
+}
+.feature-card b{font-size:15.5px;font-weight:700}
+.feature-card small{color:var(--ink-3);font-size:12.5px;line-height:1.45}
+.fc-learn .fc-ic{background:var(--brand-soft)}
+.fc-dict .fc-ic{background:#e8f1fe}
+[data-theme="dark"] .fc-dict .fc-ic{background:#12233d}
+.fc-practice .fc-ic{background:#fdeef5}
+[data-theme="dark"] .fc-practice .fc-ic{background:#38152a}
+.fc-kids .fc-ic{background:var(--gold-soft)}
+.fc-shortcut .fc-ic{background:#eef0fe}
+[data-theme="dark"] .fc-shortcut .fc-ic{background:#1e1f3d}
+.fc-word .fc-ic{background:#e6f7f1}
+[data-theme="dark"] .fc-word .fc-ic{background:#0f2b22}
+
+/* ============ Word of the day ============ */
+.wotd{
+  border-radius:20px;border:1px solid var(--line);background:var(--card);
+  padding:18px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.wotd::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--brand-2),var(--gold));
+}
+.wotd-word{font-family:var(--font-en);font-size:22px;font-weight:700;letter-spacing:-.3px}
+.wotd-phon{font-family:var(--font-en);font-size:13px;color:var(--ink-3);margin:1px 0 8px}
+.wotd-meaning{color:var(--ink-2);font-size:14.5px}
+.wotd-ex{margin-top:8px;padding:10px 12px;border-radius:12px;background:var(--bg);font-family:var(--font-en);font-size:13.5px;color:var(--ink-3);font-style:italic}
+
+/* Course grid (Learn page) */
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.course-card{
+  display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:20px;
+  border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);
+  text-align:left;transition:transform .15s;
+}
+.course-card:active{transform:scale(.97)}
+.cc-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.cc-info b{font-size:15px;display:block}
+.cc-info small{font-size:12px;color:var(--ink-3);display:block;line-height:1.4;margin-top:1px}
+.cc-meta{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.cc-badge{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--brand-soft);color:var(--brand-deep)}
+[data-theme="dark"] .cc-badge{color:var(--brand-2)}
+.cc-badge.done{background:var(--gold-soft);color:#92610a}
+
+/* Structure cards (sentence making) */
+.struct-card{
+  background:linear-gradient(135deg,var(--brand-soft),var(--card));
+  border:1px solid color-mix(in srgb,var(--brand) 25%, transparent);
+  border-radius:16px;padding:14px 16px;margin-bottom:10px;
+}
+.sc-pattern{font-family:var(--font-en);font-weight:600;font-size:15px;color:var(--brand-deep)}
+[data-theme="dark"] .sc-pattern{color:var(--brand-2)}
+.sc-bn{font-size:13.5px;color:var(--ink-2);margin-top:4px}
+
+/* ============ Section pages ============ */
+.page-head{margin:10px 2px 18px}
+.page-head h1{font-size:25px;font-weight:700;letter-spacing:-.4px}
+.page-head p{color:var(--ink-3);font-size:14px;margin-top:2px}
+
+/* Level cards */
+.level-card{
+  border-radius:22px;padding:20px;margin-bottom:14px;border:1px solid var(--line);
+  background:var(--card);box-shadow:var(--shadow);position:relative;overflow:hidden;
+  transition:transform .15s;
+}
+.level-card:active{transform:scale(.985)}
+.level-card.locked{opacity:.55;pointer-events:none;filter:grayscale(.4)}
+.lv-top{display:flex;align-items:center;gap:14px}
+.lv-badge{
+  width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  font-size:25px;flex-shrink:0;
+}
+.lv-beginner .lv-badge{background:var(--brand-soft)}
+.lv-inter .lv-badge{background:#e8f1fe}
+[data-theme="dark"] .lv-inter .lv-badge{background:#12233d}
+.lv-adv .lv-badge{background:var(--gold-soft)}
+.lv-info{flex:1}
+.lv-info h3{font-size:17px;font-weight:700}
+.lv-info p{font-size:12.5px;color:var(--ink-3);margin-top:1px}
+.lv-prog{margin-top:14px}
+.lv-prog .progress{height:8px}
+.lv-prog-foot{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-top:6px}
+
+/* Lesson list */
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{
+  padding:8px 16px;border-radius:99px;font-size:13.5px;font-weight:600;
+  border:1.5px solid var(--line);background:var(--card);color:var(--ink-3);
+  transition:all .15s;
+}
+.chip.active{background:var(--brand-deep);color:#fff;border-color:var(--brand-deep)}
+[data-theme="dark"] .chip.active{background:var(--brand-2);color:#04170f}
+
+.lesson-item{
+  display:flex;align-items:center;gap:14px;padding:15px 16px;margin-bottom:10px;
+  border-radius:18px;border:1px solid var(--line);background:var(--card);
+  box-shadow:var(--shadow);transition:transform .15s, opacity .2s;width:100%;text-align:left;
+}
+.lesson-item:active{transform:scale(.985)}
+.lesson-item.done{opacity:.75}
+.li-num{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);border:2px solid var(--line);
+  font-family:var(--font-en);font-weight:700;font-size:15px;color:var(--ink-3);
+}
+.lesson-item.done .li-num{background:var(--brand);border-color:var(--brand);color:#fff}
+.lesson-item.current .li-num{border-color:var(--brand);color:var(--brand-deep);background:var(--brand-soft)}
+.li-info{flex:1;min-width:0}
+.li-info b{font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li-info small{font-size:12px;color:var(--ink-3)}
+.li-xp{font-size:12px;font-weight:700;color:var(--gold);font-family:var(--font-en);white-space:nowrap}
+
+/* ============ Lesson overlay ============ */
+#lessonOverlay{position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;overscroll-behavior:contain}
+.lesson-top{
+  position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;
+  padding:calc(14px + var(--safe-t)) 18px 14px;
+  background:color-mix(in srgb, var(--bg) 85%, transparent);backdrop-filter:blur(16px);
+}
+.lesson-prog{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.lesson-prog-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--brand-2),var(--gold));transition:width .4s ease}
+#lessonBody{max-width:520px;margin:0 auto;padding:10px 22px calc(40px + var(--safe-b))}
+.lesson-kicker{font-size:13px;font-weight:700;color:var(--brand-deep);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+[data-theme="dark"] .lesson-kicker{color:var(--brand-2)}
+.lesson-title{font-size:26px;font-weight:700;letter-spacing:-.4px;line-height:1.3;margin-bottom:16px}
+.lesson-intro{
+  background:var(--brand-soft);border-radius:18px;padding:16px 18px;margin-bottom:20px;
+  color:var(--ink-2);font-size:15px;border:1px solid color-mix(in srgb,var(--brand) 18%, transparent);
+}
+[data-theme="dark"] .lesson-intro{color:var(--ink-2)}
+.lesson-sec-title{font-size:16px;font-weight:700;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
+.ex-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+.ex-card .ex-en{font-family:var(--font-en);font-size:15px;font-weight:500;line-height:1.55}
+.ex-card .ex-bn{font-size:13.5px;color:var(--ink-3);margin-top:4px}
+.rule-card{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);
+  border-radius:14px;padding:13px 16px;margin-bottom:10px;font-size:14.5px;
+}
+.rule-card b{color:var(--brand-deep)}
+[data-theme="dark"] .rule-card b{color:var(--brand-2)}
+.lesson-cta{margin-top:26px}
+
+/* Quiz */
+.quiz-q{font-size:20px;font-weight:700;line-height:1.4;margin:8px 0 20px}
+.quiz-word{
+  text-align:center;background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:26px 18px;margin-bottom:20px;box-shadow:var(--shadow);
+}
+.quiz-word .qw{font-family:var(--font-en);font-size:30px;font-weight:700;letter-spacing:-.5px}
+.quiz-word .qw-ph{font-family:var(--font-en);font-size:13.5px;color:var(--ink-3);margin-top:2px}
+.opt{
+  width:100%;text-align:left;padding:15px 18px;border-radius:16px;margin-bottom:10px;
+  border:1.5px solid var(--line);background:var(--card);font-size:15.5px;font-weight:500;
+  transition:all .15s;display:flex;align-items:center;gap:12px;
+}
+.opt .opt-key{
+  width:28px;height:28px;border-radius:9px;background:var(--bg);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-en);
+  font-size:13px;font-weight:700;color:var(--ink-3);flex-shrink:0;
+}
+.opt:active{transform:scale(.98)}
+.opt.correct{border-color:var(--brand);background:var(--brand-soft)}
+.opt.correct .opt-key{background:var(--brand);color:#fff;border-color:var(--brand)}
+.opt.wrong{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 8%, var(--card))}
+.opt.wrong .opt-key{background:var(--danger);color:#fff;border-color:var(--danger)}
+.opt.dim{opacity:.45}
+.quiz-feedback{
+  border-radius:16px;padding:14px 16px;margin-top:6px;font-size:14.5px;
+  animation:fadeUp .3s ease;
+}
+.quiz-feedback.ok{background:var(--brand-soft);border:1px solid color-mix(in srgb,var(--brand) 30%, transparent)}
+.quiz-feedback.bad{background:color-mix(in srgb,var(--danger) 8%, var(--card));border:1px solid color-mix(in srgb,var(--danger) 25%, transparent)}
+
+/* Results */
+.result-wrap{text-align:center;padding-top:30px}
+.result-ring{
+  width:150px;height:150px;margin:0 auto 22px;border-radius:50%;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--brand) var(--pct,0%), var(--line) 0);
+}
+.result-ring::before{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--bg)}
+.result-ring .rr-in{position:relative;text-align:center}
+.result-ring b{font-family:var(--font-en);font-size:34px;display:block;line-height:1.1}
+.result-ring small{font-size:12px;color:var(--ink-3)}
+.result-wrap h2{font-size:24px;font-weight:700;margin-bottom:6px}
+.result-wrap p{color:var(--ink-3);margin-bottom:22px}
+.result-xp{
+  display:inline-flex;align-items:center;gap:8px;background:var(--gold-soft);
+  color:#92610a;padding:10px 20px;border-radius:99px;font-weight:700;font-size:15px;
+  margin-bottom:26px;border:1px solid color-mix(in srgb,var(--gold) 30%, transparent);
+}
+[data-theme="dark"] .result-xp{color:var(--gold)}
+
+/* ============ Dictionary ============ */
+.search-wrap{position:relative;margin-bottom:16px}
+.search-wrap .field{padding-left:46px;border-radius:16px}
+.search-ic{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:17px;opacity:.5}
+.dict-cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;scrollbar-width:none}
+.dict-cats::-webkit-scrollbar{display:none}
+.dict-item{
+  display:flex;align-items:center;gap:13px;padding:14px 16px;margin-bottom:9px;
+  border-radius:16px;border:1px solid var(--line);background:var(--card);
+  box-shadow:var(--shadow);width:100%;text-align:left;
+}
+.dict-item .di-book{
+  width:38px;height:38px;border-radius:12px;background:var(--brand-soft);
+  display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;
+}
+.di-info{flex:1;min-width:0}
+.di-info b{font-family:var(--font-en);font-size:15.5px;font-weight:600;display:block}
+.di-info small{font-size:13px;color:var(--ink-3);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.di-arrow{color:var(--ink-3);font-size:13px}
+.dict-empty{text-align:center;padding:50px 20px;color:var(--ink-3)}
+.dict-empty .de-ic{font-size:44px;margin-bottom:10px}
+
+/* Word detail sheet */
+.sheet-back{
+  position:fixed;inset:0;z-index:150;background:rgba(8,20,16,.45);
+  backdrop-filter:blur(3px);display:flex;align-items:flex-end;justify-content:center;
+  animation:fadeIn .2s;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.sheet{
+  width:100%;max-width:520px;max-height:82dvh;overflow-y:auto;
+  background:var(--card);border-radius:26px 26px 0 0;padding:10px 22px calc(30px + var(--safe-b));
+  animation:sheetUp .3s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
+.sheet-grip{width:44px;height:5px;border-radius:99px;background:var(--line);margin:6px auto 18px}
+.sheet-word{font-family:var(--font-en);font-size:28px;font-weight:700;letter-spacing:-.4px}
+.sheet-phon{font-family:var(--font-en);font-size:14px;color:var(--ink-3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.tts-btn{
+  width:34px;height:34px;border-radius:10px;background:var(--brand-soft);font-size:15px;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.sheet-sec{margin-top:16px}
+.sheet-sec h4{font-size:12.5px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-3);margin-bottom:6px;font-weight:700}
+.sheet-def{font-size:16.5px;font-weight:500;color:var(--ink)}
+.sheet-ex{font-family:var(--font-en);font-size:14px;color:var(--ink-2);background:var(--bg);border-radius:12px;padding:11px 14px;margin-top:10px;font-style:italic}
+.sheet-tags{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+.tag{font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:99px;background:var(--brand-soft);color:var(--brand-deep)}
+[data-theme="dark"] .tag{color:var(--brand-2)}
+
+/* ============ Practice ============ */
+.scenario-card{
+  display:flex;align-items:center;gap:15px;padding:17px;margin-bottom:12px;
+  border-radius:20px;border:1px solid var(--line);background:var(--card);
+  box-shadow:var(--shadow);width:100%;text-align:left;transition:transform .15s;
+}
+.scenario-card:active{transform:scale(.98)}
+.sc-art{
+  width:54px;height:54px;border-radius:17px;display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.sc-info{flex:1}
+.sc-info b{font-size:16px;display:block}
+.sc-info small{font-size:12.5px;color:var(--ink-3);display:block;margin-top:1px}
+.sc-arrow{color:var(--ink-3)}
+.practice-banner{
+  display:flex;gap:14px;align-items:center;border-radius:20px;padding:18px;
+  background:linear-gradient(135deg,#0d3d2e,#0e9f6e);color:#fff;margin-bottom:20px;
+  box-shadow:var(--shadow-lg);
+}
+.practice-banner .pb-ic{font-size:34px}
+.practice-banner b{font-size:16px;display:block}
+.practice-banner small{opacity:.85;font-size:12.5px;line-height:1.45}
+
+/* Chat */
+#chatOverlay{position:fixed;inset:0;z-index:210;background:var(--bg);display:flex;flex-direction:column;max-width:520px;left:50%;transform:translateX(-50%)}
+.chat-top{
+  display:flex;align-items:center;gap:12px;padding:calc(12px + var(--safe-t)) 16px 12px;
+  border-bottom:1px solid var(--line);background:var(--card);
+}
+.chat-head-info h3{font-size:16.5px;font-weight:700;line-height:1.3}
+.chat-sub{font-size:11.5px;color:var(--ink-3)}
+#chatBody{
+  flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px;
+  overscroll-behavior:contain;
+}
+.msg{max-width:82%;padding:11px 15px;border-radius:18px;font-size:15px;line-height:1.55;animation:msgIn .25s ease;position:relative}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.ai{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px;font-family:var(--font-en);box-shadow:var(--shadow)}
+.msg.ai .bn-hint{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-family:var(--font-bn);font-size:12.5px;color:var(--ink-3)}
+.msg.me{align-self:flex-end;background:linear-gradient(135deg,var(--brand-2),var(--brand-deep));color:#fff;border-bottom-right-radius:6px;font-family:var(--font-en)}
+.msg-correction{
+  align-self:flex-start;max-width:92%;font-size:13px;color:var(--ink-2);
+  background:var(--gold-soft);border:1px solid color-mix(in srgb,var(--gold) 30%, transparent);
+  border-radius:14px;padding:10px 14px;
+}
+.chat-foot{padding:10px 14px calc(12px + var(--safe-b));background:var(--card);border-top:1px solid var(--line)}
+#chatSuggestions{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+#chatSuggestions::-webkit-scrollbar{display:none}
+.sugg{
+  white-space:nowrap;padding:8px 14px;border-radius:99px;font-size:13px;font-weight:500;
+  background:var(--bg);border:1px solid var(--line);color:var(--ink-2);font-family:var(--font-en);
+  flex-shrink:0;
+}
+.chat-input-row{display:flex;gap:8px;align-items:center}
+.chat-input-row .field{border-radius:99px;padding:11px 18px;background:var(--bg)}
+.mic-btn{
+  width:46px;height:46px;border-radius:50%;flex-shrink:0;font-size:19px;
+  background:var(--bg);border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.mic-btn:active{transform:scale(.92)}
+.mic-btn.rec{
+  background:linear-gradient(135deg,#ff6b6b,#ef4444);border-color:#ef4444;
+  animation:micPulse 1.3s infinite;
+}
+@keyframes micPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}
+  50%{box-shadow:0 0 0 10px rgba(239,68,68,0)}
+}
+.mic-btn.busy{opacity:.6;pointer-events:none}
+.voice-live{
+  align-self:center;display:flex;align-items:center;gap:10px;font-size:13px;
+  color:var(--ink-3);padding:6px 14px;border-radius:99px;background:var(--card);
+  border:1px solid var(--line);
+}
+.voice-live .vl-dots{display:flex;gap:3px}
+.voice-live .vl-dots span{width:5px;height:5px;border-radius:50%;background:var(--danger);animation:typingBounce 1s infinite}
+.voice-live .vl-dots span:nth-child(2){animation-delay:.15s}
+.voice-live .vl-dots span:nth-child(3){animation-delay:.3s}
+
+/* Voice/AI status pills */
+.status-pill{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+  padding:4px 11px;border-radius:99px;
+}
+.status-pill.ok{background:var(--brand-soft);color:var(--brand-deep)}
+[data-theme="dark"] .status-pill.ok{color:var(--brand-2)}
+.status-pill.off{background:var(--bg);color:var(--ink-3);border:1px solid var(--line)}
+.send-btn{
+  width:46px;height:46px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--brand-2),var(--brand-deep));color:#fff;
+  font-size:18px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px color-mix(in srgb,var(--brand) 40%, transparent);
+  transition:transform .12s;
+}
+.send-btn:active{transform:scale(.92)}
+.typing{display:flex;gap:4px;padding:14px 18px;align-self:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;border-bottom-left-radius:6px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--ink-3);animation:typingBounce 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes typingBounce{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+/* ============ Shortcuts ============ */
+.shortcut-card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:16px;margin-bottom:11px;box-shadow:var(--shadow);width:100%;text-align:left;
+}
+.sc-en{font-family:var(--font-en);font-size:16.5px;font-weight:600;display:flex;align-items:center;gap:8px}
+.sc-bn{font-size:13.5px;color:var(--ink-3);margin-top:2px}
+.sc-tip{margin-top:10px;font-size:13px;background:var(--bg);border-radius:11px;padding:9px 12px;color:var(--ink-2)}
+
+/* ============ Kids ============ */
+.kids-hero{
+  border-radius:24px;padding:22px;color:#5b3a00;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#ffe9a8,#ffd166 60%,#ffb84d);
+  box-shadow:var(--shadow-lg);margin-top:8px;
+}
+.kids-hero h2{font-size:22px;font-weight:700;letter-spacing:-.2px}
+.kids-hero p{font-size:13.5px;margin-top:3px;opacity:.8}
+.kids-hero .kh-emojis{position:absolute;right:-6px;bottom:-12px;font-size:64px;opacity:.9;transform:rotate(-8deg)}
+.kids-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:16px}
+.letter-tile{
+  aspect-ratio:1;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--card);border:1.5px solid var(--line);box-shadow:var(--shadow);
+  transition:transform .12s;gap:0;
+}
+.letter-tile:active{transform:scale(.92)}
+.letter-tile b{font-family:var(--font-en);font-size:23px;line-height:1.1;color:var(--brand-deep)}
+[data-theme="dark"] .letter-tile b{color:var(--brand-2)}
+.letter-tile small{font-family:var(--font-en);font-size:11px;color:var(--ink-3)}
+.letter-tile .lt-emoji{font-size:19px;line-height:1.1}
+
+.kid-word-card{
+  display:flex;align-items:center;gap:14px;padding:15px;margin-bottom:10px;
+  border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);
+  width:100%;text-align:left;
+}
+.kid-word-card .kw-emoji{font-size:32px}
+.kid-word-card .kw-info{flex:1}
+.kid-word-card b{font-family:var(--font-en);font-size:17px}
+.kid-word-card small{display:block;font-size:13px;color:var(--ink-3)}
+.kid-word-card .kw-play{font-size:19px;opacity:.6}
+
+.kid-game-card{
+  border-radius:20px;padding:18px;background:var(--card);border:1px solid var(--line);
+  box-shadow:var(--shadow);margin-bottom:11px;display:flex;gap:14px;align-items:center;
+  width:100%;text-align:left;
+}
+.kid-game-card .kg-ic{font-size:32px}
+.kid-game-card b{font-size:15.5px;display:block}
+.kid-game-card small{font-size:12.5px;color:var(--ink-3)}
+
+/* Big kid quiz */
+.kid-question{
+  text-align:center;padding:28px 16px;border-radius:22px;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:18px;
+}
+.kid-question .kq-emoji{font-size:74px;line-height:1}
+.kid-question .kq-q{font-size:16px;color:var(--ink-3);margin-top:10px}
+.kid-question .kq-word{font-family:var(--font-en);font-size:30px;font-weight:700;margin-top:2px}
+.kid-opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kid-opt{
+  padding:20px 10px;border-radius:18px;background:var(--card);border:1.5px solid var(--line);
+  font-family:var(--font-en);font-size:17px;font-weight:600;box-shadow:var(--shadow);
+  transition:transform .12s;
+}
+.kid-opt:active{transform:scale(.95)}
+.kid-opt.correct{background:var(--brand-soft);border-color:var(--brand)}
+.kid-opt.wrong{background:color-mix(in srgb,var(--danger) 10%, var(--card));border-color:var(--danger)}
+
+/* ============ Profile ============ */
+.profile-head{text-align:center;padding:20px 0 8px}
+.avatar{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 14px;
+  background:linear-gradient(145deg,var(--brand-2),var(--brand-deep));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-en);font-size:37px;font-weight:700;color:#fff;
+  box-shadow:0 10px 30px color-mix(in srgb,var(--brand) 35%, transparent);
+  border:4px solid var(--card);
+}
+.profile-head h2{font-size:21px;font-weight:700}
+.profile-head p{font-size:13px;color:var(--ink-3)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.stat-box{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:15px;text-align:center;box-shadow:var(--shadow);
+}
+.stat-box .sb-ic{font-size:22px}
+.stat-box b{font-family:var(--font-en);font-size:22px;display:block;line-height:1.2;margin-top:2px}
+.stat-box small{font-size:12px;color:var(--ink-3)}
+.settings-list{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.set-item{
+  display:flex;align-items:center;gap:13px;width:100%;padding:16px 18px;text-align:left;
+  border-bottom:1px solid var(--line);font-size:15px;font-weight:500;
+}
+.set-item:last-child{border-bottom:none}
+.set-ic{font-size:19px;width:24px;text-align:center}
+.set-item .set-val{margin-left:auto;color:var(--ink-3);font-size:13px}
+.toggle{
+  margin-left:auto;width:48px;height:28px;border-radius:99px;background:var(--line);
+  position:relative;transition:background .2s;flex-shrink:0;
+}
+.toggle::after{
+  content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:#fff;
+  top:3px;left:3px;transition:left .2s;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.toggle.on{background:var(--brand)}
+.toggle.on::after{left:23px}
+.about-txt{text-align:center;color:var(--ink-3);font-size:12px;margin-top:22px;line-height:1.7}
+
+/* ============ Admin ============ */
+#adminPanel{position:fixed;inset:0;z-index:300;background:var(--bg);overflow-y:auto;width:100%;max-width:520px;left:50%;transform:translateX(-50%)}
+#adminTop{
+  display:flex;align-items:center;gap:10px;padding:calc(14px + var(--safe-t)) 16px 10px;
+  position:sticky;top:0;background:color-mix(in srgb,var(--bg) 90%,transparent);
+  backdrop-filter:blur(16px);z-index:5;
+}
+.admin-head{font-size:18px;font-weight:700}
+.admin-tabs{display:flex;gap:7px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none}
+.admin-tabs::-webkit-scrollbar{display:none}
+.atab{
+  white-space:nowrap;padding:9px 15px;border-radius:99px;font-size:13.5px;font-weight:600;
+  border:1.5px solid var(--line);background:var(--card);color:var(--ink-3);
+}
+.atab.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#adminBody{padding:4px 16px calc(120px + var(--safe-b))}
+.admin-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.admin-card h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.admin-card .ac-sub{font-size:12.5px;color:var(--ink-3);margin-bottom:10px}
+#adminSaveBar{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;
+  padding:12px 16px calc(14px + var(--safe-b));z-index:310;
+  background:linear-gradient(0deg,var(--bg) 70%,transparent);
+}
+.swatches{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.sw{width:36px;height:36px;border-radius:50%;border:3px solid transparent;transition:transform .15s}
+.sw.active{border-color:var(--ink);transform:scale(1.1)}
+.color-row{display:flex;align-items:center;gap:10px}
+.color-row input[type=color]{width:44px;height:36px;border:none;border-radius:10px;background:none;cursor:pointer}
+.content-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.content-row:last-child{border-bottom:none}
+.content-row .cr-main{flex:1;min-width:0}
+.content-row b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.content-row small{color:var(--ink-3);font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr-btns{display:flex;gap:6px;flex-shrink:0}
+.minibtn{width:30px;height:30px;border-radius:9px;background:var(--bg);border:1px solid var(--line);font-size:13px;display:flex;align-items:center;justify-content:center}
+.minibtn.del{color:var(--danger)}
+.add-btn{width:100%;padding:11px;border-radius:12px;border:1.5px dashed var(--line);color:var(--ink-3);font-size:13.5px;font-weight:600;margin-top:10px}
+.edit-form .field{margin-bottom:4px}
+.edit-form .modal-row{margin-top:16px}
+
+/* ============ Modal ============ */
+.modal-back{
+  position:fixed;inset:0;z-index:400;background:rgba(8,20,16,.5);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s;
+}
+.modal{
+  width:100%;max-width:400px;background:var(--card);border-radius:24px;padding:24px;
+  box-shadow:var(--shadow-lg);animation:modalIn .28s cubic-bezier(.2,.8,.2,1);
+  max-height:85dvh;overflow-y:auto;
+}
+@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:none}}
+.modal-title{font-size:19px;font-weight:700;text-align:center}
+.modal-sub{font-size:13.5px;color:var(--ink-3);text-align:center;margin:4px 0 16px}
+.modal-error{color:var(--danger);font-size:13px;text-align:center;margin-top:8px;font-weight:600}
+.modal-row{display:flex;gap:10px;margin-top:18px}
+.modal-row .btn{flex:1}
+
+/* ============ Toast ============ */
+#toast{
+  position:fixed;bottom:calc(100px + var(--safe-b));left:50%;transform:translateX(-50%);
+  background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:99px;
+  font-size:14px;font-weight:500;z-index:500;box-shadow:var(--shadow-lg);
+  animation:toastIn .3s ease;max-width:88vw;text-align:center;white-space:nowrap;
+}
+[data-theme="dark"] #toast{background:#e8eef0;color:#0c1412}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%)}}
+
+/* ============ Utility ============ */
+.mt8{margin-top:8px}.mt14{margin-top:14px}.mt20{margin-top:20px}
+.center-txt{text-align:center}
+.badge-soft{font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--brand-soft);color:var(--brand-deep)}
+[data-theme="dark"] .badge-soft{color:var(--brand-2)}
+.divider{height:1px;background:var(--line);margin:20px 0}
+.empty-note{color:var(--ink-3);font-size:14px;text-align:center;padding:20px 0}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230e9f6e'/><text x='50' y='72' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'>E</text></svg>">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===================== SPLASH ===================== -->
+  <div id="splash">
+    <div class="splash-logo">
+      <div class="splash-emblem"><span>E</span></div>
+      <h1 class="app-title splash-title">English Guru</h1>
+      <p class="splash-tag">ইংরেজি শেখার সহজ উপায়</p>
+    </div>
+  </div>
+
+  <!-- ===================== ONBOARDING ===================== -->
+  <div id="onboarding" class="hidden">
+    <div class="onb-slides">
+      <div class="onb-slide" data-step="0">
+        <div class="onb-art"><div class="onb-art-inner">📚</div></div>
+        <h2>ইংরেজি শেখা এখন সহজ</h2>
+        <p>সংক্ষিপ্ত ক্লাস, কুইজ আর প্রতিদিনের অভ্যাস দিয়ে বেগিনার থেকে অ্যাডভান্সড পর্যন্ত শিখুন।</p>
+      </div>
+      <div class="onb-slide hidden" data-step="1">
+        <div class="onb-art"><div class="onb-art-inner">🎯</div></div>
+        <h2>ট্র্যাক করুন আপনার অগ্রগতি</h2>
+        <p>মাসিক টার্গেট, স্ট্রিক আর XP দিয়ে নিজের উন্নতি চোখে দেখুন।</p>
+      </div>
+      <div class="onb-slide hidden" data-step="2">
+        <div class="onb-art"><div class="onb-art-inner">💬</div></div>
+        <h2>প্র্যাকটিস করুন আত্মবিশ্বাসে</h2>
+        <p>চ্যাট-ভিত্তিক কনভারসেশন প্র্যাকটিস — রিয়েল লাইফ সিনারিও দিয়ে কথা বলার ক্ষমতা পরখ করুন।</p>
+      </div>
+      <div class="onb-slide hidden" data-step="3">
+        <div class="onb-art"><div class="onb-art-inner">🧒</div></div>
+        <h2>বাচ্চাদের জন্য আলাদা জগৎ</h2>
+        <p>ABC থেকে শুরু করে ছোটদের জন্য রঙিন, মজার ইংলিশ — সাউন্ডসহ!</p>
+      </div>
+    </div>
+    <div class="onb-footer">
+      <div class="onb-dots">
+        <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div class="onb-row">
+        <button class="btn ghost" id="onbSkip">স্কিপ</button>
+        <button class="btn primary" id="onbNext">পরবর্তী</button>
+      </div>
+      <input id="onbName" class="field hidden" type="text" placeholder="আপনার নাম (ঐচ্ছিক)" maxlength="20">
+    </div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="main" class="hidden">
+
+    <header id="topbar">
+      <div class="top-left">
+        <div class="app-emblem sm"><span>E</span></div>
+        <h1 class="app-title topbar-title">English Guru</h1>
+      </div>
+      <div class="top-right">
+        <button class="icon-btn" id="btnTheme" title="থিম বদলান"><span class="ic" id="themeIc">🌙</span></button>
+        <button class="icon-btn" id="btnAdmin" title="অ্যাডমিন"><span class="ic">⚙️</span></button>
+      </div>
+    </header>
+
+    <main id="view"></main>
+
+    <nav id="bottomnav">
+      <button class="nav-btn active" data-nav="home"><span class="nv">🏠</span><span>হোম</span></button>
+      <button class="nav-btn" data-nav="learn"><span class="nv">📚</span><span>লার্ন</span></button>
+      <button class="nav-btn" data-nav="dict"><span class="nv">📖</span><span>ডিকশনারি</span></button>
+      <button class="nav-btn" data-nav="practice"><span class="nv">💬</span><span>প্র্যাকটিস</span></button>
+      <button class="nav-btn" data-nav="profile"><span class="nv">👤</span><span>প্রোফাইল</span></button>
+    </nav>
+  </div>
+
+  <!-- ===================== ADMIN GATE ===================== -->
+  <div class="modal-back hidden" id="adminGate">
+    <div class="modal">
+      <h3 class="modal-title">🔐 অ্যাডমিন প্যানেল</h3>
+      <p class="modal-sub">পিন দিন (ডিফল্ট: 1234)</p>
+      <input id="adminPin" class="field center pin-field" type="password" inputmode="numeric" maxlength="8" placeholder="••••">
+      <p class="modal-error hidden" id="pinErr">ভুল পিন!</p>
+      <div class="modal-row">
+        <button class="btn ghost" id="adminCancel">বাতিল</button>
+        <button class="btn primary" id="adminEnter">প্রবেশ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ADMIN PANEL ===================== -->
+  <div id="adminPanel" class="hidden">
+    <header id="adminTop">
+      <button class="icon-btn" id="adminBack"><span class="ic">←</span></button>
+      <h2 class="admin-head">⚙️ অ্যাডমিন প্যানেল</h2>
+    </header>
+    <div class="admin-tabs">
+      <button class="atab active" data-atab="branding">🎨 ব্র্যান্ডিং</button>
+      <button class="atab" data-atab="content">📚 কনটেন্ট</button>
+      <button class="atab" data-atab="ai">🤖 AI</button>
+      <button class="atab" data-atab="data">💾 ডেটা</button>
+    </div>
+    <div id="adminBody"></div>
+    <div id="adminSaveBar" class="hidden">
+      <button class="btn primary wide" id="adminSaveBtn">✓ সেভ করুন</button>
+    </div>
+  </div>
+
+  <!-- ===================== LESSON OVERLAY ===================== -->
+  <div id="lessonOverlay" class="hidden">
+    <header class="lesson-top">
+      <button class="icon-btn" id="lessonClose"><span class="ic">✕</span></button>
+      <div class="lesson-prog"><div class="lesson-prog-fill" id="lessonProgFill"></div></div>
+    </header>
+    <div id="lessonBody"></div>
+  </div>
+
+  <!-- ===================== PRACTICE CHAT ===================== -->
+  <div id="chatOverlay" class="hidden">
+    <header class="chat-top">
+      <button class="icon-btn" id="chatBack"><span class="ic">←</span></button>
+      <div class="chat-head-info"><h3 id="chatTitle">Practice</h3><span class="chat-sub" id="chatSub"></span></div>
+      <button class="icon-btn hidden" id="chatAutoBtn" title="অটো ভয়েস কথোপকথন"><span class="ic">🎧</span></button>
+      <button class="icon-btn hidden" id="chatTtsToggle" title="শব্দ চালু/বন্ধ"><span class="ic" id="chatTtsIc">🔊</span></button>
+    </header>
+    <div id="chatBody"></div>
+    <div class="chat-foot">
+      <div id="chatSuggestions"></div>
+      <div class="chat-input-row">
+        <button class="mic-btn" id="chatMic" title="ভয়েস ইনপুট">🎤</button>
+        <input id="chatInput" class="field" type="text" placeholder="ইংরেজিতে লিখুন বা মাইকে বলুন..." autocomplete="off">
+        <button class="send-btn" id="chatSend">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== GENERIC MODAL ===================== -->
+  <div class="modal-back hidden" id="genericModal">
+    <div class="modal" id="genericModalBox"></div>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+</div>
+
+<script>/* ============================================================
+   English Guru — core-data.js
+   Dictionary, lessons, shortcuts, kids content, scenarios
+   All content editable from Admin Panel
+   ============================================================ */
+
+// ------------------------- DICTIONARY -------------------------
+const DEFAULT_DICT = [
+  // --- Everyday ---
+  {en:"hello", ph:"/həˈloʊ/", bn:"হ্যালো / নমস্কার", pos:"interjection", cat:"Everyday", ex:"Hello, how are you?", exBn:"হ্যালো, কেমন আছো?"},
+  {en:"good morning", ph:"/ɡʊd ˈmɔːrnɪŋ/", bn:"শুভ সকাল", pos:"greeting", cat:"Everyday", ex:"Good morning, teacher!", exBn:"শুভ সকাল, স্যার!"},
+  {en:"thank you", ph:"/θæŋk juː/", bn:"ধন্যবাদ", pos:"phrase", cat:"Everyday", ex:"Thank you for your help.", exBn:"তোমার সাহায্যের জন্য ধন্যবাদ।"},
+  {en:"please", ph:"/pliːz/", bn:"অনুগ্রহ করে", pos:"adverb", cat:"Everyday", ex:"Please sit down.", exBn:"অনুগ্রহ করে বসো।"},
+  {en:"sorry", ph:"/ˈsɒri/", bn:"দুঃখিত / মাফ করো", pos:"adjective", cat:"Everyday", ex:"I am sorry for being late.", exBn:"দেরি করার জন্য দুঃখিত।"},
+  {en:"water", ph:"/ˈwɔːtər/", bn:"পানি", pos:"noun", cat:"Everyday", ex:"I want to drink water.", exBn:"আমি পানি খেতে চাই।"},
+  {en:"food", ph:"/fuːd/", bn:"খাবার", pos:"noun", cat:"Everyday", ex:"The food is delicious.", exBn:"খাবারটা মজাদার।"},
+  {en:"friend", ph:"/frend/", bn:"বন্ধু", pos:"noun", cat:"Everyday", ex:"He is my best friend.", exBn:"সে আমার সবচেয়ে ভালো বন্ধু।"},
+  {en:"mother", ph:"/ˈmʌðər/", bn:"মা", pos:"noun", cat:"Everyday", ex:"My mother cooks well.", exBn:"আমার মা ভালো রান্না করেন।"},
+  {en:"father", ph:"/ˈfɑːðər/", bn:"বাবা", pos:"noun", cat:"Everyday", ex:"My father is a doctor.", exBn:"আমার বাবা একজন ডাক্তার।"},
+  {en:"school", ph:"/skuːl/", bn:"স্কুল", pos:"noun", cat:"Everyday", ex:"I go to school every day.", exBn:"আমি প্রতিদিন স্কুলে যাই।"},
+  {en:"home", ph:"/hoʊm/", bn:"বাড়ি", pos:"noun", cat:"Everyday", ex:"I am going home now.", exBn:"আমি এখন বাড়ি যাচ্ছি।"},
+  {en:"book", ph:"/bʊk/", bn:"বই", pos:"noun", cat:"Everyday", ex:"This book is very interesting.", exBn:"এই বইটা খুব মজার।"},
+  {en:"time", ph:"/taɪm/", bn:"সময়", pos:"noun", cat:"Everyday", ex:"What time is it?", exBn:"কয়টা বাজে?"},
+  {en:"work", ph:"/wɜːrk/", bn:"কাজ", pos:"noun", cat:"Everyday", ex:"I have a lot of work today.", exBn:"আজ আমার অনেক কাজ।"},
+  {en:"love", ph:"/lʌv/", bn:"ভালোবাসা", pos:"noun", cat:"Everyday", ex:"I love my country.", exBn:"আমি আমার দেশকে ভালোবাসি।"},
+  {en:"happy", ph:"/ˈhæpi/", bn:"খুশি", pos:"adjective", cat:"Everyday", ex:"I am happy today.", exBn:"আমি আজ খুশি।"},
+  {en:"good", ph:"/ɡʊd/", bn:"ভালো", pos:"adjective", cat:"Everyday", ex:"This is a good idea.", exBn:"এটা ভালো একটা আইডিয়া।"},
+  {en:"bad", ph:"/bæd/", bn:"খারাপ", pos:"adjective", cat:"Everyday", ex:"The weather is bad today.", exBn:"আজ আবহাওয়া খারাপ।"},
+  {en:"beautiful", ph:"/ˈbjuːtɪfl/", bn:"সুন্দর", pos:"adjective", cat:"Everyday", ex:"What a beautiful place!", exBn:"কী সুন্দর জায়গা!"},
+
+  // --- Greetings & courtesy ---
+  {en:"goodbye", ph:"/ɡʊdˈbaɪ/", bn:"বিদায় / আসসালামু আলাইকুম", pos:"phrase", cat:"Greetings", ex:"Goodbye, see you tomorrow.", exBn:"বিদায়, আগামীকাল দেখা হবে।"},
+  {en:"good night", ph:"/ɡʊd naɪt/", bn:"শুভ রাত্রি", pos:"phrase", cat:"Greetings", ex:"Good night, sleep well.", exBn:"শুভ রাত্রি, ভালো ঘুমাও।"},
+  {en:"excuse me", ph:"/ɪkˈskjuːz miː/", bn:"মাফ করবেন", pos:"phrase", cat:"Greetings", ex:"Excuse me, where is the station?", exBn:"মাফ করবেন, স্টেশন কোথায়?"},
+  {en:"welcome", ph:"/ˈwelkəm/", bn:"স্বাগতম", pos:"noun", cat:"Greetings", ex:"Welcome to our school.", exBn:"আমাদের স্কুলে স্বাগতম।"},
+  {en:"how are you", ph:"/haʊ ɑːr juː/", bn:"কেমন আছো?", pos:"phrase", cat:"Greetings", ex:"Hi! How are you today?", exBn:"হাই! আজ কেমন আছো?"},
+  {en:"nice to meet you", ph:"/naɪs tə miːt juː/", bn:"তোমার সাথে পরিচিত হয়ে ভালো লাগলো", pos:"phrase", cat:"Greetings", ex:"Nice to meet you, Mr. Khan.", exBn:"মিস্টার খান, আপনার সাথে পরিচিত হয়ে ভালো লাগলো।"},
+  {en:"congratulations", ph:"/kənˌɡrætʃəˈleɪʃənz/", bn:"অভিনন্দন", pos:"noun", cat:"Greetings", ex:"Congratulations on your success!", exBn:"তোমার সফলতার জন্য অভিনন্দন!"},
+  {en:"good luck", ph:"/ɡʊd lʌk/", bn:"শুভকামনা", pos:"phrase", cat:"Greetings", ex:"Good luck with your exam!", exBn:"তোমার পরীক্ষার জন্য শুভকামনা!"},
+
+  // --- Family ---
+  {en:"brother", ph:"/ˈbrʌðər/", bn:"ভাই", pos:"noun", cat:"Family", ex:"My brother is very tall.", exBn:"আমার ভাই খুব লম্বা।"},
+  {en:"sister", ph:"/ˈsɪstər/", bn:"বোন", pos:"noun", cat:"Family", ex:"My sister loves reading.", exBn:"আমার বোন পড়তে ভালোবাসে।"},
+  {en:"son", ph:"/sʌn/", bn:"ছেলে সন্তান", pos:"noun", cat:"Family", ex:"Their son is five years old.", exBn:"তাদের ছেলেটি পাঁচ বছরের।"},
+  {en:"daughter", ph:"/ˈdɔːtər/", bn:"মেয়ে সন্তান", pos:"noun", cat:"Family", ex:"Her daughter is a student.", exBn:"তার মেয়েটি একজন ছাত্রী।"},
+  {en:"family", ph:"/ˈfæməli/", bn:"পরিবার", pos:"noun", cat:"Family", ex:"I love my family.", exBn:"আমি আমার পরিবারকে ভালোবাসি।"},
+  {en:"grandmother", ph:"/ˈɡrænmʌðər/", bn:"দাদা/নানার মা, দাদি/নানি", pos:"noun", cat:"Family", ex:"My grandmother tells stories.", exBn:"আমার দাদি গল্প বলেন।"},
+  {en:"grandfather", ph:"/ˈɡrænfɑːðər/", bn:"দাদা/নানা", pos:"noun", cat:"Family", ex:"My grandfather walks every morning.", exBn:"আমার দাদা প্রতিদিন সকালে হাঁটেন।"},
+  {en:"uncle", ph:"/ˈʌŋkl/", bn:"চাচা/মামা", pos:"noun", cat:"Family", ex:"Uncle, please come in.", exBn:"চাচা, ভিতরে আসুন।"},
+  {en:"aunt", ph:"/ænt/", bn:"চাচি/মাসি", pos:"noun", cat:"Family", ex:"My aunt lives in Dhaka.", exBn:"আমার চাচি ঢাকায় থাকেন।"},
+  {en:"child", ph:"/tʃaɪld/", bn:"শিশু", pos:"noun", cat:"Family", ex:"The child is playing.", exBn:"শিশুটি খেলছে।"},
+
+  // --- Numbers & time ---
+  {en:"one", ph:"/wʌn/", bn:"এক", pos:"number", cat:"Numbers", ex:"I have one brother.", exBn:"আমার এক ভাই আছে।"},
+  {en:"two", ph:"/tuː/", bn:"দুই", pos:"number", cat:"Numbers", ex:"Give me two minutes.", exBn:"আমাকে দুই মিনিট দাও।"},
+  {en:"three", ph:"/θriː/", bn:"তিন", pos:"number", cat:"Numbers", ex:"Three books are on the table.", exBn:"টেবিলে তিনটা বই আছে।"},
+  {en:"ten", ph:"/ten/", bn:"দশ", pos:"number", cat:"Numbers", ex:"The class starts at ten.", exBn:"ক্লাস দশটায় শুরু হয়।"},
+  {en:"hundred", ph:"/ˈhʌndrəd/", bn:"শত / একশ", pos:"number", cat:"Numbers", ex:"The shirt costs two hundred taka.", exBn:"শার্টটার দাম দুইশ টাকা।"},
+  {en:"today", ph:"/təˈdeɪ/", bn:"আজ", pos:"adverb", cat:"Numbers", ex:"Today is Friday.", exBn:"আজ শুক্রবার।"},
+  {en:"tomorrow", ph:"/təˈmɒroʊ/", bn:"আগামীকাল", pos:"adverb", cat:"Numbers", ex:"I will call you tomorrow.", exBn:"আমি আগামীকাল তোমাকে ফোন করবো।"},
+  {en:"yesterday", ph:"/ˈjestərdeɪ/", bn:"গতকাল", pos:"adverb", cat:"Numbers", ex:"Yesterday was a holiday.", exBn:"গতকাল ছুটির দিন ছিল।"},
+  {en:"morning", ph:"/ˈmɔːrnɪŋ/", bn:"সকাল", pos:"noun", cat:"Numbers", ex:"I study in the morning.", exBn:"আমি সকালে পড়ি।"},
+  {en:"night", ph:"/naɪt/", bn:"রাত", pos:"noun", cat:"Numbers", ex:"I sleep at night.", exBn:"আমি রাতে ঘুমাই।"},
+
+  // --- Food & eating ---
+  {en:"rice", ph:"/raɪs/", bn:"ভাত", pos:"noun", cat:"Food", ex:"We eat rice at lunch.", exBn:"আমরা দুপুরে ভাত খাই।"},
+  {en:"fish", ph:"/fɪʃ/", bn:"মাছ", pos:"noun", cat:"Food", ex:"This fish is fresh.", exBn:"এই মাছটা টাটকা।"},
+  {en:"bread", ph:"/bred/", bn:"রুটি/পাউরুটি", pos:"noun", cat:"Food", ex:"I eat bread for breakfast.", exBn:"আমি সকালে রুটি খাই।"},
+  {en:"milk", ph:"/mɪlk/", bn:"দুধ", pos:"noun", cat:"Food", ex:"Drink milk every day.", exBn:"প্রতিদিন দুধ খাও।"},
+  {en:"tea", ph:"/tiː/", bn:"চা", pos:"noun", cat:"Food", ex:"Father drinks tea in the morning.", exBn:"বাবা সকালে চা খান।"},
+  {en:"egg", ph:"/eɡ/", bn:"ডিম", pos:"noun", cat:"Food", ex:"I like boiled eggs.", exBn:"আমি সিদ্ধ ডিম পছন্দ করি।"},
+  {en:"fruit", ph:"/fruːt/", bn:"ফল", pos:"noun", cat:"Food", ex:"Eat fruit every day.", exBn:"প্রতিদিন ফল খাও।"},
+  {en:"mango", ph:"/ˈmæŋɡoʊ/", bn:"আম", pos:"noun", cat:"Food", ex:"Mango is my favorite fruit.", exBn:"আম আমার প্রিয় ফল।"},
+  {en:"hungry", ph:"/ˈhʌŋɡri/", bn:"ক্ষুধার্ত / খিদা পাওয়া", pos:"adjective", cat:"Food", ex:"I am very hungry now.", exBn:"আমার এখন খুব খিদা পেয়েছে।"},
+  {en:"delicious", ph:"/dɪˈlɪʃəs/", bn:"সুস্বাদু / মজাদার", pos:"adjective", cat:"Food", ex:"The biryani was delicious.", exBn:"বিরিয়ানিটা মজাদার ছিল।"},
+
+  // --- Travel ---
+  {en:"train", ph:"/treɪn/", bn:"ট্রেন", pos:"noun", cat:"Travel", ex:"The train leaves at 8 AM.", exBn:"ট্রেনটা সকাল ৮টায় ছাড়ে।"},
+  {en:"bus", ph:"/bʌs/", bn:"বাস", pos:"noun", cat:"Travel", ex:"I take the bus to work.", exBn:"আমি বাসে করে কাজে যাই।"},
+  {en:"ticket", ph:"/ˈtɪkɪt/", bn:"টিকেট", pos:"noun", cat:"Travel", ex:"Where can I buy a ticket?", exBn:"টিকেট কোথায় কিনতে পারবো?"},
+  {en:"station", ph:"/ˈsteɪʃən/", bn:"স্টেশন", pos:"noun", cat:"Travel", ex:"The station is very crowded.", exBn:"স্টেশনটা খুব ভিড়ে ভরা।"},
+  {en:"airport", ph:"/ˈerpɔːrt/", bn:"বিমানবন্দর", pos:"noun", cat:"Travel", ex:"How far is the airport?", exBn:"বিমানবন্দর কত দূরে?"},
+  {en:"road", ph:"/roʊd/", bn:"রাস্তা", pos:"noun", cat:"Travel", ex:"This road goes to Dhaka.", exBn:"এই রাস্তা ঢাকায় যায়।"},
+  {en:"journey", ph:"/ˈdʒɜːrni/", bn:"যাত্রা", pos:"noun", cat:"Travel", ex:"Have a safe journey!", exBn:"যাত্রা শুভ হোক!"},
+  {en:"luggage", ph:"/ˈlʌɡɪdʒ/", bn:"লাগেজ / মালপত্র", pos:"noun", cat:"Travel", ex:"Please take your luggage.", exBn:"অনুগ্রহ করে আপনার লাগেজ নিন।"},
+  {en:"hotel", ph:"/hoʊˈtel/", bn:"হোটেল", pos:"noun", cat:"Travel", ex:"The hotel is near the beach.", exBn:"হোটেলটা সমুদ্র সৈকতের কাছে।"},
+  {en:"left", ph:"/left/", bn:"বাম", pos:"noun", cat:"Travel", ex:"Turn left at the corner.", exBn:"মোড়ে বামে যান।"},
+
+  // --- Office & study ---
+  {en:"study", ph:"/ˈstʌdi/", bn:"পড়াশোনা করা", pos:"verb", cat:"Study & Work", ex:"I study English every day.", exBn:"আমি প্রতিদিন ইংরেজি পড়ি।"},
+  {en:"teacher", ph:"/ˈtiːtʃər/", bn:"শিক্ষক", pos:"noun", cat:"Study & Work", ex:"Our teacher is very kind.", exBn:"আমাদের শিক্ষক খুব দয়ালু।"},
+  {en:"student", ph:"/ˈstuːdənt/", bn:"ছাত্র/ছাত্রী", pos:"noun", cat:"Study & Work", ex:"She is a good student.", exBn:"সে একজন ভালো ছাত্রী।"},
+  {en:"exam", ph:"/ɪɡˈzæm/", bn:"পরীক্ষা", pos:"noun", cat:"Study & Work", ex:"The exam starts on Sunday.", exBn:"পরীক্ষা রবিবার শুরু হবে।"},
+  {en:"question", ph:"/ˈkwestʃən/", bn:"প্রশ্ন", pos:"noun", cat:"Study & Work", ex:"Ask me any question.", exBn:"আমাকে যেকোনো প্রশ্ন করো।"},
+  {en:"answer", ph:"/ˈænsər/", bn:"উত্তর", pos:"noun", cat:"Study & Work", ex:"Your answer is correct.", exBn:"তোমার উত্তরটি সঠিক।"},
+  {en:"office", ph:"/ˈɒfɪs/", bn:"অফিস", pos:"noun", cat:"Study & Work", ex:"I reached the office at 9.", exBn:"আমি ৯টায় অফিসে পৌঁছেছি।"},
+  {en:"meeting", ph:"/ˈmiːtɪŋ/", bn:"মিটিং / সভা", pos:"noun", cat:"Study & Work", ex:"The meeting starts at noon.", exBn:"মিটিং দুপুরে শুরু হবে।"},
+  {en:"salary", ph:"/ˈsæləri/", bn:"বেতন", pos:"noun", cat:"Study & Work", ex:"He gets a good salary.", exBn:"সে ভালো বেতন পায়।"},
+  {en:"interview", ph:"/ˈɪntərvjuː/", bn:"সাক্ষাৎকার / ভাইভা", pos:"noun", cat:"Study & Work", ex:"I have an interview tomorrow.", exBn:"আগামীকাল আমার একটা ভাইভা আছে।"},
+
+  // --- Feelings ---
+  {en:"angry", ph:"/ˈæŋɡri/", bn:"রাগান্বিত", pos:"adjective", cat:"Feelings", ex:"Don't be angry with me.", exBn:"আমার প্রতি রাগ করো না।"},
+  {en:"sad", ph:"/sæd/", bn:"দুঃখিত / মন খারাপ", pos:"adjective", cat:"Feelings", ex:"Why are you sad?", exBn:"তুমি কেন মন খারাপ করছো?"},
+  {en:"tired", ph:"/ˈtaɪərd/", bn:"ক্লান্ত", pos:"adjective", cat:"Feelings", ex:"I am tired after work.", exBn:"কাজের পর আমি ক্লান্ত।"},
+  {en:"afraid", ph:"/əˈfreɪd/", bn:"ভয় পাওয়া", pos:"adjective", cat:"Feelings", ex:"Don't be afraid of dogs.", exBn:"কুকুরে ভয় পেয়ো না।"},
+  {en:"excited", ph:"/ɪkˈsaɪtɪd/", bn:"উত্তেজিত / আবেগাপ্লুত", pos:"adjective", cat:"Feelings", ex:"I am excited about the trip.", exBn:"ট্রিপ নিয়ে আমি রোমাঞ্চিত।"},
+  {en:"proud", ph:"/praʊd/", bn:"গর্বিত", pos:"adjective", cat:"Feelings", ex:"I am proud of you.", exBn:"আমি তোমার উপর গর্ব করি।"},
+  {en:"worried", ph:"/ˈwʌrid/", bn:"চিন্তিত", pos:"adjective", cat:"Feelings", ex:"Mother is worried about you.", exBn:"মা তোমার জন্য চিন্তিত।"},
+  {en:"surprised", ph:"/sərˈpraɪzd/", bn:"অবাক / বিস্মিত", pos:"adjective", cat:"Feelings", ex:"I was surprised to see him.", exBn:"তাকে দেখে আমি অবাক হয়েছি।"},
+
+  // --- Actions (verbs) ---
+  {en:"eat", ph:"/iːt/", bn:"খাওয়া", pos:"verb", cat:"Verbs", ex:"We eat dinner at 9 PM.", exBn:"আমরা রাত ৯টায় ডিনার খাই।"},
+  {en:"drink", ph:"/drɪŋk/", bn:"পান করা", pos:"verb", cat:"Verbs", ex:"Drink more water.", exBn:"বেশি পানি পান করো।"},
+  {en:"go", ph:"/ɡoʊ/", bn:"যাওয়া", pos:"verb", cat:"Verbs", ex:"Let's go to the market.", exBn:"চলো বাজারে যাই।"},
+  {en:"come", ph:"/kʌm/", bn:"আসা", pos:"verb", cat:"Verbs", ex:"Come to my house.", exBn:"আমার বাড়িতে আসো।"},
+  {en:"read", ph:"/riːd/", bn:"পড়া", pos:"verb", cat:"Verbs", ex:"Read this book.", exBn:"এই বইটা পড়ো।"},
+  {en:"write", ph:"/raɪt/", bn:"লেখা", pos:"verb", cat:"Verbs", ex:"Write your name here.", exBn:"এখানে তোমার নাম লেখো।"},
+  {en:"speak", ph:"/spiːk/", bn:"কথা বলা", pos:"verb", cat:"Verbs", ex:"Speak slowly, please.", exBn:"ধীরে কথা বলো, অনুগ্রহ করে।"},
+  {en:"listen", ph:"/ˈlɪsən/", bn:"শোনা", pos:"verb", cat:"Verbs", ex:"Listen to your teacher.", exBn:"শিক্ষকের কথা শোনো।"},
+  {en:"sleep", ph:"/sliːp/", bn:"ঘুমানো", pos:"verb", cat:"Verbs", ex:"I sleep for eight hours.", exBn:"আমি আট ঘণ্টা ঘুমাই।"},
+  {en:"run", ph:"/rʌn/", bn:"দৌড়ানো", pos:"verb", cat:"Verbs", ex:"He can run very fast.", exBn:"সে খুব দ্রুত দৌড়াতে পারে।"},
+  {en:"learn", ph:"/lɜːrn/", bn:"শেখা", pos:"verb", cat:"Verbs", ex:"I want to learn English.", exBn:"আমি ইংরেজি শিখতে চাই।"},
+  {en:"understand", ph:"/ˌʌndərˈstænd/", bn:"বোঝা", pos:"verb", cat:"Verbs", ex:"I don't understand this word.", exBn:"এই শব্দটা আমি বুঝি না।"},
+  {en:"help", ph:"/help/", bn:"সাহায্য করা", pos:"verb", cat:"Verbs", ex:"Can you help me?", exBn:"তুমি কি আমাকে সাহায্য করতে পারো?"},
+  {en:"buy", ph:"/baɪ/", bn:"কেনা", pos:"verb", cat:"Verbs", ex:"I want to buy a phone.", exBn:"আমি একটা ফোন কিনতে চাই।"},
+  {en:"watch", ph:"/wɒtʃ/", bn:"দেখা (ভিডিও/টিভি)", pos:"verb", cat:"Verbs", ex:"We watch TV at night.", exBn:"আমরা রাতে টিভি দেখি।"},
+
+  // --- Nature & weather ---
+  {en:"rain", ph:"/reɪn/", bn:"বৃষ্টি", pos:"noun", cat:"Nature", ex:"The rain stopped at noon.", exBn:"দুপুরে বৃষ্টি থামলো।"},
+  {en:"sun", ph:"/sʌn/", bn:"সূর্য", pos:"noun", cat:"Nature", ex:"The sun rises in the east.", exBn:"সূর্য পূর্ব দিগন্তে ওঠে।"},
+  {en:"moon", ph:"/muːn/", bn:"চাঁদ", pos:"noun", cat:"Nature", ex:"The moon looks beautiful tonight.", exBn:"আজ রাতে চাঁদ সুন্দর লাগছে।"},
+  {en:"sky", ph:"/skaɪ/", bn:"আকাশ", pos:"noun", cat:"Nature", ex:"The sky is clear today.", exBn:"আজ আকাশ পরিষ্কার।"},
+  {en:"tree", ph:"/triː/", bn:"গাছ", pos:"noun", cat:"Nature", ex:"This tree is very old.", exBn:"এই গাছটা খুব পুরনো।"},
+  {en:"river", ph:"/ˈrɪvər/", bn:"নদী", pos:"noun", cat:"Nature", ex:"The river flows fast.", exBn:"নদীটা দ্রুত বয়ে যায়।"},
+  {en:"sea", ph:"/siː/", bn:"সমুদ্র", pos:"noun", cat:"Nature", ex:"We visited the sea last year.", exBn:"গত বছর আমরা সমুদ্রে গিয়েছিলাম।"},
+  {en:"weather", ph:"/ˈweðər/", bn:"আবহাওয়া", pos:"noun", cat:"Nature", ex:"The weather is nice today.", exBn:"আজ আবহাওয়া সুন্দর।"},
+  {en:"cold", ph:"/koʊld/", bn:"ঠান্ডা", pos:"adjective", cat:"Nature", ex:"Winter is very cold here.", exBn:"এখানে শীত খুব ঠান্ডা।"},
+  {en:"hot", ph:"/hɒt/", bn:"গরম", pos:"adjective", cat:"Nature", ex:"Today is very hot.", exBn:"আজ খুব গরম।"},
+
+  // --- Technology ---
+  {en:"phone", ph:"/foʊn/", bn:"ফোন / মোবাইল", pos:"noun", cat:"Technology", ex:"My phone battery is low.", exBn:"আমার ফোনের ব্যাটারি কম।"},
+  {en:"computer", ph:"/kəmˈpjuːtər/", bn:"কম্পিউটার", pos:"noun", cat:"Technology", ex:"I work on a computer.", exBn:"আমি কম্পিউটারে কাজ করি।"},
+  {en:"internet", ph:"/ˈɪntərnet/", bn:"ইন্টারনেট", pos:"noun", cat:"Technology", ex:"The internet is slow today.", exBn:"আজ ইন্টারনেট ধীর।"},
+  {en:"message", ph:"/ˈmesɪdʒ/", bn:"বার্তা / মেসেজ", pos:"noun", cat:"Technology", ex:"I sent you a message.", exBn:"আমি তোমাকে একটা মেসেজ পাঠিয়েছি।"},
+  {en:"email", ph:"/ˈiːmeɪl/", bn:"ইমেইল", pos:"noun", cat:"Technology", ex:"Check your email please.", exBn:"অনুগ্রহ করে তোমার ইমেইল চেক করো।"},
+  {en:"photo", ph:"/ˈfoʊtoʊ/", bn:"ছবি", pos:"noun", cat:"Technology", ex:"Take a photo of us.", exBn:"আমাদের একটা ছবি তোলো।"},
+  {en:"video", ph:"/ˈvɪdioʊ/", bn:"ভিডিও", pos:"noun", cat:"Technology", ex:"This video went viral.", exBn:"ভিডিওটা ভাইরাল হয়ে গেছে।"},
+  {en:"website", ph:"/ˈwebsaɪt/", bn:"ওয়েবসাইট", pos:"noun", cat:"Technology", ex:"This website is helpful.", exBn:"এই ওয়েবসাইটটা সাহায্য করে।"},
+
+  // --- Advanced ---
+  {en:"achieve", ph:"/əˈtʃiːv/", bn:"অর্জন করা", pos:"verb", cat:"Advanced", ex:"You can achieve your dream.", exBn:"তুমি তোমার স্বপ্ন অর্জন করতে পারো।"},
+  {en:"confident", ph:"/ˈkɒnfɪdənt/", bn:"আত্মবিশ্বাসী", pos:"adjective", cat:"Advanced", ex:"Be confident in the exam.", exBn:"পরীক্ষায় আত্মবিশ্বাসী হও।"},
+  {en:"decision", ph:"/dɪˈsɪʒən/", bn:"সিদ্ধান্ত", pos:"noun", cat:"Advanced", ex:"It was a hard decision.", exBn:"এটা কঠিন একটা সিদ্ধান্ত ছিল।"},
+  {en:"opportunity", ph:"/ˌɒpərˈtuːnəti/", bn:"সুযোগ", pos:"noun", cat:"Advanced", ex:"This is a great opportunity.", exBn:"এটা একটা দারুণ সুযোগ।"},
+  {en:"success", ph:"/səkˈses/", bn:"সফলতা", pos:"noun", cat:"Advanced", ex:"Success needs hard work.", exBn:"সফলতার জন্য কঠোর পরিশ্রম লাগে।"},
+  {en:"failure", ph:"/ˈfeɪljər/", bn:"ব্যর্থতা", pos:"noun", cat:"Advanced", ex:"Failure teaches us a lot.", exBn:"ব্যর্থতা আমাদের অনেক কিছু শেখায়।"},
+  {en:"improve", ph:"/ɪmˈpruːv/", bn:"উন্নতি করা", pos:"verb", cat:"Advanced", ex:"Practice improves your skill.", exBn:"অভ্যাস তোমার দক্ষতা বাড়ায়।"},
+  {en:"knowledge", ph:"/ˈnɒlɪdʒ/", bn:"জ্ঞান", pos:"noun", cat:"Advanced", ex:"Books give us knowledge.", exBn:"বই আমাদের জ্ঞান দেয়।"},
+  {en:"experience", ph:"/ɪkˈspɪriəns/", bn:"অভিজ্ঞতা", pos:"noun", cat:"Advanced", ex:"Tell us about your experience.", exBn:"আপনার অভিজ্ঞতা বলুন।"},
+  {en:"responsible", ph:"/rɪˈspɒnsəbl/", bn:"দায়িত্বশীল", pos:"adjective", cat:"Advanced", ex:"He is a responsible person.", exBn:"সে একজন দায়িত্বশীল মানুষ।"},
+  {en:"environment", ph:"/ɪnˈvaɪrənmənt/", bn:"পরিবেশ", pos:"noun", cat:"Advanced", ex:"We must protect the environment.", exBn:"আমাদের পরিবেশ রক্ষা করা উচিত।"},
+  {en:"technology", ph:"/tekˈnɒlədʒi/", bn:"প্রযুক্তি", pos:"noun", cat:"Advanced", ex:"Technology is changing fast.", exBn:"প্রযুক্তি দ্রুত বদলাচ্ছে।"},
+  {en:"communicate", ph:"/kəˈmjuːnɪkeɪt/", bn:"যোগাযোগ করা", pos:"verb", cat:"Advanced", ex:"We communicate in English.", exBn:"আমরা ইংরেজিতে যোগাযোগ করি।"},
+  {en:"necessary", ph:"/ˈnesəseri/", bn:"প্রয়োজনীয়", pos:"adjective", cat:"Advanced", ex:"Sleep is necessary for health.", exBn:"স্বাস্থ্যের জন্য ঘুম প্রয়োজনীয়।"},
+  {en:"important", ph:"/ɪmˈpɔːrtnt/", bn:"গুরুত্বপূর্ণ", pos:"adjective", cat:"Advanced", ex:"Health is important.", exBn:"স্বাস্থ্য গুরুত্বপূর্ণ।"}
+];
+
+// ------------------------- SHORTCUTS -------------------------
+const DEFAULT_SHORTCUTS = [
+  {en:"I'm going to...", bn:"আমি যাচ্ছি... / আমি ... করতে যাচ্ছি", tip:"\"I'm going to eat\" = আমি খেতে যাচ্ছি। পরিকল্পনা বোঝাতে ব্যবহার হয়।", cat:"Daily"},
+  {en:"I gotta...", bn:"আমাকে ... করতেই হবে (গোটা = got to)", tip:"\"I gotta go\" = আমাকে যেতে হবে। বন্ধুদের সাথে কথা বলার সময়।", cat:"Daily"},
+  {en:"Kinda...", bn:"একটু / মোটামুটি (kinda = kind of)", tip:"\"It's kinda cold\" = একটু ঠান্ডা।", cat:"Daily"},
+  {en:"Lemme...", bn:"আমাকে দাও / দিতে দাও (lemme = let me)", tip:"\"Lemme see\" = দেখতে দাও।", cat:"Daily"},
+  {en:"Wanna...?", bn:"করতে চাও? (wanna = want to)", tip:"\"Wanna go out?\" = বের হতে চাও?", cat:"Daily"},
+  {en:"Dunno", bn:"জানি না (dunno = don't know)", tip:"\"I dunno\" = জানি না।", cat:"Daily"},
+  {en:"Gimme...", bn:"আমাকে দাও (gimme = give me)", tip:"\"Gimme a minute\" = এক মিনিট দাও।", cat:"Daily"},
+  {en:"Outta...", bn:"বাইরে থেকে / শেষ (outta = out of)", tip:"\"Get outta here!\" = এখান থেকে বের হও!", cat:"Daily"},
+  {en:"Gotta bounce", bn:"তাহলে যাই / ছাড়ছি", tip:"বন্ধুত্বপূর্ণ বিদায়। \"It's late, gotta bounce!\"", cat:"Slang"},
+  {en:"Hang out", bn:"অলস সময় কাটানো / ঘুরে বেড়ানো", tip:"\"Let's hang out this weekend\" = চলো এই সপ্তাহান্তে ঘুরে আসি।", cat:"Phrases"},
+  {en:"No worries", bn:"কোনো সমস্যা নেই / ঠিক আছে", tip:"কাউকে sorry বললে \"No worries!\" দিয়ে উত্তর দিতে পারেন।", cat:"Phrases"},
+  {en:"What's up?", bn:"কী অবস্থা? / কী খবর?", tip:"বন্ধুদের জন্য hello-র মতো। উত্তর: \"Not much!\"", cat:"Phrases"},
+  {en:"Sounds good", bn:"ঠিক আছে / ভালো শোনাচ্ছে", tip:"প্রস্তাব মেনে নেওয়ার সহজ উপায়।", cat:"Phrases"},
+  {en:"I'm on it", bn:"আমি কাজটা শুরু করে দিয়েছি", tip:"কাজ নিতে রাজি হওয়ার জন্য।", cat:"Work"},
+  {en:"Let me know", bn:"আমাকে জানাবেন", tip:"\"Let me know if you need help.\" = দরকার হলে জানাবেন।", cat:"Work"},
+  {en:"By the way (BTW)", bn:"যাইহোক / কথার মাঝে", tip:"নতুন কোনো কথা শুরু করতে।", cat:"Work"},
+  {en:"ASAP (as soon as possible)", bn:"যত তাড়াতাড়ি সম্ভব", tip:"\"Send it ASAP\" = তাড়াতাড়ি পাঠাও।", cat:"Work"},
+  {en:"Deal with it", bn:"সামলে নেওয়া", tip:"\"I'll deal with it\" = আমি সামলে নেবো।", cat:"Work"}
+];
+
+// ------------------------- LESSONS -------------------------
+// Structure: {id, level, title, intro, words:[{en, bn}], examples:[{en, bn}], quiz:[{q, opts, a}]}
+const DEFAULT_LESSONS = [
+  // ===== LEARNING PATH (পূর্ণাঙ্গ A-Z কোর্স) =====
+  {id:"b1", level:"beginner", cat:"speaking", title:"পরিচয় — নিজের কথা বলা",
+   intro:"সবার প্রথম কাজ নিজেকে পরিচয় করিয়ে দেওয়া শেখা। এই ক্লাস শেষে আপনি ইংরেজিতে নিজের নাম, বয়স আর কাজ বলতে পারবেন।",
+   words:[{en:"name", bn:"নাম"},{en:"age", bn:"বয়স"},{en:"live", bn:"থাকা"},{en:"student", bn:"ছাত্র"},{en:"job", bn:"চাকরি"}],
+   rules:[
+     {en:"I am [name].", bn:"আমি [নাম]। — যেমন: I am Rahim."},
+     {en:"I am [number] years old.", bn:"আমি [সংখ্যা] বছরের। — I am 20 years old."},
+     {en:"I live in [place].", bn:"আমি [জায়গায়] থাকি। — I live in Dhaka."},
+     {en:"I am a [job/student].", bn:"আমি একজন [পেশা/ছাত্র]। — I am a student."}
+   ],
+   structure:{title:"🧱 এই বাক্যের গঠন", points:[
+     {pattern:"I am + নাম", bn:"নিজের পরিচয় দিতে"},
+     {pattern:"I am + সংখ্যা + years old", bn:"বয়স বলতে"},
+     {pattern:"I live in + জায়গা", bn:"কোথায় থাকেন"}
+   ]},
+   quiz:[
+     {q:"\"I am a student\" এর বাংলা কী?", opts:["আমি একজন ছাত্র।","আমি পড়া শুনি।","আমি স্কুলে যাই।"], a:0},
+     {q:"\"আমি ঢাকায় থাকি\" — ইংরেজি কোনটি?", opts:["I go to Dhaka.","I live in Dhaka.","I like Dhaka."], a:1},
+     {q:"বয়স বলতে কোনটি সঠিক?", opts:["I have 20 years.","I am 20 years old.","My age goes 20."], a:1}
+   ]},
+  {id:"b2", level:"beginner", cat:"speaking", title:"অভিবাদন — দৈনন্দিন কথাসাপ্তাহিক",
+   intro:"Hello, Hi, Good morning — এই ক্লাসে শিখবেন কীভাবে বিভিন্ন সময়ে মানুষকে অভিবাদন জানাবেন এবং উত্তর দেবেন।",
+   words:[{en:"greet", bn:"অভিবাদন জানানো"},{en:"morning", bn:"সকাল"},{en:"afternoon", bn:"দুপুর"},{en:"evening", bn:"সন্ধ্যা"},{en:"fine", bn:"ভালো"}],
+   rules:[
+     {en:"Good morning (সকাল), Good afternoon (দুপুর), Good evening (সন্ধ্যা)", bn:"সময় অনুযায়ী অভিবাদন বদলায়। রাতে ঘুমানোর আগে: Good night।"},
+     {en:"How are you? — I'm fine, thank you.", bn:"কেমন আছো? — আমি ভালো, ধন্যবাদ। এটাই সবচেয়ে সাধারণ উত্তর।"},
+     {en:"Nice to meet you!", bn:"প্রথম পরিচয়ে বলুন। উত্তর দিন: Nice to meet you too!"}
+   ],
+   structure:{title:"🧱 সময় অনুযায়ী অভিবাদনের সূত্র", points:[
+     {pattern:"Good + morning/afternoon/evening", bn:"সময় নির্দেশ করে"},
+     {pattern:"How are you? → I'm fine", bn:"কেমন আছেন জিজ্ঞেস ও উত্তর"}
+   ]},
+   quiz:[
+     {q:"সকালে কাউকে দেখে কী বলবেন?", opts:["Good night","Good morning","Good bye"], a:1},
+     {q:"\"How are you?\" এর উত্তর কোনটি?", opts:["I'm fine, thank you.","I am 20.","Yes, please."], a:0},
+     {q:"রাতে ঘুমানোর আগে কী বলে?", opts:["Good evening","Good night","Good morning"], a:1}
+   ]},
+  {id:"b3", level:"beginner", cat:"basicwords", title:"পরিবার ও আত্মীয়",
+   intro:"পরিবারের সদস্যদের ইংরেজি নাম আর তাদের নিয়ে ছোট ছোট বাক্য শিখুন।",
+   words:[{en:"family", bn:"পরিবার"},{en:"parents", bn:"বাবা-মা"},{en:"brother", bn:"ভাই"},{en:"sister", bn:"বোন"},{en:"son", bn:"ছেলে"},{en:"daughter", bn:"মেয়ে"}],
+   rules:[
+     {en:"I have two brothers and one sister.", bn:"আমার দুই ভাই আর এক বোন আছে।"},
+     {en:"This is my father. He is a farmer.", bn:"ইনি আমার বাবা। তিনি কৃষক।"},
+     {en:"My family is small/big.", bn:"আমার পরিবার ছোট/বড়।"}
+   ],
+   structure:{title:"🧱 পরিবার বর্ণনার সূত্র", points:[
+     {pattern:"I have + সংখ্যা + brother/sister", bn:"কতজন ভাই-বোন"},
+     {pattern:"This is my + সদস্য", bn:"কাউকে পরিচয় করানোর সময়"}
+   ]},
+   quiz:[
+     {q:"\"parents\" মানে কী?", opts:["পরিবার","বাবা-মা","আত্মীয়"], a:1},
+     {q:"\"আমার এক বোন আছে\" — কোনটি সঠিক?", opts:["I am one sister.","I have one sister.","I with one sister."], a:1},
+     {q:"daughter কাকে বলে?", opts:["ছেলে সন্তান","মেয়ে সন্তান","নাতনি"], a:1}
+   ]},
+  {id:"b4", level:"beginner", cat:"speaking", title:"সংখ্যা ও দাম কেনাকাটা",
+   intro:"১ থেকে ১০০ পর্যন্ত সংখ্যা আর দোকানে দাম জিজ্ঞেস করার বাক্য শিখুন।",
+   words:[{en:"price", bn:"দাম"},{en:"cost", bn:"মূল্য (হওয়া)"},{en:"buy", bn:"কেনা"},{en:"cheap", bn:"সস্তা"},{en:"expensive", bn:"দামি"}],
+   rules:[
+     {en:"How much is this?", bn:"এটার দাম কত? — কেনাকাটার সবচেয়ে দরকারি বাক্য!"},
+     {en:"It costs 200 taka.", bn:"এটার দাম ২০০ টাকা।"},
+     {en:"That's too expensive.", bn:"এটা তো খুব দামি।"}
+   ],
+   structure:{title:"🧱 দাম জানতে চাওয়ার সূত্র", points:[
+     {pattern:"How much + is + this/that", bn:"দাম জানতে"},
+     {pattern:"It costs + দাম + taka/dollar", bn:"দাম বলতে"}
+   ]},
+   quiz:[
+     {q:"দাম জানতে চাইলে কী বলবেন?", opts:["What is this?","How much is this?","Where is this?"], a:1},
+     {q:"\"cheap\" এর অর্থ?", opts:["দামি","সস্তা","ভালো"], a:1},
+     {q:"\"It costs 50 taka\" মানে?", opts:["এটা ৫০ টাকায় বিক্রি হয়","এটার দাম ৫০ টাকা","৫০ টাকা দিয়েছি"], a:1}
+   ]},
+  {id:"b5", level:"beginner", cat:"speaking", title:"খাবার ও রেস্টুরেন্ট",
+   intro:"খাবারের নাম আর রেস্টুরেন্টে অর্ডার করার বাক্য শিখুন — I'd like... থেকে The bill, please পর্যন্ত।",
+   words:[{en:"order", bn:"অর্ডার করা"},{en:"menu", bn:"মেনু"},{en:"bill", bn:"বিল"},{en:"tasty", bn:"সুস্বাদু"},{en:"hungry", bn:"ক্ষুধার্ত"}],
+   rules:[
+     {en:"I'd like a chicken burger, please.", bn:"আমি একটা চিকেন বার্গার নিতে চাই। (I'd like = আমি চাই, ভদ্র উপায়)"},
+     {en:"Can I have the menu?", bn:"মেনুটা পাবো?"},
+     {en:"The bill, please.", bn:"বিলটা দিন, প্লিজ।"}
+   ],
+   structure:{title:"🧱 রেস্টুরেন্টে অর্ডারের সূত্র", points:[
+     {pattern:"I'd like + খাবার + please", bn:"ভদ্রভাবে চাওয়া"},
+     {pattern:"Can I have + জিনিস", bn:"কিছু চাওয়া"}
+   ]},
+   quiz:[
+     {q:"অর্ডার দিতে কোনটি সবচেয়ে ভদ্র?", opts:["Give me food!","I'd like a coffee, please.","Food now."], a:1},
+     {q:"\"bill\" মানে কী?", opts:["খাবার","বিল/হিসাব","টিপস"], a:1},
+     {q:"খিদা পেলে কী বলবেন?", opts:["I am hungry.","I am thirsty.","I am tired."], a:0}
+   ]},
+
+  // ===== GRAMMAR =====
+  {id:"g1", level:"inter", cat:"grammar", title:"Subject + Verb + Object — বাক্যের কংক্রিট",
+   intro:"ইংরেজিতে বাক্য বানানোর মূল সূত্র শিখুন — Subject কে, Verb কাজ, Object কার উপর কাজ হচ্ছে। এটা শিখলেই ৮০% বাক্য বানাতে পারবেন।",
+   words:[{en:"subject", bn:"কর্তা/সাবজেক্ট"},{en:"verb", bn:"ক্রিয়া/ভার্ব"},{en:"object", bn:"অবজেক্ট"},{en:"sentence", bn:"বাক্য"},{en:"make", bn:"বানানো"}],
+   rules:[
+     {en:"I + eat + rice.", bn:"আমি + খাই + ভাত। Subject(I) + Verb(eat) + Object(rice)"},
+     {en:"She + reads + a book.", bn:"সে + পড়ে + একটা বই।"},
+     {en:"We + play + cricket.", bn:"আমরা + খেলি + ক্রিকেট।"}
+   ],
+   structure:{title:"🧱 বাক্য গঠনের ৩ ধরনের সূত্র", points:[
+     {pattern:"Sub + Verb (কাজ নেই)", bn:"I work. She sleeps."},
+     {pattern:"Sub + Verb + Object", bn:"I eat rice. He plays football."},
+     {pattern:"Sub + Verb + Object + Extra", bn:"I eat rice at home. She reads in the morning."}
+   ]},
+   quiz:[
+     {q:"\"I eat rice\" — এখানে 'rice' কোন অংশ?", opts:["Subject","Verb","Object"], a:2},
+     {q:"\"She plays\" — পূর্ণ বাক্য করতে কী লাগবে?", opts:["Object না লাগলেও চলে","Object দিতেই হবে","Verb লাগবে না"], a:0},
+     {q:"কোনটি সঠিক বাক্য?", opts:["Rice I eat.","I eat rice.","Eat I rice."], a:1}
+   ]},
+  {id:"g2", level:"inter", cat:"grammar", title:"Be ভার্ব — am/is/are/was/were",
+   intro:"Be ভার্ব দিয়ে বর্ণনা ও অবস্থান বলা যায় — I am a student. She is happy. এটা ছাড়া কথা বলা যায় না।",
+   words:[{en:"be", bn:"হওয়া (am/is/are)"},{en:"was/were", bn:"ছিলাম/ছিল"},{en:"is", bn:"হয় (singular)"},{en:"are", bn:"হয় (plural/you)"},{en:"am", bn:"হই (I)"}],
+   rules:[
+     {en:"I am happy.", bn:"আমি খুশি।"},
+     {en:"She is a teacher.", bn:"সে একজন শিক্ষক।"},
+     {en:"They are friends.", bn:"তারা বন্ধু।"},
+     {en:"He was tired yesterday.", bn:"সে গতকাল ক্লান্ত ছিল।"}
+   ],
+   structure:{title:"🧱 am/is/are কখন কোনটা", points:[
+     {pattern:"I → am", bn:"I am a student."},
+     {pattern:"He/She/It → is", bn:"She is happy."},
+     {pattern:"You/We/They → are", bn:"You are welcome."},
+     {pattern:"Past: I/He/She → was | You/We/They → were", bn:"I was tired. They were busy."}
+   ]},
+   quiz:[
+     {q:"\"He ___ a doctor\" — সঠিকটি?", opts:["am","is","are"], a:1},
+     {q:"\"They ___ friends\" — কোনটি?", opts:["is","am","are"], a:2},
+     {q:"অতীতে \"I ___ at home\" — কোনটি?", opts:["am","was","were"], a:1}
+   ]},
+  {id:"g3", level:"inter", cat:"grammar", title:"নামাংকরণ — Noun & Pronoun",
+   intro:"নামের শব্দ (Rahim, Dhaka, water) আর সর্বনাম (I, you, he, they) — কারী নিয়ে বাক্য শুরু হয়।",
+   words:[{en:"noun", bn:"নামাংকরণ — মানুষ, জায়গা, জিনিস"},{en:"pronoun", bn:"সর্বনাম — I, you, he"},{en:"this", bn:"এটা"},{en:"that", bn:"ওটা"},{en:"these/those", bn:"এগুলো/ওগুলো"}],
+   rules:[
+     {en:"Noun: boy, Dhaka, water, book", bn:"যেকোনো নাম — মানুষ, জায়গা, জিনিস, ভাব।"},
+     {en:"Pronoun: I, you, he, she, it, we, they", bn:"নামের বদলে বারবার বলা এড়ানোর জন্য।"},
+     {en:"This book is mine. That car is new.", bn:"এটা (this) আমার, ওটা (that) নতুন।"}
+   ],
+   structure:{title:"🧱 নাম vs সর্বনামের ব্যবহার", points:[
+     {pattern:"Rahim is a boy. He is good.", bn:"Rahim (noun) → he (pronoun) দিয়ে বারবার নাম বলা এড়ানো"},
+     {pattern:"This/That + is + বস্তু", bn:"কাছের জিনিস this, দূরের that"}
+   ]},
+   quiz:[
+     {q:"Noun কোনটি?", opts:["he","run","book"], a:2},
+     {q:"Pronoun কোনটি?", opts:["Dhaka","she","water"], a:1},
+     {q:"\"These ___ my friends\" — কোনটি?", opts:["is","are","am"], a:1}
+   ]},
+  {id:"g4", level:"inter", cat:"grammar", title:"বর্ণনা — Adjective",
+   intro:"বড়, ছোট, সুন্দর, খারাপ — কিছুকে বর্ণনা করতে adjective ব্যবহার হয়।",
+   words:[{en:"adjective", bn:"বর্ণনা — big, small, good"},{en:"tall", bn:"লম্বা"},{en:"short", bn:"খাটো"},{en:"new", bn:"নতুন"},{en:"old", bn:"পুরনো"}],
+   rules:[
+     {en:"Adjective + noun: a tall boy, a new phone", bn:"বর্ণনা আগে বসে — a tall boy।"},
+     {en:"Noun + is/are + adjective: He is tall.", bn:"সে লম্বা — বর্ণনা পরে বসে।"}
+   ],
+   structure:{title:"🧱 বর্ণনার দুই রূপ", points:[
+     {pattern:"a/an + adjective + noun", bn:"একটা লম্বা ছেলে — a tall boy"},
+     {pattern:"subject + is/are + adjective", bn:"সে লম্বা — He is tall"}
+   ]},
+   quiz:[
+     {q:"\"লম্বা ছেলে\" কীভাবে বলবেন?", opts:["boy tall","tall boy","a boy tall"], a:1},
+     {q:"\"She is ___\" — বাংলা 'সে খুশি'?", opts:["happys","happy","happying"], a:1},
+     {q:"কোনটি সঠিক?", opts:["a new phone","a phone new","new a phone"], a:0}
+   ]},
+
+  // ===== TENSES =====
+  {id:"t1", level:"inter", cat:"tense", title:"Present Simple — নিয়মিত কাজ",
+   intro:"প্রতিদিন যা করেন — I go, She eats, We play. সত্য/অভ্যাস/তত্ত্ব বোঝাতে present simple।",
+   words:[{en:"every day", bn:"প্রতিদিন"},{en:"always", bn:"সবসময়"},{en:"usually", bn:"সাধারণত"},{en:"sometimes", bn:"মাঝে মাঝে"},{en:"never", bn:"কখনো না"}],
+   rules:[
+     {en:"I go to school every day.", bn:"আমি প্রতিদিন স্কুলে যাই।"},
+     {en:"She plays cricket.", bn:"সে ক্রিকেট খেলে। (She/He এর সাথে verb + s/es)"},
+     {en:"They don't eat fish.", bn:"তারা মাছ খায় না। (don't দিয়ে না-বোধক)"}
+   ],
+   structure:{title:"🧱 Present Simple সূত্র", points:[
+     {pattern:"I/We/They + verb1 | He/She + verb1 + s/es", bn:"আমি/আমরা/তারা যাই/খাই | সে যায়/খায়"},
+     {pattern:"Do/Does + subject + verb1?", bn:"প্রশ্ন করতে — Do you go? Does she play?"},
+     {pattern:"don't/doesn't + verb1", bn:"না-বোধক — I don't go. She doesn't play."}
+   ]},
+   quiz:[
+     {q:"\"সে পড়ে\" — কোনটি?", opts:["She read.","She reads.","She reading."], a:1},
+     {q:"না-বোধক কোনটি?", opts:["I don't go.","I doesn't go.","I no go."], a:0},
+     {q:"প্রশ্ন করতে?", opts:["You go?","Do you go?","Goes you?"], a:1}
+   ]},
+  {id:"t2", level:"inter", cat:"tense", title:"Past Simple — অতীতের কাজ",
+   intro:"গতকাল, গত সপ্তাহে কী করেছিলেন — I went, She saw, They played. Verb-এর পুরনো রূপ দিয়ে।",
+   words:[{en:"went (go→went)", bn:"গিয়েছিলাম"},{en:"ate (eat→ate)", bn:"খেয়েছিলাম"},{en:"saw (see→saw)", bn:"দেখেছিলাম"},{en:"did (do→did)", bn:"করেছিলাম"},{en:"yesterday", bn:"গতকাল"}],
+   rules:[
+     {en:"I went to the market yesterday.", bn:"আমি গতকাল বাজারে গিয়েছিলাম।"},
+     {en:"Did you watch the match?", bn:"তুমি কি ম্যাচটা দেখেছিলে?"},
+     {en:"She didn't come yesterday.", bn:"সে গতকাল আসেনি। (didn't + verb1)"}
+   ],
+   structure:{title:"🧱 Past Simple সূত্র", points:[
+     {pattern:"subject + verb2 (past)", bn:"I went, She ate, They played"},
+     {pattern:"Did + subject + verb1?", bn:"প্রশ্ন — Did you go? (verb2 নয়)"},
+     {pattern:"didn't + verb1", bn:"না-বোধক — I didn't go."}
+   ]},
+   quiz:[
+     {q:"\"আমি গতকাল সিনেমা দেখেছি\" — কোনটি?", opts:["I watch a movie yesterday.","I watched a movie yesterday.","I watching a movie yesterday."], a:1},
+     {q:"go-এর past form কোনটি?", opts:["goed","gone","went"], a:2},
+     {q:"প্রশ্ন করতে কোনটি সঠিক?", opts:["Did you went?","Did you go?","Do you went?"], a:1}
+   ]},
+  {id:"t3", level:"inter", cat:"tense", title:"Future — will & going to",
+   intro:"আগামীকাল কী করবেন — I will go, I'm going to study. পরিকল্পনা আর সিদ্ধান্ত দুটোই বোঝায়।",
+   words:[{en:"will", bn:"হবে (ভবিষ্যৎ)"},{en:"going to", bn:"করতে যাচ্ছি"},{en:"plan", bn:"পরিকল্পনা"},{en:"next week", bn:"পরের সপ্তাহ"},{en:"soon", bn:"শীঘ্রই"}],
+   rules:[
+     {en:"I will call you tomorrow.", bn:"আমি আগামীকাল তোমাকে ফোন করবো।"},
+     {en:"I'm going to visit Cox's Bazar next week.", bn:"পরের সপ্তাহে আমি কক্সবাজার যাবো। (going to = আগে থেকে পরিকল্পনা)"},
+     {en:"We'll see later.", bn:"পরে দেখা যাবে।"}
+   ],
+   structure:{title:"🧱 will vs going to", points:[
+     {pattern:"will + verb1", bn:"হঠাৎ সিদ্ধান্ত — I will go now."},
+     {pattern:"am/is/are going to + verb1", bn:"আগের পরিকল্পনা — I'm going to study."}
+   ]},
+   quiz:[
+     {q:"আগের পরিকল্পনা বোঝাতে?", opts:["will","going to","was to"], a:1},
+     {q:"\"আমি কাল যাবো\" — সঠিক বাক্য?", opts:["I will go tomorrow.","I go tomorrow.","I went tomorrow."], a:0},
+     {q:"\"We'll\" এর পূর্ণরূপ?", opts:["We well","We will","We shall not"], a:1}
+   ]},
+  {id:"t4", level:"adv", cat:"tense", title:"Present Perfect — জীবনের অভিজ্ঞতা",
+   intro:"I have done it! — সবে শেষ হওয়া বা জীবনে কখনো করা কাজ। have/has + verb3।",
+   words:[{en:"have done", bn:"করেছি"},{en:"already", bn:"ইতিমধ্যে"},{en:"yet", bn:"এখনো"},{en:"ever", bn:"কখনো (জীবনে)"},{en:"never", bn:"কখনোই না"}],
+   rules:[
+     {en:"I have finished my homework.", bn:"আমি আমার হোমওয়ার্ক শেষ করেছি।"},
+     {en:"Have you ever been to London?", bn:"তুমি কি কখনো লন্ডন গিয়েছো?"},
+     {en:"She has already eaten.", bn:"সে ইতিমধ্যে খেয়ে ফেলেছে।"}
+   ],
+   structure:{title:"🧱 Present Perfect সূত্র", points:[
+     {pattern:"have/has + verb3 (done/gone/eaten)", bn:"I have gone. She has eaten."},
+     {pattern:"ever = কখনো (প্রশ্নে), never = কখনোই না", bn:"Have you ever been? I have never gone."},
+     {pattern:"already = ইতিমধ্যে, yet = এখনো (প্রশ্ন/না)", bn:"I have already finished. Have you finished yet?"}
+   ]},
+   quiz:[
+     {q:"সঠিক বাক্য কোনটি?", opts:["I have went there.","I have gone there.","I has gone there."], a:1},
+     {q:"\"আমি কখনোই জাপান যাইনি\"?", opts:["I never went Japan.","I have never been to Japan.","I did never go Japan."], a:1},
+     {q:"already এর ব্যবহার কোনটি?", opts:["She has already left.","She already has leave.","She already left has."], a:0}
+   ]},
+  {id:"t5", level:"adv", cat:"tense", title:"Present Continuous — এই মুহূর্তে চলমান",
+   intro:"আমি এখন পড়ছি — I am studying. এখন যা চলছে তা বলতে ing দিয়ে।",
+   words:[{en:"now", bn:"এখন"},{en:"right now", bn:"এই মুহূর্তে"},{en:"listening", bn:"শুনছি"},{en:"watching", bn:"দেখছি"},{en:"studying", bn:"পড়ছি"}],
+   rules:[
+     {en:"I am studying now.", bn:"আমি এখন পড়ছি।"},
+     {en:"She is cooking.", bn:"সে রাঁধছে।"},
+     {en:"They are playing.", bn:"তারা খেলছে।"}
+   ],
+   structure:{title:"🧱 Continuous সূত্র", points:[
+     {pattern:"am/is/are + verb + ing", bn:"I am reading. She is cooking. They are playing."},
+     {pattern:"Am/Is/Are + subject + verb-ing?", bn:"প্রশ্ন — Is she cooking?"}
+   ]},
+   quiz:[
+     {q:"\"সে খাচ্ছে\" — কোনটি?", opts:["She is eating.","She eats.","She eat."], a:0},
+     {q:"\"আমি এখন কাজ করছি\" — কোনটি?", opts:["I work now.","I am working now.","I am work now."], a:1},
+     {q:"প্রশ্ন কোনটি?", opts:["Is she cooking?","She is cooking?","Cooking she?"], a:0}
+   ]},
+  {id:"t6", level:"adv", cat:"tense", title:"Past Continuous — অতীতে চলমান ছিল",
+   intro:"আমি গতকাল পড়ছিলাম — I was studying. কোনো সময়ে কাজ চলমান ছিল তা বোঝাতে।",
+   words:[{en:"was", bn:"ছিলাম/ছিল"},{en:"were", bn:"ছিলেন/ছিল"},{en:"while", bn:"যখন"},{en:"at that time", bn:"সেই সময়"}],
+   rules:[
+     {en:"I was sleeping at 10 last night.", bn:"আমি গতকাল রাত ১০টায় ঘুমাচ্ছিলাম।"},
+     {en:"They were playing when I arrived.", bn:"আমি পৌঁছানোর সময় তারা খেলছিল।"}
+   ],
+   structure:{title:"🧱 Past Continuous সূত্র", points:[
+     {pattern:"was/were + verb-ing", bn:"I was reading. They were playing."},
+     {pattern:"was/were + verb-ing + when + past simple", bn:"I was sleeping when he called."}
+   ]},
+   quiz:[
+     {q:"\"আমি ঘুমাচ্ছিলাম\" — কোনটি?", opts:["I slept.","I was sleeping.","I sleep."], a:1},
+     {q:"while এর সঠিক ব্যবহার?", opts:["I was sleeping while he came.","I was sleeping while he was coming.", "I slept while he came."], a:1}
+   ]},
+
+  // ===== SENTENCE MAKING =====
+  {id:"s1", level:"beginner", cat:"sentence", title:"বাক্যের মূল কাঠামো — কীভাবে জোড়া লাগান",
+   intro:"ইংরেজিতে বাক্য বানাতে মূলত ৩ টা জিনিস লাগে — কে (Subject), কী করছে (Verb), কাকে/কাকে নিয়ে (Object)। এই লেসনে শিখুন কীভাবে বাংলা থেকে ইংরেজিতে বাক্য বানাবেন।",
+   words:[{en:"word order", bn:"শব্দের ক্রম"},{en:"make a sentence", bn:"বাক্য বানানো"},{en:"join", bn:"জোড়া দেওয়া"},{en:"correct", bn:"সঠিক"},{en:"wrong", bn:"ভুল"}],
+   rules:[
+     {en:"বাংলা: আমি ভাত খাই → ইংরেজি: I eat rice.", bn:"আমি = I, খাই = eat, ভাত = rice — ক্রম একই।"},
+     {en:"বাংলা: সে পানি পান করে → ইংরেজি: She drinks water.", bn:"সে = She, পান করে = drinks (verb), পানি = water"},
+     {en:"প্রশ্নে ক্রম বদলে যায়: You are → Are you?", bn:"Are you? = তুমি কি? সহজ প্রশ্ন।"}
+   ],
+   structure:{title:"🧱 বাংলা থেকে ইংরেজিতে বাক্য গঠনের চাবিকাঠি", points:[
+     {pattern:"সাবজেক্ট আগে, ভার্ব মাঝে, অবজেক্ট শেষে", bn:"[কে] + [কী করে] + [কাকে] — I + eat + rice"},
+     {pattern:"না-বোধক: verb-এর আগে not/don't/doesn't", bn:"I don't eat rice. = আমি ভাত খাই না"},
+     {pattern:"প্রশ্ন: verb-এর শুরুতে Aux (do/does/did/is/are)", bn:"Do you eat rice? = তুমি কি ভাত খাও?"}
+   ]},
+   quiz:[
+     {q:"\"সে পড়ে\" বলতে কী হবে?", opts:["She read.","She reads.","She reading."], a:1},
+     {q:"\"আমি স্কুলে যাই না\" — কোনটি?", opts:["I not go to school.","I don't go to school.","I no go school."], a:1},
+     {q:"প্রশ্ন করতে কোনটি সঠিক?", opts:["You go school?","Do you go to school?","Goes you school?"], a:1}
+   ]},
+  {id:"s2", level:"inter", cat:"sentence", title:"প্রশ্নের সব রূপ — কীভাবে জিজ্ঞেস করবেন",
+   intro:"কে, কী, কোথায়, কখন, কীভাবে — প্রশ্ন করতে Who/What/Where/When/How। পাশাপাশি Yes/No প্রশ্ন।",
+   words:[{en:"who", bn:"কে"},{en:"what", bn:"কী"},{en:"where", bn:"কোথায়"},{en:"when", bn:"কখন"},{en:"how", bn:"কীভাবে"},{en:"why", bn:"কেন"}],
+   rules:[
+     {en:"What is your name?", bn:"তোমার নাম কী?"},
+     {en:"Where do you live?", bn:"তুমি কোথায় থাকো?"},
+     {en:"How old are you?", bn:"তোমার বয়স কত?"},
+     {en:"Do you like tea?", bn:"তুমি চা পছন্দ করো? (Yes/No)"}
+   ],
+   structure:{title:"🧱 প্রশ্নের ২ সূত্র", points:[
+     {pattern:"WH-word + aux + sub + verb", bn:"Where do you live? = WH(Where) + do + you + live"},
+     {pattern:"Aux + sub + verb?", bn:"Yes/No — Do you go? Is she happy? Have you eaten?"}
+   ]},
+   quiz:[
+     {q:"\"কোথায় থাকো\" — কোনটি?", opts:["Where you live?","Where do you live?","Where does you live?"], a:1},
+     {q:"\"তুমি কি ভাত খাও\" — কোনটি?", opts:["Do you eat rice?","Are you eat rice?","You eat rice?"], a:0},
+     {q:"\"কখন\" ইংরেজি কোন শব্দে?", opts:["how","when","what"], a:1}
+   ]},
+  {id:"s3", level:"inter", cat:"sentence", title:"জটিল বাক্য — and, but, because, so",
+   intro:"ছোট ছোট বাক্য জোড়া দিয়ে বড় বাক্য বানান — I was tired so I slept. এই লিঙ্কগুলো শিখলে কথা প্রবাহমান হবে।",
+   words:[{en:"and", bn:"এবং"},{en:"but", bn:"কিন্তু"},{en:"because", bn:"কারণ"},{en:"so", bn:"তাই"},{en:"or", bn:"অথবা"}],
+   rules:[
+     {en:"I was tired, so I went to sleep.", bn:"আমি ক্লান্ত ছিলাম, তাই ঘুমাতে গিয়েছিলাম। (so = তাই)"},
+     {en:"She is rich but honest.", bn:"সে ধনী কিন্তু সৎ। (but = বৈপরীত্য)"},
+     {en:"I stayed home because it was raining.", bn:"আমি বাড়িতে ছিলাম কারণ বৃষ্টি হচ্ছিল। (because = কারণ)"}
+   ],
+   structure:{title:"🧱 জোড়া লাগানোর সূত্র", points:[
+     {pattern:"and = এবং (যোগ)", bn:"I like tea and coffee."},
+     {pattern:"but = কিন্তু (বৈপরীত্য)", bn:"He is poor but happy."},
+     {pattern:"because = কারণ (কারণ)", bn:"I slept because I was tired."},
+     {pattern:"so = তাই (ফল)", bn:"It was raining so I stayed."}
+   ]},
+   quiz:[
+     {q:"কারণ বোঝাতে কোনটি?", opts:["so","but","because"], a:2},
+     {q:"ফল/ফলাফল বোঝাতে?", opts:["because","so","and"], a:1},
+     {q:"বৈপরীত্য বোঝাতে?", opts:["and","but","because"], a:1}
+   ]},
+  {id:"s4", level:"inter", cat:"sentence", title:"কীভাবে সঠিক বাক্য লিখবেন — Common Mistakes",
+   intro:"সবচেয়ে বেশি যে ভুলগুলো নতুন শিক্ষার্থীরা করে — আজ সেগুলো শিখে নিন যাতে না-ভুলেন।",
+   words:[{en:"mistake", bn:"ভুল"},{en:"correct", bn:"সঠিক"},{en:"wrong", bn:"ভুল"},{en:"grammar", bn:"ব্যাকরণ"}],
+   rules:[
+     {en:"❌ I am agree → ✅ I agree.", bn:"agree নিজেই verb — I am দিতে হয় না।"},
+     {en:"❌ I didn't went → ✅ I didn't go.", bn:"didn't পরে verb-এর main form — went নয় go।"},
+     {en:"❌ She have → ✅ She has.", bn:"She/He/It এর সাথে have হয় না — has হয়।"},
+     {en:"❌ I am loving it → ✅ I love it.", bn:"love/like/want প্রভৃতি continuous হয় না — I love it।"}
+   ],
+   structure:{title:"🧱 সবচেয়ে বেশি ভুলের তালিকা", points:[
+     {pattern:"didn't/don't/doesn't পরে verb1", bn:"I didn't went → I didn't go"},
+     {pattern:"have হবে has (he/she/it)", bn:"She have → She has"},
+     {pattern:"ইয়ে-বোধক continuous হয় না", bn:"I am loving → I love"},
+     {pattern:"to be নেই action verb-এর সাথে", bn:"I am agree → I agree"}
+   ]},
+   quiz:[
+     {q:"সঠিক বাক্য কোনটি?", opts:["I didn't went.","I didn't go.","I don't went."], a:1},
+     {q:"কোনটি সঠিক?", opts:["She have a phone.","She has a phone.","She haves a phone."], a:1},
+     {q:"কোনটি সঠিক?", opts:["I am loving it.","I love it.","I am love it."], a:1}
+   ]},
+
+  // ===== SPEAKING =====
+  {id:"sp1", level:"inter", cat:"speaking", title:"দৈনন্দিন সংলাপ — সাধারণ প্রশ্নোত্তর",
+   intro:"দৈনন্দিন যে ছোট ছোট প্রশ্ন-উত্তর হয় — What's up? How's it going? Where you from? এসবের উত্তর কীভাবে দেবেন শিখুন।",
+   words:[{en:"how's it going", bn:"কেমন চলছে"},{en:"what's up", bn:"কী অবস্থা"},{en:"where are you from", bn:"তুমি কোথা থেকে"},{en:"see you", bn:"দেখা হবে"}],
+   rules:[
+     {en:"What's up? — Not much, just working.", bn:"কী অবস্থা? — বিশেষ কিছু না, কাজ করছি।"},
+     {en:"How's it going? — Great! How about you?", bn:"কেমন চলছে? — ভালো! তুমি কেমন?"},
+     {en:"Where are you from? — I'm from Dhaka.", bn:"তুমি কোথা থেকে? — আমি ঢাকা থেকে।"}
+   ],
+   structure:{title:"🧱 দৈনন্দিন প্রশ্নের উত্তর সূত্র", points:[
+     {pattern:"I'm from + শহর", bn:"I'm from Dhaka/Rajshahi."},
+     {pattern:"It's going well/okay/great", bn:"কেমন চলছে — ভালো/ঠিকঠাক/দারুণ"}
+   ]},
+   quiz:[
+     {q:"\"What's up?\" এর সহজ উত্তর?", opts:["Nothing much.","I don't know.","Yes, please."], a:0},
+     {q:"\"তুমি কোথা থেকে\" উত্তর?", opts:["I am Dhaka.","I'm from Dhaka.","I live Dhaka."], a:1}
+   ]},
+  {id:"sp2", level:"inter", cat:"speaking", title:"সাহায্য চাওয়া ও দেওয়া",
+   intro:"Can you help me? Could you...? — কিছু চাওয়ার ভদ্র উপায় শিখুন।",
+   words:[{en:"could", bn:"পারবেন (ভদ্র)"},{en:"would", bn:"করবেন (ভদ্র)"},{en:"please", bn:"দয়া করে"},{en:"mind", bn:"আপত্তি"}],
+   rules:[
+     {en:"Can you help me, please?", bn:"আমাকে একটু সাহায্য করবেন? (সাধারণ)"},
+     {en:"Could you open the door, please?", bn:"দরজাটা খুলে দেবেন প্লিজ? (ভদ্র)"},
+     {en:"Would you mind helping me?", bn:"একটু সাহায্য করবেন কি? (খুব ভদ্র)"}
+   ],
+   structure:{title:"🧱 ভদ্রভাবে চাওয়ার সূত্র", points:[
+     {pattern:"Can you + verb1 + please", bn:"Can you come, please?"},
+     {pattern:"Could you + verb1 + please", bn:"Could you help me, please?"},
+     {pattern:"Would you mind + verb-ing", bn:"Would you mind helping me?"}
+   ]},
+   quiz:[
+     {q:"সবচেয়ে ভদ্র প্রশ্ন কোনটি?", opts:["Help me!","Can you help me?","Would you mind helping me?"], a:2},
+     {q:"\"দরজাটা খুলবেন\" ভদ্র করে?", opts:["Could you open the door?","You open door.","Open door please."], a:0}
+   ]},
+  {id:"sp3", level:"inter", cat:"speaking", title:"নির্দেশ দেওয়া ও অনুমতি নেওয়া",
+   intro:"Go straight, turn left — রাস্তা দেখানো আর Can I use your phone? টাইপ অনুমতি চাওয়া শিখুন।",
+   words:[{en:"turn left", bn:"বামে যান"},{en:"turn right", bn:"ডানে যান"},{en:"go straight", bn:"সোজা যান"},{en:"may I", bn:"পারবো কি (ভদ্র)"},{en:"let me", bn:"দিন"}],
+   rules:[
+     {en:"Go straight, then turn left.", bn:"সোজা যান, তারপর বামে যান।"},
+     {en:"May I use your phone?", bn:"আপনার ফোনটা একটু ব্যবহার করতে পারবো? (ভদ্র)"},
+     {en:"Let me help you.", bn:"আপনাকে সাহায্য করতে দিন।"}
+   ],
+   structure:{title:"🧱 নির্দেশনা ও অনুমতির সূত্র", points:[
+     {pattern:"Go/Turn + left/right/straight", bn:"দিক নির্দেশ"},
+     {pattern:"May I + verb1", bn:"May I come in? = ভেতরে আসতে পারবো?"},
+     {pattern:"Let me + verb1", bn:"Let me help you. = আপনাকে সাহায্য করতে দিন"}
+   ]},
+   quiz:[
+     {q:"\"ফোনটা ব্যবহার করতে পারি\" — ভদ্র করে?", opts:["Give me your phone.","May I use your phone?","I use your phone."], a:1},
+     {q:"\"সোজা যান\" ইংরেজি কোনটি?", opts:["Go left","Go straight","Turn straight"], a:1}
+   ]},
+
+  // ===== WRITING =====
+  {id:"w1", level:"inter", cat:"writing", title:"ইমেইল/চিঠি লেখা — ফরমাল ফরম্যাট",
+   intro:"Dear Sir, I am writing to... — অফিসিয়াল ইমেইল কীভাবে লিখবেন শিখুন। চাকরির আবেদন থেকে কাস্টমার রিপোর্ট পর্যন্ত।",
+   words:[{en:"dear", bn:"প্রিয়"},{en:"regarding", bn:"সংক্রান্ত"},{en:"request", bn:"অনুরোধ"},{en:"attached", bn:"সংযুক্ত"},{en:"regards", bn:"শুভেচ্ছা"}],
+   rules:[
+     {en:"Dear Sir/Madam, I am writing to apply for the position...", bn:"সম্ভাষণ দিয়ে শুরু — প্রাপককে শ্রদ্ধা জানান।"},
+     {en:"Please find the document attached.", bn:"ডকুমেন্টটি সংযুক্ত করা হলো।"},
+     {en:"I look forward to your reply. Best regards,", bn:"আপনার উত্তরের অপেক্ষায়। বিনীত,"}
+   ],
+   structure:{title:"🧱 ইমেইলের ফরম্যাট", points:[
+     {pattern:"Dear [Sir/Madam],", bn:"সম্ভাষণ দিয়ে শুরু"},
+     {pattern:"I am writing to + উদ্দেশ্য", bn:"I am writing to apply/inform/request"},
+     {pattern:"Best regards / Sincerely,", bn:"শেষ বিনীততা"}
+   ]},
+   quiz:[
+     {q:"ইমেইল শুরু করার ফরমাল উপায়?", opts:["Hey!","Dear Sir/Madam,","Yo, boss!"], a:1},
+     {q:"ইমেইলের শেষ কীভাবে করবেন?", opts:["Bye bye!","Best regards,","That's all."], a:1}
+   ]},
+  {id:"w2", level:"adv", cat:"writing", title:"প্রেজেন্টেশন ও স্পিচ — পেশাদার বর্ণনা",
+   intro:"First of all, I would like to say... — জনসমক্ষে বা মিটিংয়ে সুন্দরভাবে কথা শুরু, পয়েন্ট বোঝানো আর শেষ করার বাক্য।",
+   words:[{en:"first of all", bn:"সর্বপ্রথম"},{en:"to sum up", bn:"সারসংক্ষেপে"},{en:"in conclusion", bn:"সিদ্ধান্তে"},{en:"thank you for listening", bn:"শোনার জন্য ধন্যবাদ"}],
+   rules:[
+     {en:"First of all, I would like to thank you all for coming.", bn:"সর্বপ্রথম, আপনাদের আসার জন্য ধন্যবাদ।"},
+     {en:"There are three main points I want to discuss.", bn:"আমি তিনটি মূল বিষয় আলোচনা করতে চাই।"},
+     {en:"In conclusion, we need to work harder. Thank you.", bn:"সিদ্ধান্তে বলা যায়, আমাদের আরও কঠোর কাজ করতে হবে। ধন্যবাদ।"}
+   ],
+   structure:{title:"🧱 স্পিচের গঠন", points:[
+     {pattern:"First of all / To begin with", bn:"শুরুর পরিচয়"},
+     {pattern:"First, Second, Finally", bn:"পয়েন্ট বোঝানোর ক্রম"},
+     {pattern:"In conclusion / To sum up", bn:"শেষের সারসংক্ষেপ"}
+   ]},
+   quiz:[
+     {q:"স্পিচ শুরু করার ভদ্র উপায়?", opts:["Listen everyone!","First of all, thank you for coming.","Now hear this!"], a:1},
+     {q:"পয়েন্ট বোঝাতে কোনটি?", opts:["First, second, finally","One, two, three","Start, middle, end"], a:0}
+   ]},
+
+  // ===== ADVANCED / MISCELLANEOUS =====
+  {id:"a1", level:"adv", cat:"advanced", title:"শর্তসাপেক্ষ বাক্য — Conditionals",
+   intro:"If দিয়ে শর্ত: If I had money, I would travel. এই ক্লাসে শিখুন স্বপ্ন, সম্ভাবনা আর শর্ত বোঝানোর ইংরেজি।",
+   words:[{en:"if", bn:"যদি"},{en:"would", bn:"হতো (শর্তসাপেক্ষ)"},{en:"could", bn:"পারতাম"},{en:"unless", bn:"যদি না"},{en:"chance", bn:"সুযোগ"}],
+   rules:[
+     {en:"If I had money, I would travel the world.", bn:"যদি আমার টাকা থাকত, আমি পৃথিবী ঘুরে বেড়াতাম। (স্বপ্ন/অসম্ভব শর্ত)"},
+     {en:"If it rains, I will stay home.", bn:"যদি বৃষ্টি হয়, আমি বাড়িতে থাকবো। (সম্ভাব্য শর্ত)"},
+     {en:"I would help you if I could.", bn:"পারলে তোমাকে সাহায্য করতাম।"}
+   ],
+   structure:{title:"🧱 শর্তের সূত্র", points:[
+     {pattern:"If + sub + verb2, sub + would + verb1", bn:"If I had money, I would travel."},
+     {pattern:"If + sub + verb1, sub + will + verb1", bn:"If it rains, I will stay."}
+   ]},
+   quiz:[
+     {q:"সম্ভাব্য শর্ত কোনটি?", opts:["If I were you...","If it rains, I will stay.","If I had known..."], a:1},
+     {q:"\"If I were you, I would study.\" মানে?", opts:["তুমি আমি হলে পড়তে","আমি তুমি হলে পড়তাম","তুমি আমার মতো পড়ো"], a:1},
+     {q:"\"unless\" মানে?", opts:["যদি","যদি না","কারণ"], a:1}
+   ]},
+  {id:"a2", level:"adv", cat:"advanced", title:"Phrasal Verbs — আসল ইংরেজির চাবিকাঠি",
+   intro:"give up, look after, put off — এই ছোট ছোট কম্বিনেশন শিখলে ইংরেজিতে নেটিভদের মতো কথা বলা সহজ হবে।",
+   words:[{en:"give up", bn:"হাল ছাড়া"},{en:"look after", bn:"দেখাশোনা করা"},{en:"put off", bn:"পিছিয়ে দেওয়া"},{en:"find out", bn:"খুঁজে বের করা"},{en:"carry on", bn:"চালিয়ে যাওয়া"}],
+   rules:[
+     {en:"Never give up on your dreams.", bn:"কখনো তোমার স্বপ্ন ছেড়ো না।"},
+     {en:"Can you look after my cat?", bn:"আমার বিড়ালটার দেখাশোনা করবেন?"},
+     {en:"The meeting was put off until Friday.", bn:"মিটিং শুক্রবার পর্যন্ত পিছিয়ে দেওয়া হয়েছে।"}
+   ],
+   structure:{title:"🧱 প্রধান Phrasal Verbs", points:[
+     {pattern:"give up = হাল ছাড়া", bn:"Never give up."},
+     {pattern:"look after = দেখাশোনা", bn:"Look after your books."},
+     {pattern:"put off = পিছিয়ে দেওয়া", bn:"Don't put off your study."}
+   ]},
+   quiz:[
+     {q:"\"give up\" মানে?", opts:["দেওয়া উপরে","হাল ছাড়া","উপরে তোলা"], a:1},
+     {q:"দেখাশোনা করা বোঝাতে?", opts:["look after","look at","look up"], a:0},
+     {q:"খুঁজে বের করা = ?", opts:["find out","put off","give in"], a:0}
+   ]},
+  {id:"a3", level:"adv", cat:"writing", title:"বর্ণনা করা — Describing People & Places",
+   intro:"কাউকে বা কোনো জায়গাকে সুন্দরভাবে বর্ণনা করতে adjective আর বাক্য গঠন শিখুন।",
+   words:[{en:"appearance", bn:"চেহারা"},{en:"personality", bn:"ব্যক্তিত্ব"},{en:"lively", bn:"প্রাণবন্ত"},{en:"crowded", bn:"ভিড়ে ভরা"},{en:"peaceful", bn:"শান্তিপূর্ণ"}],
+   rules:[
+     {en:"He is tall, friendly and very hard-working.", bn:"সে লম্বা, বন্ধুসুলভ এবং খুব পরিশ্রমী।"},
+     {en:"Dhaka is a busy but lively city.", bn:"ঢাকা একটা ব্যস্ত কিন্তু প্রাণবন্ত শহর।"},
+     {en:"The village is peaceful, especially at dawn.", bn:"গ্রামটা শান্তিপূর্ণ, বিশেষ করে ভোরবেলা।"}
+   ],
+   structure:{title:"🧱 বর্ণনার সূত্র", points:[
+     {pattern:"subject + is/are + adj1 + adj2 + adj3", bn:"He is tall, kind and smart."},
+     {pattern:"place + is a + adj + city/village", bn:"Dhaka is a busy city."}
+   ]},
+   quiz:[
+     {q:"মানুষের ব্যক্তিত্ব বোঝাতে কোনটি?", opts:["He is tall.","He is honest and kind.","He is in Dhaka."], a:1},
+     {q:"\"crowded\" মানে?", opts:["জনশূন্য","ভিড়ে ভরা","পরিষ্কার"], a:1},
+     {q:"শহর বর্ণনায় কোনটি সঠিক?", opts:["Dhaka is busy city.","Dhaka is a busy city.","Dhaka is the busy city."], a:1}
+   ]},
+  {id:"i4", level:"inter", cat:"speaking", title:"চাকরির ভাইভা — নিজেকে উপস্থাপন",
+   intro:"চাকরির ইন্টারভিউতে যেসব বাক্য দরকার — Tell me about yourself থেকে I'm a quick learner পর্যন্ত।",
+   words:[{en:"experience", bn:"অভিজ্ঞতা"},{en:"skill", bn:"দক্ষতা"},{en:"responsible", bn:"দায়িত্বশীল"},{en:"team", bn:"দল"},{en:"strength", bn:"শক্তি/দক্ষতা"}],
+   rules:[
+     {en:"I have three years of experience in sales.", bn:"আমার সেলসে তিন বছরের অভিজ্ঞতা আছে।"},
+     {en:"I'm a quick learner and hard-working.", bn:"আমি দ্রুত শিখি এবং পরিশ্রমী।"},
+     {en:"I can work well in a team.", bn:"আমি দলে ভালোভাবে কাজ করতে পারি।"}
+   ],
+   structure:{title:"🧱 ভাইভায় নিজেকে উপস্থাপনের সূত্র", points:[
+     {pattern:"I have + number + years of experience", bn:"I have 3 years of experience."},
+     {pattern:"I'm a + দক্ষতা + and + দক্ষতা", bn:"I'm a quick learner and hard-working."}
+   ]},
+   quiz:[
+     {q:"অভিজ্ঞতা বলতে কোনটি সঠিক?", opts:["I have 2 years experience.","I have 2 years of experience.","I am 2 years experienced."], a:1},
+     {q:"দ্রুত শেখা বোঝাতে?", opts:["I'm a quick learner.","I learn quickful.","I am quick learn."], a:0},
+     {q:"\"team\" মানে?", opts:["একা কাজ","দল","প্রতিযোগিতা"], a:1}
+   ]},
+  {id:"i5", level:"inter", cat:"speaking", title:"অভিমত দেওয়া ও নেওয়া",
+   intro:"I think..., In my opinion... — নিজের মত প্রকাশ করতে আর অন্যের মতের সাথে দ্বিমত করতে শিখুন।",
+   words:[{en:"opinion", bn:"মতামত"},{en:"agree", bn:"একমত"},{en:"disagree", bn:"দ্বিমত"},{en:"maybe", bn:"হয়তো"},{en:"certainly", bn:"অবশ্যই"}],
+   rules:[
+     {en:"In my opinion, English is very useful.", bn:"আমার মতে, ইংরেজি খুব কাজের।"},
+     {en:"I agree with you.", bn:"আমি আপনার সাথে একমত।"},
+     {en:"I'm sorry, but I disagree.", bn:"দুঃখিত, কিন্তু আমি একমত নই। — ভদ্রভাবে দ্বিমত।"}
+   ],
+   structure:{title:"🧱 মত প্রকাশের সূত্র", points:[
+     {pattern:"In my opinion / I think", bn:"নিজের মত"},
+     {pattern:"I agree / I disagree", bn:"একমত/দ্বিমত"}
+   ]},
+   quiz:[
+     {q:"নিজের মত বলতে?", opts:["In my opinion...","You are wrong.","Nobody cares."], a:0},
+     {q:"একমত হলে বলবেন?", opts:["I disagree.","I agree with you.","I don't care."], a:1},
+     {q:"\"maybe\" এর অর্থ?", opts:["অবশ্যই","হয়তো","কখনোই না"], a:1}
+   ]}
+];
+
+// ------------------------- PRACTICE SCENARIOS -------------------------
+const DEFAULT_SCENARIOS = [
+  {id:"rest", icon:"🍽️", title:"Restaurant", sub:"রেস্টুরেন্টে অর্ডার করা",
+   prompt:"Welcome to Green Restaurant! 🍽️ I'm your waiter. What would you like to order today?",
+   hints:["I'd like a chicken burger, please.","Can I see the menu?","The bill, please."],
+   aiNote:"You are a friendly restaurant waiter. The user is a Bangladeshi English learner practicing ordering food. Ask natural questions about their order, suggest items, keep it short (1-2 sentences). Correct gently if they make mistakes."},
+  {id:"shop", icon:"🛍️", title:"Shopping", sub:"দোকানে কেনাকাটা",
+   prompt:"Hello! Welcome to our shop! 🛍️ How can I help you today?",
+   hints:["How much is this shirt?","Do you have a smaller size?","I'm just looking, thanks."],
+   aiNote:"You are a shopkeeper. The user is a Bangladeshi English learner practicing shopping conversations. Talk about prices, sizes, colors. Keep it short. Correct gently if needed."},
+  {id:"interv", icon:"💼", title:"Job Interview", sub:"চাকরির ভাইভা",
+   prompt:"Good morning! Please have a seat. I'm the hiring manager. Let's start — tell me about yourself.",
+   hints:["I'm a hard-working person.","I have 2 years of experience.","I'm a quick learner."],
+   aiNote:"You are a job interviewer at a company. The user is a Bangladeshi English learner practicing interview skills. Ask common interview questions: strengths, weaknesses, experience, goals. Keep it short and encouraging."},
+  {id:"doctor", icon:"🩺", title:"At the Doctor", sub:"ডাক্তারের কাছে",
+   prompt:"Hello! I'm Dr. Rahman. What seems to be the problem today?",
+   hints:["I have a fever.","I have a headache since yesterday.","My stomach hurts."],
+   aiNote:"You are a doctor. The user is a Bangladeshi English learner practicing describing health problems. Ask about symptoms, give simple advice. Keep it short. Correct gently."},
+  {id:"travel", icon:"✈️", title:"Travel & Airport", sub:"ভ্রমণ ও এয়ারপোর্ট",
+   prompt:"Good morning! Welcome to the airport help desk. ✈️ Where are you flying today?",
+   hints:["I want to book a ticket to Dubai.","Where is gate 5?","I lost my luggage."],
+   aiNote:"You are an airport staff member. The user is a Bangladeshi English learner practicing travel English. Help with tickets, gates, luggage. Keep it short. Correct gently."},
+  {id:"free", icon:"💬", title:"Free Talk", sub:"যেকোনো বিষয়ে আলাপ",
+   prompt:"Hi there! 👋 I'm your English practice partner. Let's chat about anything — hobbies, movies, food, dreams! What do you want to talk about?",
+   hints:["Let's talk about cricket!","I love biryani!","What's your favorite movie?"],
+   aiNote:"You are a friendly conversation partner. The user is a Bangladeshi English learner practicing free conversation. Ask follow-up questions about their interests. Keep it short. Correct mistakes gently."}
+];
+
+// ------------------------- KIDS CONTENT -------------------------
+const KIDS_LETTERS = [
+  {l:"A", word:"Apple", bn:"আপেল (আম কুড়ি নয়!)", emoji:"🍎", phon:"A for Apple"},
+  {l:"B", word:"Ball", bn:"বল", emoji:"⚽", phon:"B for Ball"},
+  {l:"C", word:"Cat", bn:"বিড়াল", emoji:"🐱", phon:"C for Cat"},
+  {l:"D", word:"Dog", bn:"কুকুর", emoji:"🐶", phon:"D for Dog"},
+  {l:"E", word:"Elephant", bn:"হাতি", emoji:"🐘", phon:"E for Elephant"},
+  {l:"F", word:"Fish", bn:"মাছ", emoji:"🐟", phon:"F for Fish"},
+  {l:"G", word:"Goat", bn:"ছাগল", emoji:"🐐", phon:"G for Goat"},
+  {l:"H", word:"Hat", bn:"টুপি", emoji:"👒", phon:"H for Hat"},
+  {l:"I", word:"Ice cream", bn:"আইসক্রিম", emoji:"🍦", phon:"I for Ice cream"},
+  {l:"J", word:"Jug", bn:"জগ", emoji:"🫗", phon:"J for Jug"},
+  {l:"K", word:"Kite", bn:"ঘুড়ি", emoji:"🪁", phon:"K for Kite"},
+  {l:"L", word:"Lion", bn:"সিংহ", emoji:"🦁", phon:"L for Lion"},
+  {l:"M", word:"Moon", bn:"চাঁদ", emoji:"🌙", phon:"M for Moon"},
+  {l:"N", word:"Nest", bn:"পাখির বাসা", emoji:"🪺", phon:"N for Nest"},
+  {l:"O", word:"Orange", bn:"কমলা", emoji:"🍊", phon:"O for Orange"},
+  {l:"P", word:"Parrot", bn:"টিয়া পাখি", emoji:"🦜", phon:"P for Parrot"},
+  {l:"Q", word:"Queen", bn:"রানী", emoji:"👑", phon:"Q for Queen"},
+  {l:"R", word:"Rain", bn:"বৃষ্টি", emoji:"🌧️", phon:"R for Rain"},
+  {l:"S", word:"Sun", bn:"সূর্য", emoji:"☀️", phon:"S for Sun"},
+  {l:"T", word:"Tiger", bn:"বাঘ", emoji:"🐯", phon:"T for Tiger"},
+  {l:"U", word:"Umbrella", bn:"ছাতা", emoji:"☂️", phon:"U for Umbrella"},
+  {l:"V", word:"Van", bn:"ভ্যান গাড়ি", emoji:"🚐", phon:"V for Van"},
+  {l:"W", word:"Watch", bn:"ঘড়ি", emoji:"⌚", phon:"W for Watch"},
+  {l:"X", word:"Xylophone", bn:"বাদ্যযন্ত্র", emoji:"🎹", phon:"X for Xylophone"},
+  {l:"Y", word:"Yak", bn:"ভেড়ার মতো পশু", emoji:"🐂", phon:"Y for Yak"},
+  {l:"Z", word:"Zebra", bn:"জেব্রা", emoji:"🦓", phon:"Z for Zebra"}
+];
+
+const KID_FIRST_WORDS = [
+  {en:"apple", bn:"আপেল", emoji:"🍎"},{en:"ball", bn:"বল", emoji:"⚽"},
+  {en:"cat", bn:"বিড়াল", emoji:"🐱"},{en:"dog", bn:"কুকুর", emoji:"🐶"},
+  {en:"sun", bn:"সূর্য", emoji:"☀️"},{en:"moon", bn:"চাঁদ", emoji:"🌙"},
+  {en:"star", bn:"তারা", emoji:"⭐"},{en:"fish", bn:"মাছ", emoji:"🐟"},
+  {en:"bird", bn:"পাখি", emoji:"🐦"},{en:"duck", bn:"হাঁস", emoji:"🦆"},
+  {en:"cow", bn:"গরু", emoji:"🐄"},{en:"milk", bn:"দুধ", emoji:"🥛"},
+  {en:"cake", bn:"কেক", emoji:"🎂"},{en:"car", bn:"গাড়ি", emoji:"🚗"},
+  {en:"bus", bn:"বাস", emoji:"🚌"},{en:"book", bn:"বই", emoji:"📖"},
+  {en:"pen", bn:"কলম", emoji:"🖊️"},{en:"tree", bn:"গাছ", emoji:"🌳"},
+  {en:"flower", bn:"ফুল", emoji:"🌸"},{en:"house", bn:"বাড়ি", emoji:"🏠"}
+];
+
+const KID_GAMES = [
+  {id:"pickword", icon:"🎯", title:"ভেজাল মেলাও!", sub:"ছবি দেখে সঠিক শব্দ বাছাই করো"},
+  {id:"abcsong", icon:"🎵", title:"ABC শেখো", sub:"A থেকে Z — প্রতিটা অক্ষর ছবি ও শব্দসহ"}
+];
+
+// ------------------------- AI / SYSTEM -------------------------
+const GROQ_MODELS = {
+  chat:"llama-3.3-70b-versatile",
+  stt:"whisper-large-v3-turbo"
+};
+</script><script>/* ============================================================
+   English Guru — app.js (main logic)
+   ============================================================ */
+
+/* ---------- Tiny helpers ---------- */
+const $ = (s, r=document)=>r.querySelector(s);
+const $$ = (s, r=document)=>[...r.querySelectorAll(s)];
+const el = (tag, cls, html)=>{const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e;};
+const esc = (s)=>String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const todayKey=()=>{const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
+const monthKey=()=>{const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");};
+const shuffle=(a)=>{a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a;};
+const sample=(a)=>{ if(!a||!a.length)return null; return a[Math.floor(Math.random()*a.length)]; };
+
+/* ---------- Storage ---------- */
+const LS = {
+  get(k, fb){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):fb; }catch(e){ return fb; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+function defaultState(){
+  return {
+    onboarded: LS.get("eg_onboarded", false),
+    name: LS.get("eg_name", ""),
+    theme: LS.get("eg_theme", "light"),
+    tts: LS.get("eg_tts", true),
+    xp: LS.get("eg_xp", 0),
+    streak: LS.get("eg_streak", {count:0, last:""}),
+    lessonsDone: LS.get("eg_lessonsDone", []),
+    wordsLearned: LS.get("eg_wordsLearned", []),
+    monthlyLessons: LS.get("eg_monthlyLessons", 0),
+    currentMonth: LS.get("eg_month", monthKey()),
+    kidGamesPlayed: LS.get("eg_kidGames", 0),
+    chatsHad: LS.get("eg_chats", 0),
+    monthlyGoal: LS.get("eg_monthlyGoal", 8),
+    showKids: LS.get("eg_showKids", true),
+    showShortcuts: LS.get("eg_showShortcuts", true),
+    accent: LS.get("eg_accent", "#0e9f6e"),
+    appName: LS.get("eg_appName", "English Guru"),
+    announcement: LS.get("eg_announcement", ""),
+    pin: LS.get("eg_pin", "1234"),
+    ai: LS.get("eg_ai", {provider:"groq", baseUrl:"https://api.groq.com/openai/v1", chatModel:"llama-3.3-70b-versatile", sttModel:"whisper-large-v3-turbo", apiKey:""}),
+    customContent: LS.get("eg_customContent", {dict:[], lessons:[], scenarios:[]})
+  };
+}
+let S = defaultState();
+
+function persist(){
+  LS.set("eg_xp", S.xp);
+  LS.set("eg_streak", S.streak);
+  LS.set("eg_lessonsDone", S.lessonsDone);
+  LS.set("eg_wordsLearned", S.wordsLearned);
+  LS.set("eg_monthlyLessons", S.monthlyLessons);
+  LS.set("eg_month", S.currentMonth);
+  LS.set("eg_kidGames", S.kidGamesPlayed);
+  LS.set("eg_chats", S.chatsHad);
+  LS.set("eg_monthlyGoal", S.monthlyGoal);
+  LS.set("eg_showKids", S.showKids);
+  LS.set("eg_showShortcuts", S.showShortcuts);
+  LS.set("eg_accent", S.accent);
+  LS.set("eg_appName", S.appName);
+  LS.set("eg_announcement", S.announcement);
+  LS.set("eg_pin", S.pin);
+  LS.set("eg_ai", S.ai);
+  LS.set("eg_customContent", S.customContent);
+  LS.set("eg_onboarded", S.onboarded);
+  LS.set("eg_name", S.name);
+  LS.set("eg_tts", S.tts);
+}
+function setTheme(t){ S.theme=t; LS.set("eg_theme",t); document.documentElement.dataset.theme=t; const ic=$("#themeIc"); if(ic) ic.textContent = t==="dark"?"☀️":"🌙"; }
+function applyBranding(){
+  document.documentElement.style.setProperty("--brand", S.accent);
+  document.documentElement.style.setProperty("--brand-2", S.accent);
+  $$(".app-title").forEach(e=>e.textContent=S.appName);
+  document.title=S.appName+" — ইংরেজি শেখার সহজ উপায়";
+  const em=$$(".app-emblem span, .splash-emblem span"); em.forEach(e=>e.textContent=(S.appName[0]||"E").toUpperCase());
+}
+
+/* ---------- Global UI ---------- */
+let currentTab="home";
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.remove("hidden"); clearTimeout(t._tm); t._tm=setTimeout(()=>t.classList.add("hidden"),2300); }
+function closeGenericModal(){ $("#genericModal").classList.add("hidden"); }
+
+/* ---------- Progress helpers ---------- */
+function rollMonth(){ if(S.currentMonth!==monthKey()){ S.currentMonth=monthKey(); S.monthlyLessons=0; LS.set("eg_month",S.currentMonth); LS.set("eg_monthlyLessons",0);} }
+function addXP(n){ S.xp+=n; LS.set("eg_xp",S.xp); }
+function markLesson(id){
+  if(!S.lessonsDone.includes(id)){ S.lessonsDone.push(id); LS.set("eg_lessonsDone",S.lessonsDone); rollMonth(); S.monthlyLessons++; LS.set("eg_monthlyLessons",S.monthlyLessons); addXP(15); }
+  touchStreak();
+}
+function touchStreak(){
+  const tk=todayKey();
+  if(S.streak.last!==tk){
+    const yesterday=new Date(Date.now()-86400000);
+    const yk=yesterday.getFullYear()+"-"+String(yesterday.getMonth()+1).padStart(2,"0")+"-"+String(yesterday.getDate()).padStart(2,"0");
+    S.streak.count = (S.streak.last===yk ? S.streak.count : 0)+1;
+    S.streak.last=tk;
+    LS.set("eg_streak",S.streak);
+  }
+}
+function pct(done,total){ return total? Math.min(100, Math.round(done/total*100)):0; }
+
+/* ---------- Content merging ---------- */
+const allDict=()=>[...DEFAULT_DICT, ...(S.customContent.dict||[])];
+const allLessons=()=>[...DEFAULT_LESSONS, ...(S.customContent.lessons||[])];
+const allScenarios=()=>[...DEFAULT_SCENARIOS, ...(S.customContent.scenarios||[])];
+const lessonById=(id)=>allLessons().find(l=>l.id===id);
+
+const LEVELS=[
+  {id:"beginner", icon:"🌱", title:"বিগিনার", sub:"শুরু থেকে — অভিবাদন, পরিচয়, দৈনন্দিন", color:"#16a34a"},
+  {id:"inter", icon:"🚀", title:"ইন্টারমিডিয়েট", sub:"কাল, পরিকল্পনা, রুটিন, ভাইভা", color:"#2563eb"},
+  {id:"adv", icon:"🏆", title:"অ্যাডভান্সড", sub:"Perfect tense, phrasal verb, ফরমাল ইংরেজি", color:"#9333ea"}
+];
+
+/* ---------- Text-to-speech ---------- */
+let enVoice=null;
+function initVoice(){ try{ const vs=speechSynthesis.getVoices(); enVoice=vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null; }catch(e){} }
+if("speechSynthesis" in window){ initVoice(); try{ speechSynthesis.onvoiceschanged=initVoice; }catch(e){} }
+function speak(text, onEnd){
+  const clean=String(text).replace(/[^\x00-\x7F]+/g," ").replace(/\s+/g," ").trim();
+  if(!clean){ if(onEnd) setTimeout(onEnd, 300); return; }
+  // Android APK bridge (WebView has no speechSynthesis)
+  if(window.NativeTTS){
+    try{ window.NativeTTS.speak(clean); }catch(e){}
+    if(onEnd) setTimeout(onEnd, Math.min(9000, 900+clean.length*55));
+    return;
+  }
+  if(!S.tts || !("speechSynthesis" in window)){ if(onEnd) setTimeout(onEnd, 300); return; }
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(clean);
+    u.lang="en-US"; u.rate=0.95; if(enVoice) u.voice=enVoice;
+    if(onEnd) u.onend=()=>{ setTimeout(onEnd,250); };
+    speechSynthesis.speak(u);
+  }catch(e){ if(onEnd) setTimeout(onEnd, 300); }
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+function go(tab){
+  if(!S.onboarded) return;
+  currentTab=tab;
+  $$(".nav-btn").forEach(b=>b.classList.toggle("active", b.dataset.nav===tab));
+  const view=$("#view");
+  if(tab==="home") renderHome(view);
+  else if(tab==="learn") renderLearn(view);
+  else if(tab==="dict") renderDict(view);
+  else if(tab==="practice") renderPractice(view);
+  else if(tab==="profile") renderProfile(view);
+  else if(tab==="shortcuts") renderShortcuts(view);
+  else if(tab==="kids") renderKids(view);
+  window.scrollTo({top:0});
+}
+
+/* ============================================================
+   HOME
+   ============================================================ */
+function renderHome(v){
+  rollMonth();
+  const dict=allDict();
+  const goalPct=pct(S.lessonsDone.length, Math.max(1,S.monthlyGoal));
+  const hour=new Date().getHours();
+  const greet= hour<12?"সুপ্রভাত": hour<17?"শুভ দুপুর": hour<20?"শুভ সন্ধ্যা":"শুভ রাত্রি";
+  const wotd=dict[(new Date().getDate()) % dict.length];
+
+  const features=[
+    {k:"learn", icon:"📚", title:"লার্ন পাঠ", sub:"অভ্যাস ও কুইজসহ পাঠ", cls:"fc-learn"},
+    {k:"dict", icon:"📖", title:"ডিকশনারি", sub:"ইংরেজি→বাংলা + অনলাইন", cls:"fc-dict"},
+    {k:"practice", icon:"💬", title:"AI প্র্যাকটিস", sub:"ভয়েসসহ AI-এর সাথে কথা", cls:"fc-practice"},
+    {k:"shortcuts", icon:"⚡", title:"Fast ট্রিক্স", sub:"নেটিভদের মতো কথা বলুন", cls:"fc-shortcut"},
+    {k:"kids", icon:"🧒", title:"কিডস ইংলিশ", sub:"ABC থেকে শুরু — ছোটদের জন্য", cls:"fc-kids"}
+  ].filter(f=> (f.k!=="kids"||S.showKids) && (f.k!=="shortcuts"||S.showShortcuts));
+
+  v.innerHTML=`
+    ${S.announcement? `<div style="background:var(--gold-soft);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px;margin:6px 0 4px">📢 ${esc(S.announcement)}</div>`:""}
+    <div class="hellocard">
+      <div class="hello-ghost">📘</div>
+      ${S.name? `<div class="hello-hi">${greet},</div><div class="hello-name">${esc(S.name)} 👋</div>` : `<div class="hello-hi">${greet} 👋</div><div class="hello-name">English শিখুন সহজে</div>`}
+      <div class="hello-stats">
+        <div class="hstat"><div class="h-ic">⚡</div><div><b>${S.xp}</b><small>XP</small></div></div>
+        <div class="hstat"><div class="h-ic">🔥</div><div><b>${S.streak.count}</b><small>দিন streak</small></div></div>
+        <div class="hstat"><div class="h-ic">✅</div><div><b>${S.lessonsDone.length}</b><small>লেসন শেষ</small></div></div>
+      </div>
+    </div>
+
+    <div class="goal-card">
+      <div class="goal-top"><h3>🎯 এই মাসের টার্গেট</h3><span>${S.lessonsDone.length} / ${S.monthlyGoal} লেসন</span></div>
+      <div class="progress"><div class="fill" style="width:${goalPct}%"></div></div>
+      <div class="goal-foot"><span>আরও ${Math.max(0,S.monthlyGoal-S.lessonsDone.length)}টা লেসন বাকি</span><span>${goalPct}%</span></div>
+    </div>
+
+    <div class="sec-head"><h2>এক নজরে</h2></div>
+    <div class="feature-grid">
+      ${features.map(f=>`
+        <button class="feature-card ${f.cls}" data-nav-to="${f.k}">
+          <div class="fc-ic">${f.icon}</div>
+          <b>${f.title}</b><small>${f.sub}</small>
+        </button>`).join("")}
+    </div>
+
+    <div class="sec-head"><h2>আজকের শব্দ</h2><button data-nav-to="dict">সব শব্দ →</button></div>
+    <div class="wotd">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="wotd-word">${esc(wotd.en)}</div><div class="wotd-phon">${esc(wotd.ph)}</div></div>
+        <button class="tts-btn" data-tts="${esc(wotd.en)}">🔊</button>
+      </div>
+      <div class="wotd-meaning">${esc(wotd.bn)} — <em>${esc(wotd.pos)}</em></div>
+      <div class="wotd-ex">“${esc(wotd.ex)}”<br><span style="font-family:var(--font-bn);font-style:normal">${esc(wotd.exBn)}</span></div>
+    </div>
+
+    <div style="margin-top:26px" class="center-txt">
+      <button class="btn primary wide" data-nav-to="learn">📚 আজকের পড়া শুরু করুন</button>
+    </div>
+  `;
+}
+
+/* ============================================================
+   LEARN — পূর্ণাঙ্গ A-Z কোর্স (ক্যাটাগরি ভিত্তিক)
+   ============================================================ */
+const COURSE_CATS=[
+  {id:"basics", icon:"🔤", title:"Basic ভিত্তি", sub:"বর্ণমালা, সংখ্যা, বার, মাস", color:"#0ea5e9"},
+  {id:"grammar", icon:"📐", title:"ব্যাকরণ (Grammar)", sub:"বাক্যের কাঠামো, Parts of Speech", color:"#8b5cf6"},
+  {id:"tense", icon:"⏰", title:"Tense মাস্টার", sub:"১২টি কাল — সূত্র ও উদাহরণ", color:"#f59e0b"},
+  {id:"sentence", icon:"🧱", title:"বাক্য গঠন", sub:"কীভাবে বাক্য বানাবেন ধাপে ধাপে", color:"#10b981"},
+  {id:"speaking", icon:"🗣️", title:"Speaking", sub:"দৈনন্দিন কথোপকথন", color:"#ef4444"},
+  {id:"writing", icon:"✍️", title:"Writing", sub:"ইমেইল, প্রেজেন্টেশন", color:"#3b82f6"},
+  {id:"advanced", icon:"🏆", title:"Advanced", sub:"Phrasal verb, Conditionals", color:"#eab308"},
+  {id:"mistakes", icon:"❌", title:"ভুল-সংশোধন", sub:"সাধারণ ভুলগুলো এড়ান", color:"#dc2626"}
+];
+const lessonCat=(l)=>l.cat || (l.level==="beginner"?"speaking":l.level==="inter"?"grammar":"advanced");
+const lessonsIn=(catId)=>allLessons().filter(l=>lessonCat(l)===catId);
+
+function renderLearn(v){
+  const lessons=allLessons();
+  const done=S.lessonsDone.length;
+  v.innerHTML=`
+    <div class="page-head"><h1>📚 শেখার কোর্স</h1><p>A থেকে Z পর্যন্ত — ধাপে ধাপে ইংরেজি</p></div>
+    <div class="goal-card" style="margin-top:0">
+      <div class="goal-top"><h3>📖 আপনার অগ্রগতি</h3><span>${done} / ${lessons.length} লেসন</span></div>
+      <div class="progress"><div class="fill" style="width:${pct(done,lessons.length)}%"></div></div>
+      <div class="goal-foot"><span>${pct(done,lessons.length)}% সম্পন্ন</span><span>⚡ ${S.xp} XP</span></div>
+    </div>
+    <div class="sec-head"><h2>বিষয় বেছে নিন</h2></div>
+    <div class="course-grid">
+      ${COURSE_CATS.map(c=>{
+        const ls=lessonsIn(c.id);
+        const d=ls.filter(l=>S.lessonsDone.includes(l.id)).length;
+        return `<button class="course-card" data-course="${c.id}">
+          <div class="cc-icon" style="background:${c.color}22">${c.icon}</div>
+          <div class="cc-info"><b>${c.title}</b><small>${c.sub}</small>
+          ${ls.length?`<div class="cc-meta"><span class="cc-badge">${ls.length} লেসন</span>${d?`<span class="cc-badge done">${d} শেষ</span>`:""}</div>`:`<div class="cc-meta"><span class="cc-badge">শীঘ্রই</span></div>`}</div>
+        </button>`;
+      }).join("")}
+    </div>
+    <div style="height:20px"></div>
+  `;
+}
+
+function renderCourse(catId){
+  const c=COURSE_CATS.find(x=>x.id===catId); if(!c) return;
+  const view=$("#view");
+  const ls=lessonsIn(catId);
+  view.innerHTML=`
+    <div class="page-head">
+      <button class="btn sm ghost" data-back="learn" style="padding-left:0">← কোর্স</button>
+      <h1 style="margin-top:6px">${c.icon} ${c.title}</h1><p>${c.sub}</p>
+    </div>
+    <div id="catContent"></div>
+  `;
+  const box=$("#catContent");
+  if(catId==="basics"){
+    // Alphabet + numbers + days + months tabs
+    box.innerHTML=`<div class="chip-row">
+      <button class="chip active" data-bt="abc">🔤 Alphabet</button>
+      <button class="chip" data-bt="numbers">🔢 Numbers</button>
+      <button class="chip" data-bt="days">📅 Days</button>
+      <button class="chip" data-bt="months">🗓️ Months</button>
+    </div><div id="btBody"></div>`;
+    const basicsView=(tab)=>{
+      const body=$("#btBody");
+      if(tab==="abc") body.innerHTML=`<div class="kids-grid">${ALPHABET.map(k=>`<button class="letter-tile" data-tts="${k.l} for ${k.word}"><b>${k.l}</b><span class="lt-emoji">${k.emoji}</span><small>${k.bn}</small></button>`).join("")}</div>`;
+      else if(tab==="numbers") body.innerHTML=NUMBERS.map(n=>`<div class="lesson-item" style="cursor:default"><div class="li-num">${n.en.split(" ")[0]}</div><div class="li-info"><b>${n.en.split(" ").slice(1).join(" ")}</b><small>${n.bn}</small></div><button class="tts-btn" data-tts="${n.en.split(" ").slice(1).join(" ")}">🔊</button></div>`).join("");
+      else if(tab==="days") body.innerHTML=DAYS.map(d=>`<div class="lesson-item" style="cursor:default"><div class="li-num">📅</div><div class="li-info"><b>${d.en}</b><small>${d.bn}</small></div><button class="tts-btn" data-tts="${d.en}">🔊</button></div>`).join("");
+      else body.innerHTML=MONTHS.map(m=>`<div class="lesson-item" style="cursor:default"><div class="li-num">🗓️</div><div class="li-info"><b>${m.en}</b><small>${m.bn}</small></div><button class="tts-btn" data-tts="${m.en}">🔊</button></div>`).join("");
+    };
+    $$("[data-bt]").forEach(b=>b.onclick=()=>{ $$("[data-bt]").forEach(x=>x.classList.toggle("active",x===b)); basicsView(b.dataset.bt); });
+    basicsView("abc");
+    return;
+  }
+  if(catId==="mistakes"){
+    box.innerHTML=COMMON_MISTAKES.map(m=>`
+      <div class="rule-card" style="margin-bottom:10px">
+        <div style="color:var(--danger);font-size:14px">❌ ${esc(m.wrong)}</div>
+        <div style="color:var(--brand-deep);font-size:15px;font-weight:600;margin:3px 0">✅ ${esc(m.right)}</div>
+        <div style="font-size:13px;color:var(--ink-3)">💡 ${esc(m.why)}</div>
+      </div>`).join("");
+    return;
+  }
+  if(catId==="tense"){
+    box.innerHTML=`
+      <div class="admin-card"><h4>⏰ ১২টি Tense — সম্পূর্ণ চার্ট</h4><div class="ac-sub">সূত্র + ব্যবহার + উদাহরণ</div></div>
+      ${TENSE_CHART.map(t=>`
+        <div class="ex-card">
+          <b style="font-size:15.5px">${t.name}</b>
+          <div style="font-family:var(--font-en);background:var(--bg);padding:9px 13px;border-radius:11px;margin:8px 0;font-size:14px">📐 ${esc(t.formula)}</div>
+          <div style="font-size:13.5px;color:var(--ink-3)">🎯 ${esc(t.use)}</div>
+          <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center">
+            <div><b style="font-family:var(--font-en);font-size:14px">${esc(t.example)}</b><div style="font-size:13px;color:var(--ink-3)">${esc(t.bn)}</div></div>
+            <button class="tts-btn" data-tts="${esc(t.example)}">🔊</button>
+          </div>
+        </div>`).join("")}
+    `;
+    return;
+  }
+  if(catId==="grammar"){
+    box.innerHTML=`
+      <div class="admin-card"><h4>📐 ৮টি Parts of Speech</h4><div class="ac-sub">ইংরেজি ব্যাকরণের মূল ভিত্তি</div></div>
+      ${PARTS_OF_SPEECH.map(p=>`<div class="rule-card"><b>${esc(p.part)}</b><br><span style="font-size:13.5px">${esc(p.bn)}</span></div>`).join("")}
+      <div class="admin-card" style="margin-top:16px"><h4>📖 ৮টি গুরুত্বপূর্ণ নিয়ম</h4></div>
+      ${GRAMMAR_RULES.map(g=>`<div class="ex-card"><b>${esc(g.title)}</b><div style="font-size:13.5px;color:var(--ink-2);margin-top:4px">${esc(g.desc)}</div></div>`).join("")}
+      ${ls.length?`<div class="sec-head"><h2>প্র্যাকটিস লেসন</h2></div>${ls.map((l,i)=>lessonRow(l,i)).join("")}`:""}
+    `;
+    return;
+  }
+  if(catId==="sentence"){
+    box.innerHTML=`
+      <div class="admin-card"><h4>❓ প্রশ্ন করার ৮টি শব্দ (WH Words)</h4><div class="ac-sub">কে, কী, কোথায় — সব প্রশ্নের সূত্র</div></div>
+      ${QUESTION_TYPES.map(q=>`<div class="ex-card"><div style="display:flex;justify-content:space-between"><b style="font-family:var(--font-en)">${q.type}</b><button class="tts-btn" data-tts="${esc(q.example)}">🔊</button></div><div style="font-size:13.5px;color:var(--ink-3);margin-top:3px">${esc(q.bn)} — <em>${esc(q.use)}</em></div><div style="font-family:var(--font-en);font-size:13.5px;margin-top:5px;background:var(--bg);padding:7px 11px;border-radius:9px">${esc(q.example)}</div></div>`).join("")}
+      ${ls.length?`<div class="sec-head"><h2>বাক্য গঠনের লেসন</h2></div>${ls.map((l,i)=>lessonRow(l,i)).join("")}`:""}
+    `;
+    return;
+  }
+  // speaking / writing / advanced
+  box.innerHTML= ls.length? ls.map((l,i)=>lessonRow(l,i)).join("") : `<div class="empty-note">শীঘ্রই আসছে</div>`;
+}
+function lessonRow(l,i){
+  return `<button class="lesson-item ${S.lessonsDone.includes(l.id)?'done':''}" data-lesson="${l.id}">
+    <div class="li-num">${S.lessonsDone.includes(l.id)?"✓":(i+1)}</div>
+    <div class="li-info"><b>${esc(l.title)}</b><small>${(l.words||[]).length} শব্দ · ${(l.rules||[]).length} নিয়ম · কুইজসহ</small></div>
+    <div class="li-xp">⚡15</div>
+  </button>`;
+}
+
+/* ---------- Lesson overlay ---------- */
+function openLesson(id){
+  const l=lessonById(id); if(!l) return;
+  const ov=$("#lessonOverlay"); ov.classList.remove("hidden");
+  $("#lessonProgFill").style.width="0%";
+  const words=l.words||[]; const rules=l.rules||[]; const st=l.structure;
+  const catObj=COURSE_CATS.find(c=>c.id===lessonCat(l));
+  $("#lessonBody").innerHTML=`
+    <div class="lesson-kicker">${catObj?catObj.icon+" "+catObj.title:""}</div>
+    <div class="lesson-title">${esc(l.title)}</div>
+    <div class="lesson-intro">${esc(l.intro)}</div>
+
+    ${words.length?`<div class="lesson-sec-title">📖 শব্দভাণ্ডার</div>
+    ${words.map(w=>`
+      <div class="ex-card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="ex-en">${esc(w.en)}</div>
+          <button class="tts-btn" data-tts="${esc(w.en)}">🔊</button>
+        </div>
+        <div class="ex-bn">${esc(w.bn)}</div>
+      </div>`).join("")}`:""}
+
+    ${rules.length?`<div class="lesson-sec-title">📝 নিয়ম ও অর্থ</div>
+    ${rules.map(r=>`<div class="rule-card">${esc(r.en)}<br><span style="color:var(--ink-2);font-size:13.5px">${esc(r.bn)}</span></div>`).join("")}`:""}
+
+    ${st?`<div class="lesson-sec-title">🧱 ${esc(st.title||"গঠনের সূত্র")}</div>
+    ${(st.points||[]).map(p=>`
+      <div class="struct-card">
+        <div class="sc-pattern">${esc(p.pattern)}</div>
+        <div class="sc-bn">${esc(p.bn)}</div>
+      </div>`).join("")}`:""}
+
+    ${l.quiz&&l.quiz.length?`<button class="btn primary wide lesson-cta" data-quiz="${esc(l.id)}">🎯 কুইজ শুরু করুন (${l.quiz.length}টি প্রশ্ন)</button>`:"<div style='height:20px'></div>"}
+  `;
+  ov.scrollTop=0;
+}
+
+function startQuiz(id){
+  const l=lessonById(id); if(!l) return; const qs=l.quiz;
+  let qi=0, score=0;
+  const body=$("#lessonBody");
+  $("#lessonProgFill").style.width="0%";
+  function renderQ(){
+    const q=qs[qi];
+    const pairs=shuffle(q.opts.map((o,i)=>({o,i})));
+    $("#lessonProgFill").style.width=((qi+1)/qs.length*100)+"%";
+    body.innerHTML=`
+      <div class="lesson-kicker">প্রশ্ন ${qi+1} / ${qs.length}</div>
+      <div class="quiz-q">${esc(q.q)}</div>
+      ${pairs.map((p,pos)=>`<button class="opt" data-pick="${pos}"><div class="opt-key">${["A","B","C","D"][pos]}</div>${esc(p.o)}</button>`).join("")}
+      <div id="qf"></div>
+    `;
+    $$(".opt",body).forEach(b=>{
+      b.onclick=()=>{
+        const pos=parseInt(b.dataset.pick); const isRight=pairs[pos].i===q.a;
+        if(isRight) score++;
+        $$(".opt",body).forEach((o,op)=>{
+          o.disabled=true;
+          if(pairs[op].i===q.a) o.classList.add("correct");
+          else if(op===pos) o.classList.add("wrong");
+          else o.classList.add("dim");
+        });
+        $("#qf").innerHTML=`<div class="quiz-feedback ${isRight?'ok':'bad'}">${isRight?"🎉 সঠিক!":"❌ ভুল — সঠিক উত্তর: "+esc(q.opts[q.a])}</div>`;
+        setTimeout(()=>{ qi++; if(qi<qs.length) renderQ(); else finish(); }, isRight?850:1600);
+      };
+    });
+  }
+  function finish(){
+    const p=Math.round(score/qs.length*100);
+    $("#lessonProgFill").style.width="100%";
+    markLesson(l.id);
+    body.innerHTML=`
+      <div class="result-wrap">
+        <div class="result-ring" style="--pct:${p*3.6}deg"><div class="rr-in"><b>${p}%</b><small>স্কোর</small></div></div>
+        <h2>${p>=80?"দুর্দান্ত! 🎉":p>=50?"ভালো হয়েছে! 💪":"চালিয়ে যান! 📖"}</h2>
+        <p>${score} / ${qs.length} সঠিক — লেসন সম্পন্ন ✓</p>
+        <div class="result-xp">⚡ +15 XP অর্জিত</div>
+        <button class="btn primary wide" data-close-lesson>চালিয়ে যান</button>
+      </div>`;
+  }
+  renderQ();
+}
+
+/* ============================================================
+   DICTIONARY (local + online)
+   ============================================================ */
+let dictQuery="";
+function renderDict(v){
+  v.innerHTML=`
+    <div class="page-head"><h1>📖 ডিকশনারি</h1><p>ইংরেজি শব্দের বাংলা অর্থ — সাথে অনলাইন সার্চ</p></div>
+    <div class="search-wrap"><span class="search-ic">🔍</span><input id="dictSearch" class="field" placeholder="যেকোনো ইংরেজি বা বাংলা শব্দ..." value="${esc(dictQuery)}"></div>
+    <div id="dictList"></div>
+  `;
+  const inp=$("#dictSearch");
+  inp.oninput=()=>{ dictQuery=inp.value; drawDictList(dictQuery); };
+  inp.onkeydown=(e)=>{ if(e.key==="Enter") onlineDictSearch(dictQuery); };
+  drawDictList(dictQuery);
+  setTimeout(()=>{ if(dictQuery) inp.focus(); },50);
+}
+function drawDictList(q, allowOnline){
+  const box=$("#dictList"); if(!box) return;
+  const dict=allDict();
+  const t=(q||"").toLowerCase().trim();
+  let items=dict;
+  if(t) items=dict.filter(d=>d.en.toLowerCase().includes(t)||d.bn.includes(t));
+  let html="";
+  if(items.length){
+    html=items.slice(0,60).map(d=>`
+      <button class="dict-item" data-word="${esc(d.en)}">
+        <div class="di-book">${esc(d.en[0].toUpperCase())}</div>
+        <div class="di-info"><b>${esc(d.en)}</b><small>${esc(d.bn)}</small></div>
+        <span class="di-arrow">›</span>
+      </button>`).join("");
+  }
+  if(t && allowOnline && !items.some(d=>d.en.toLowerCase()===t)){
+    html+=`<button class="btn soft wide mt14" id="onlineSearchBtn">🌐 " ${esc(q)} " — অনলাইন ডিকশনারিতে খুঁজুন</button><div id="onlineResult" class="mt14"></div>`;
+  }
+  if(!items.length && !(t&&allowOnline)){
+    if(t){
+      html=`<button class="btn soft wide" id="onlineSearchBtn">🌐 "${esc(q)}" অনলাইন ডিকশনারিতে খুঁজুন</button><div id="onlineResult" class="mt14"></div>`;
+    } else {
+      html=`<div class="dict-empty"><div class="de-ic">📖</div>শব্দ লিখে খুঁজুন</div>`;
+    }
+  }
+  box.innerHTML=html;
+  $$(".dict-item",box).forEach(b=>b.onclick=()=>{ const d=allDict().find(x=>x.en===b.dataset.word); if(d) showWordSheet(d); });
+  const ob=$("#onlineSearchBtn"); if(ob) ob.onclick=()=>onlineDictSearch(q);
+  // auto online search when nothing local matched (debounced)
+  clearTimeout(window._dictOnlineTimer);
+  if(t && !items.length){
+    window._dictOnlineTimer=setTimeout(()=>{ if(dictQuery===q && !$("#onlineResult")?.children.length) onlineDictSearch(q); }, 650);
+  }
+}
+function showWordSheet(d){
+  $("#genericModalBox").innerHTML=`
+    <div class="sheet-grip"></div>
+    <div class="sheet-word">${esc(d.en)}</div>
+    <div class="sheet-phon">${esc(d.ph)} <button class="tts-btn" id="wsTts">🔊</button></div>
+    <div class="sheet-sec"><h4>বাংলা অর্থ</h4><div class="sheet-def">${esc(d.bn)}</div></div>
+    <div class="sheet-sec"><h4>উদাহরণ</h4><div class="sheet-ex">“${esc(d.ex)}”</div><div class="ex-bn mt8">${esc(d.exBn||"")}</div></div>
+    <div class="sheet-tags"><span class="tag">${esc(d.pos)}</span><span class="tag">${esc(d.cat)}</span>${S.wordsLearned.includes(d.en)?'<span class="tag" style="background:var(--gold-soft);color:#92610a">✔ শিখেছি</span>':""}</div>
+    <div class="modal-row">
+      <button class="btn ghost" id="wsClose">বন্ধ</button>
+      ${S.wordsLearned.includes(d.en)?"":`<button class="btn primary" id="wsLearn">✓ শিখেছি</button>`}
+    </div>`;
+  $("#genericModal").classList.remove("hidden");
+  $("#wsTts").onclick=()=>speak(d.en);
+  $("#wsClose").onclick=closeGenericModal;
+  const wl=$("#wsLearn"); if(wl) wl.onclick=()=>{ S.wordsLearned.push(d.en); LS.set("eg_wordsLearned",S.wordsLearned); addXP(2); toast("+2 XP — শব্দ শেখা হয়েছে!"); speak(d.en); closeGenericModal(); };
+}
+
+/* ---- Online dictionary: free APIs, no key needed ---- */
+async function onlineDictSearch(word){
+  const box=$("#onlineResult"); if(!box) return;
+  word=(word||"").trim(); if(!word) return;
+  box.innerHTML=`<div class="typing" style="margin:0 auto"><span></span><span></span><span></span></div>`;
+  const w=word.toLowerCase();
+  try{
+    const [enRes, bnRes]=await Promise.allSettled([
+      fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(w)}`),
+      fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|bn`)
+    ]);
+    let enData=null, bnText=null;
+    if(enRes.status==="fulfilled"&&enRes.value.ok){ const j=await enRes.value.json(); enData=Array.isArray(j)?j[0]:null; }
+    if(bnRes.status==="fulfilled"&&bnRes.value.ok){ const j=await bnRes.value.json(); if(j.responseData&&j.responseData.translatedText) bnText=j.responseData.translatedText; }
+    if(!enData&&!bnText){ box.innerHTML=`<div class="empty-note">"${esc(word)}" পাওয়া যায়নি 😕<br><small>অ্যাপের প্রিভিউতে খুলে থাকলে ইন্টারনেট কাজ করে না — <b>Chrome বা অন্য ব্রাউজারে খুলুন</b>। অথবা অ্যাডমিন প্যানেল থেকে শব্দটি যোগ করুন।</small></div>`; return; }
+    const phon=enData?.phonetic || (enData?.phonetics||[]).find(p=>p.text)?.text || "";
+    const defs=[]; (enData?.meanings||[]).slice(0,2).forEach(m=>{ (m.definitions||[]).slice(0,2).forEach(dd=>defs.push({pos:m.partOfSpeech, def:dd.definition, ex:dd.example})); });
+    const item=el("div","wotd");
+    item.innerHTML=`
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="wotd-word">${esc(word)} <span style="font-size:11px;color:var(--ink-3);font-weight:400">(অনলাইন)</span></div><div class="wotd-phon">${esc(phon)}</div></div>
+        <button class="tts-btn" id="onTts">🔊</button>
+      </div>
+      ${bnText?`<div class="wotd-meaning" style="font-weight:600">🇧🇩 ${esc(bnText)}</div>`:""}
+      ${defs.map(d=>`<div class="sheet-ex" style="margin-top:8px"><em>${esc(d.pos)}</em> — ${esc(d.def)}${d.ex?`<br>“${esc(d.ex)}”`:""}</div>`).join("")}
+      <button class="btn soft sm mt14" id="onAdd">➕ ডিকশনারিতে সেভ করুন</button>`;
+    box.innerHTML=""; box.appendChild(item);
+    $("#onTts").onclick=()=>speak(word);
+    $("#onAdd").onclick=()=>{
+      if(!allDict().some(d=>d.en.toLowerCase()===w)){
+        S.customContent.dict.push({en:word, ph:phon, bn:bnText||defs[0]?.def||"", pos:defs[0]?.pos||"word", cat:"Online", ex:defs[0]?.ex||"", exBn:""});
+        persist(); toast("ডিকশনারিতে যোগ হয়েছে ✓"); addXP(1);
+      }
+    };
+  }catch(e){ box.innerHTML=`<div class="empty-note">ইন্টারনেট সংযোগ পাওয়া যায়নি 😕<br><small>প্রিভিউ প্যানেলে খুলে থাকলে ইন্টারনেট ব্লক থাকে — <b>Chrome বা অন্য ব্রাউজারে ফাইলটা খুলুন</b>।</small></div>`; }
+}
+
+/* ============================================================
+   PRACTICE (AI chat + voice)
+   ============================================================ */
+function renderPractice(v){
+  const sc=allScenarios();
+  const aiOn=!!(S.ai && S.ai.apiKey);
+  v.innerHTML=`
+    <div class="page-head"><h1>💬 প্র্যাকটিস</h1><p>AI-এর সাথে কথা বলে ইংরেজি শিখুন</p></div>
+    <div class="practice-banner">
+      <div class="pb-ic">🤖</div>
+      <div><b>আপনার ব্যক্তিগত ইংরেজি কোচ</b><small>মাইকে বলুন বা লিখুন — AI সঙ্গে সঙ্গে উত্তর দেবে, আর ভুল হলে শিখিয়ে দেবে</small></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+      <span class="status-pill ${aiOn?"ok":"off"}">${aiOn?"🤖 AI সংযুক্ত":"⚠️ AI key সেট করা হয়নি — অফলাইন মোডে চলবে"}</span>
+    </div>
+    <div class="sec-head"><h2>একটি পরিস্থিতি বেছে নিন</h2></div>
+    ${sc.map((s,i)=>`
+      <button class="scenario-card" data-scenario="${esc(s.id)}">
+        <div class="sc-art" style="background:${["#fef3e2","#e9f7ef","#eef2ff","#fff1f2","#f3e8ff","#e0f2fe"][i%6]}">${s.icon}</div>
+        <div class="sc-info"><b>${esc(s.title)}</b><small>${esc(s.sub)}</small></div>
+        <span class="sc-arrow">›</span>
+      </button>`).join("")}
+    <div style="height:20px"></div>
+  `;
+}
+
+let chatState=null;
+function openChat(id){
+  const sc=allScenarios().find(s=>s.id===id); if(!sc) return;
+  const co=$("#chatOverlay"); co.classList.remove("hidden");
+  $("#chatTitle").textContent=sc.icon+" "+sc.title;
+  $("#chatSub").textContent=sc.sub;
+  $("#chatBody").innerHTML="";
+  chatState={sc, history:[], voiceOn:true, auto:false};
+  const tt=$("#chatTtsToggle"); tt.classList.remove("hidden"); tt.onclick=()=>{ chatState.voiceOn=!chatState.voiceOn; $("#chatTtsIc").textContent=chatState.voiceOn?"🔊":"🔇"; if(!chatState.voiceOn) try{speechSynthesis.cancel();}catch(e){} };
+  $("#chatTtsIc").textContent="🔊";
+  const ab=$("#chatAutoBtn"); ab.classList.remove("hidden");
+  ab.classList.toggle("auto-on", false); ab.style.background="";
+  ab.onclick=()=>toggleAutoVoice();
+  addMsg("ai", sc.prompt, true);
+  setSuggestions(sc.hints);
+}
+function toggleAutoVoice(){
+  if(!chatState) return;
+  const ab=$("#chatAutoBtn");
+  if(chatState.auto){ chatState.auto=false; ab.style.background=""; toast("অটো-ভয়েস বন্ধ"); stopRecording(); return; }
+  chatState.auto=true; ab.style.background="var(--brand-soft)";
+  toast("🎧 অটো-ভয়েস চালু — AI বলবে, তারপর আপনি বলবেন");
+  setTimeout(()=>{ if(chatState && chatState.auto && !recActive) startVoice(true); }, 600);
+}
+function closeChat(){ $("#chatOverlay").classList.add("hidden"); chatState=null; try{ if(recActive) stopRecording(); }catch(e){} }
+function addMsg(who, text, tts){
+  const body=$("#chatBody");
+  let correction="";
+  if(who==="ai" && typeof text==="string" && text.includes("📝")){ const i=text.indexOf("📝"); correction=text.slice(i+1).trim(); text=text.slice(0,i).trim(); }
+  const m=el("div","msg "+(who==="ai"?"ai":"me"), esc(text));
+  body.appendChild(m);
+  if(who==="ai" && text) m.onclick=()=>speak(text);
+  if(correction){ body.appendChild(el("div","msg-correction","📝 "+esc(correction))); }
+  body.scrollTop=body.scrollHeight;
+  if(who==="ai"&&tts&&chatState&&chatState.voiceOn) speak(text, chatState&&chatState.auto? ()=>{ if(chatState&&chatState.auto&&!recActive) startVoice(true); } : undefined);
+}
+function setSuggestions(arr){ const s=$("#chatSuggestions"); s.innerHTML=""; (arr||[]).forEach(x=>{ const b=el("button","sugg",esc(x)); b.onclick=()=>sendUser(x); s.appendChild(b); }); }
+function typingIndicator(on){ const body=$("#chatBody"); const ex=$("#typing"); if(on&&!ex){ const t=el("div","typing","<span></span><span></span><span></span>"); t.id="typing"; body.appendChild(t); body.scrollTop=body.scrollHeight; } else if(!on&&ex){ ex.remove(); } }
+
+let aiBusy=false;
+function sendUser(text){
+  if(!chatState) return;
+  text=(text||"").trim(); if(!text||aiBusy) return;
+  $("#chatInput").value=""; setSuggestions([]);
+  addMsg("me", text);
+  S.chatsHad++; LS.set("eg_chats",S.chatsHad); touchStreak();
+  typingIndicator(true); aiBusy=true;
+  const msgs=[{role:"system",content:chatState.sc.aiNote}];
+  chatState.history.push({role:"user",content:text});
+  chatState.history.slice(-8).forEach(h=>msgs.push(h));
+  if(S.ai.apiKey){
+    fetchAI(msgs).then(reply=>{
+      typingIndicator(false); aiBusy=false;
+      chatState.history.push({role:"assistant",content:reply});
+      addMsg("ai", reply, true);
+      setSuggestions(chatState.sc.hints);
+    }).catch(err=>{ typingIndicator(false); aiBusy=false; aiFallback(text); });
+  } else {
+    setTimeout(()=>{ typingIndicator(false); aiBusy=false; aiFallback(text); }, 700);
+  }
+}
+async function fetchAI(msgs){
+  const base=(S.ai.baseUrl||"").replace(/\/+$/,"");
+  const res=await fetch(base+"/chat/completions",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+S.ai.apiKey},
+    body:JSON.stringify({model:S.ai.chatModel||"llama-3.3-70b-versatile", messages:msgs, temperature:0.7, max_tokens:220})
+  });
+  if(!res.ok){ const t=await res.text().catch(()=>""); throw new Error("AI error "+res.status+" "+t.slice(0,120)); }
+  const j=await res.json();
+  return j.choices?.[0]?.message?.content || "Could you say that again?";
+}
+/* offline fallback teacher */
+function aiFallback(text){
+  const sc=chatState.sc;
+  let reply, corr="";
+  const t=text.toLowerCase();
+  if(/\b(dont|cant|wont|didnt|isnt)\b/.test(t)) corr="ইংরেজিতে সংক্ষিপ্ত রূপের আগে apostrophe লাগে: don't, can't, won't, didn't, isn't।";
+  if(/\bi\b/.test(t)&&!/\bI\b/.test(text)) corr="ব্যক্তিগত সর্বনাম 'I' সবসময় বড় হাতের অক্ষরে লিখতে হয়।";
+  const answers=["That's great! Could you tell me more?","Nice! By the way, how long have you been learning English?","Interesting! Let's keep going. What would you do next?","Good job! Try making one more sentence.","That sounds nice! Can you say it in a longer sentence?"];
+  reply=sample(answers);
+  if(corr) reply+= " 📝 "+corr;
+  addMsg("ai", reply, true);
+  setSuggestions(sc.hints);
+}
+
+/* ---- Voice input ---- */
+let recActive=false, mediaRecorder=null, mediaChunks=[], audioStream=null, audioCtx=null, speechRec=null, recTimer=null;
+
+async function startVoice(auto){
+  if(!chatState) return;
+  const mic=$("#chatMic");
+  if(recActive){ if(!auto) stopRecording(); return; }
+  if(window.SpeechRecognition||window.webkitSpeechRecognition){
+    try{
+      const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+      speechRec=new SR(); speechRec.lang="en-US"; speechRec.interimResults=false; speechRec.maxAlternatives=1; speechRec.continuous=false;
+      recActive=true; mic.classList.add("rec");
+      $("#chatSub").textContent=auto?"🎧 আপনার পালা — বলুন...":"🎙️ শুনছি...";
+      speechRec.onresult=(e)=>{ const t=e.results[0][0].transcript; recActive=false; mic.classList.remove("rec"); if(chatState)$("#chatSub").textContent=chatState.sc.sub; sendUser(t); };
+      speechRec.onerror=(e)=>{ recActive=false; mic.classList.remove("rec"); if(chatState)$("#chatSub").textContent=chatState.sc.sub; if(e.error==="not-allowed"){ toast("মাইক্রোফোন অনুমতি প্রয়োজন"); chatState&&(chatState.auto=false); } };
+      speechRec.onend=()=>{ if(recActive){ recActive=false; mic.classList.remove("rec"); if(chatState)$("#chatSub").textContent=chatState.sc.sub; } };
+      speechRec.start();
+      return;
+    }catch(e){ try{ speechRec&&speechRec.abort(); }catch(x){} }
+  }
+  // MediaRecorder → Whisper (needs AI key)
+  if(!S.ai.apiKey){ if(!auto){ toast("ভয়েসের জন্য অ্যাডমিন প্যানেলে AI key সেট করুন"); } return; }
+  try{
+    audioStream=await navigator.mediaDevices.getUserMedia({audio:true});
+    mediaRecorder=new MediaRecorder(audioStream);
+    mediaChunks=[];
+    mediaRecorder.ondataavailable=e=>{ if(e.data.size>0) mediaChunks.push(e.data); };
+    mediaRecorder.onstop=async()=>{
+      const blob=new Blob(mediaChunks,{type:mediaRecorder.mimeType||"audio/webm"});
+      audioStream.getTracks().forEach(t=>t.stop());
+      if(chatState)$("#chatSub").textContent="⏳ ভয়েস প্রসেস হচ্ছে...";
+      try{
+        const text=await transcribe(blob);
+        if(chatState)$("#chatSub").textContent=chatState?chatState.sc.sub:"";
+        if(text&&text.trim()) sendUser(text.trim()); else { toast("কিছু বোঝা যায়নি, আবার বলুন"); if(chatState&&chatState.auto) setTimeout(()=>{ if(chatState&&chatState.auto) startVoice(true); },800); }
+      }catch(e){ if(chatState)$("#chatSub").textContent=chatState?chatState.sc.sub:""; toast("ভয়েস ট্রান্সক্রিপশন ব্যর্থ"); }
+    };
+    recActive=true; mic.classList.add("rec");
+    $("#chatSub").textContent=auto?"🎧 আপনার পালা — বলুন...":"🎙️ শুনছি... (ট্যাপ করে থামান)";
+    mediaRecorder.start();
+    recTimer=setTimeout(()=>{ if(recActive) stopRecording(); }, auto?6000:8000);
+  }catch(e){ toast("মাইক্রোফোন পাওয়া যায়নি"); }
+}
+function stopRecording(){
+  recActive=false;
+  const mic=$("#chatMic"); if(mic) mic.classList.remove("rec");
+  clearTimeout(recTimer);
+  try{ if(speechRec) speechRec.stop(); }catch(e){}
+  try{ if(mediaRecorder&&mediaRecorder.state!=="inactive") mediaRecorder.stop(); }catch(e){}
+}
+async function transcribe(blob){
+  const base=(S.ai.baseUrl||"").replace(/\/+$/,"");
+  const fd=new FormData();
+  fd.append("file", blob, "voice.webm");
+  fd.append("model", S.ai.sttModel||"whisper-large-v3-turbo");
+  const res=await fetch(base+"/audio/transcriptions",{ method:"POST", headers:{"Authorization":"Bearer "+S.ai.apiKey}, body:fd });
+  if(!res.ok) throw new Error("stt "+res.status);
+  const j=await res.json();
+  return j.text||"";
+}
+
+/* ============================================================
+   SHORTCUTS
+   ============================================================ */
+function renderShortcuts(v){
+  v.innerHTML=`
+    <div class="page-head"><button class="btn sm ghost" data-back="home" style="padding-left:0">← হোম</button>
+      <h1 style="margin-top:6px">⚡ Fast ট্রিক্স</h1><p>নেটিভদের মতো ছোট ছোট শর্টকাট</p></div>
+    <div id="scWrap"></div>
+  `;
+  const wrap=$("#scWrap");
+  wrap.innerHTML=DEFAULT_SHORTCUTS.map(s=>`
+    <div class="shortcut-card">
+      <div class="sc-en">${esc(s.en)} <button class="tts-btn" data-tts="${esc(s.en)}">🔊</button></div>
+      <div class="sc-bn">${esc(s.bn)}</div>
+      <div class="sc-tip">💡 ${esc(s.tip)}</div>
+    </div>`).join("");
+}
+
+/* ============================================================
+   KIDS
+   ============================================================ */
+function renderKids(v){
+  let mode="abc";
+  v.innerHTML=`
+    <div class="kids-hero"><h2>ছোটদের English 🧒</h2><p>৩-৬ বছরের বাচ্চাদের জন্য মজার ইংরেজি</p><span class="kh-emojis">🎨</span></div>
+    <div class="chip-row mt14">
+      <button class="chip active" data-kmode="abc">🔤 ABC</button>
+      <button class="chip" data-kmode="words">🌸 শব্দ</button>
+      <button class="chip" data-kmode="game">🎯 গেম</button>
+    </div>
+    <div id="kidsBody"></div>
+  `;
+  function draw(){
+    const body=$("#kidsBody");
+    if(mode==="abc"){
+      body.innerHTML=`<div class="kids-grid">${KIDS_LETTERS.map(k=>`
+        <button class="letter-tile" data-letter="${k.l}">
+          <b>${k.l}</b><span class="lt-emoji">${k.emoji}</span><small>${esc(k.word)}</small>
+        </button>`).join("")}</div>`;
+    } else if(mode==="words"){
+      body.innerHTML=KID_FIRST_WORDS.map(w=>`
+        <button class="kid-word-card" data-tts="${esc(w.en)}">
+          <span class="kw-emoji">${w.emoji}</span>
+          <div class="kw-info"><b>${esc(w.en)}</b><small>${esc(w.bn)}</small></div>
+          <span class="kw-play">🔊</span>
+        </button>`).join("");
+    } else {
+      body.innerHTML=`
+        <button class="kid-game-card" data-kgame="pickword"><div class="kg-ic">🎯</div><div><b>শব্দ মেলাও!</b><small>ছবি দেখে সঠিক শব্দ বাছাই করো</small></div></button>
+        <button class="kid-game-card" data-kgame="abcsong"><div class="kg-ic">🎵</div><div><b>ABC গাই</b><small>পুরো বর্ণমালা শুনে শুনে শেখো</small></div></button>`;
+    }
+  }
+  $$("[data-kmode]").forEach(b=>b.onclick=()=>{ mode=b.dataset.kmode; $$("[data-kmode]").forEach(x=>x.classList.toggle("active",x===b)); draw(); });
+  draw();
+}
+function kidLetterTap(L){
+  const k=KIDS_LETTERS.find(x=>x.l===L); if(!k) return;
+  $("#genericModalBox").innerHTML=`
+    <div style="text-align:center;padding:10px 0">
+      <div style="font-size:90px;line-height:1.1;font-family:var(--font-en);font-weight:800;color:var(--brand)">${k.l}${k.l.toLowerCase()}</div>
+      <div style="font-size:64px">${k.emoji}</div>
+      <div style="font-family:var(--font-en);font-size:26px;font-weight:700">${esc(k.word)}</div>
+      <div style="color:var(--ink-3)">${esc(k.bn)}</div>
+      <div class="modal-row"><button class="btn primary wide" id="kSay">🔊 শুনুন — ${esc(k.phon)}</button></div>
+      <div class="modal-row"><button class="btn ghost wide" id="kClose">বন্ধ করো</button></div>
+    </div>`;
+  $("#genericModal").classList.remove("hidden");
+  $("#kSay").onclick=()=>speak(k.phon+" "+k.word);
+  $("#kClose").onclick=closeGenericModal;
+  speak(k.phon+" "+k.word);
+}
+function kidGame(type){
+  if(type==="abcsong"){ speak("A B C D E F G, H I J K L M N O P, Q R S T U V, W X Y and Z. Now I know my ABC, next time won't you sing with me!"); toast("🔊 ABC গান চলছে!"); return; }
+  // pickword game
+  let score=0, round=0;
+  const ov=$("#lessonOverlay"); ov.classList.remove("hidden");
+  $("#lessonProgFill").style.width="0%";
+  const body=$("#lessonBody");
+  function newRound(){
+    if(round>=5){ finish(); return; }
+    const correct=sample(KID_FIRST_WORDS); const others=shuffle(KID_FIRST_WORDS.filter(w=>w!==correct)).slice(0,3);
+    const opts=shuffle([correct,...others]);
+    $("#lessonProgFill").style.width=((round+1)/5*100)+"%";
+    body.innerHTML=`
+      <div class="kid-question">
+        <div class="kq-emoji">${correct.emoji}</div>
+        <div class="kq-q">এটা ইংরেজিতে কী?</div>
+      </div>
+      <div class="kid-opt-grid">${opts.map(o=>`<button class="kid-opt" data-kopt="${esc(o.en)}">${esc(o.en)}</button>`).join("")}</div>`;
+    $$(".kid-opt",body).forEach(b=>b.onclick=()=>{
+      const ok=b.dataset.kopt===correct.en;
+      b.classList.add(ok?"correct":"wrong");
+      if(ok){ score++; speak(correct.en); }
+      $$(".kid-opt",body).forEach(x=>x.disabled=true);
+      setTimeout(()=>{ round++; newRound(); }, 850);
+    });
+  }
+  function finish(){
+    S.kidGamesPlayed++; LS.set("eg_kidGames",S.kidGamesPlayed); addXP(5); touchStreak();
+    $("#lessonProgFill").style.width="100%";
+    body.innerHTML=`<div class="result-wrap">
+      <div style="font-size:70px">${score>=4?"🏆🌟":"🎈"}</div>
+      <h2>${score}/5 সঠিক!</h2>
+      <p>${score>=4?"বাচ্চা তো চ্যাম্পিয়ন!":"আরেকবার খেলো!"}</p>
+      <div class="result-xp">⚡ +5 XP</div>
+      <button class="btn primary wide" data-close-lesson>আবার খেলো</button>
+    </div>`;
+  }
+  newRound();
+}
+
+/* ============================================================
+   PROFILE
+   ============================================================ */
+function renderProfile(v){
+  const initial=(S.name||"A").trim()[0].toUpperCase();
+  v.innerHTML=`
+    <div class="profile-head">
+      <div class="avatar">${esc(initial)}</div>
+      <h2>${esc(S.name||"শিক্ষার্থী")}</h2>
+      <p>${S.lessonsDone.length} লেসন · ${S.wordsLearned.length} শব্দ · ${S.chatsHad} প্র্যাকটিস চ্যাট</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="sb-ic">⚡</div><b>${S.xp}</b><small>মোট XP</small></div>
+      <div class="stat-box"><div class="sb-ic">🔥</div><b>${S.streak.count}</b><small>দিনের streak</small></div>
+      <div class="stat-box"><div class="sb-ic">🎯</div><b>${S.monthlyLessons}/${S.monthlyGoal}</b><small>মাসিক টার্গেট</small></div>
+      <div class="stat-box"><div class="sb-ic">✔</div><b>${S.lessonsDone.length}</b><small>সম্পন্ন লেসন</small></div>
+    </div>
+    <div class="settings-list">
+      <button class="set-item" id="setGoal"><span class="set-ic">🎯</span>মাসিক টার্গেট<span class="set-val">${S.monthlyGoal} লেসন</span></button>
+      <button class="set-item" id="setTts"><span class="set-ic">🔊</span>অটো-সাউন্ড<span class="toggle ${S.tts?'on':''}" id="ttsToggle"></span></button>
+      <button class="set-item" id="setName"><span class="set-ic">✏️</span>নাম পরিবর্তন<span class="set-val">${esc(S.name||"সেট করুন")}</span></button>
+      <button class="set-item" id="setReset"><span class="set-ic">🔄</span>প্রোগ্রেস রিসেট<span class="set-val">সতর্ক</span></button>
+    </div>
+    <p class="about-txt">${esc(S.appName)} · ভার্সন ১.০<br>ইংরেজি শেখার সহজ উপায় 🇧🇩</p>
+  `;
+  $("#setGoal").onclick=()=>{ const val=prompt("মাসিক টার্গেট কত লেসন? (১-৫০)",String(S.monthlyGoal)); if(val){ const n=Math.max(1,Math.min(50,parseInt(val)||8)); S.monthlyGoal=n; LS.set("eg_monthlyGoal",n); renderProfile(v); toast("টার্গেট আপডেট হয়েছে"); } };
+  $("#setTts").onclick=()=>{ S.tts=!S.tts; LS.set("eg_tts",S.tts); $("#ttsToggle").classList.toggle("on",S.tts); };
+  $("#setName").onclick=()=>{ const val=prompt("আপনার নাম লিখুন:",S.name); if(val!==null){ S.name=val.trim(); LS.set("eg_name",S.name); renderProfile(v); } };
+  $("#setReset").onclick=()=>{ if(confirm("আপনার সব XP, স্ট্রিক আর সম্পন্ন লেসন মুছে যাবে। নিশ্চিত?")){ ["eg_xp","eg_streak","eg_lessonsDone","eg_wordsLearned","eg_monthlyLessons","eg_kidGames","eg_chats"].forEach(k=>localStorage.removeItem(k)); S.xp=0; S.streak={count:0,last:""}; S.lessonsDone=[]; S.wordsLearned=[]; S.monthlyLessons=0; S.kidGamesPlayed=0; S.chatsHad=0; renderProfile(v); toast("প্রোগ্রেস রিসেট হয়েছে"); } };
+}
+
+/* ============================================================
+   ONBOARDING
+   ============================================================ */
+let onbStep=0;
+function setupOnboarding(){
+  const slides=$$(".onb-slide"); const dots=$$(".onb-dots .dot");
+  function show(i){
+    slides.forEach((s)=>s.classList.toggle("hidden", parseInt(s.dataset.step)!==i));
+    dots.forEach((d,di)=>d.classList.toggle("active", di===i));
+    if(i===slides.length-1){ $("#onbName").classList.remove("hidden"); $("#onbNext").textContent="শুরু করুন 🚀"; } else { $("#onbName").classList.add("hidden"); $("#onbNext").textContent="পরবর্তী"; }
+  }
+  $("#onbNext").onclick=()=>{ if(onbStep>=slides.length-1){ finishOnboarding(); } else { onbStep++; show(onbStep); } };
+  $("#onbSkip").onclick=()=>finishOnboarding();
+  function finishOnboarding(){
+    const n=$("#onbName").value.trim(); if(n) S.name=n;
+    S.onboarded=true; LS.set("eg_onboarded",true); LS.set("eg_name",S.name);
+    $("#onboarding").classList.add("hidden");
+    $("#main").classList.remove("hidden");
+    go("home");
+  }
+  show(0);
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+window.addEventListener("DOMContentLoaded",()=>{
+  setTheme(S.theme);
+  applyBranding();
+
+  // splash → 1.5s
+  setTimeout(()=>{
+    $("#splash").classList.add("out");
+    setTimeout(()=>{
+      $("#splash").classList.add("hidden");
+      if(!S.onboarded){ $("#onboarding").classList.remove("hidden"); setupOnboarding(); }
+      else { $("#main").classList.remove("hidden"); go("home"); }
+    },450);
+  },1400);
+
+  // nav
+  $$(".nav-btn").forEach(b=>b.onclick=()=>go(b.dataset.nav));
+  $("#btnTheme").onclick=()=>setTheme(S.theme==="dark"?"light":"dark");
+  $("#btnAdmin").onclick=()=>{ $("#adminGate").classList.remove("hidden"); $("#adminPin").value=""; $("#pinErr").classList.add("hidden"); setTimeout(()=>$("#adminPin").focus(),100); };
+  $("#adminCancel").onclick=()=>$("#adminGate").classList.add("hidden");
+  $("#adminEnter").onclick=tryAdminLogin;
+  $("#adminPin").onkeydown=(e)=>{ if(e.key==="Enter") tryAdminLogin(); };
+
+  // lesson overlay
+  $("#lessonClose").onclick=()=>{ $("#lessonOverlay").classList.add("hidden"); if(currentTab==="learn") go("learn"); };
+  // chat
+  $("#chatBack").onclick=closeChat;
+  $("#chatSend").onclick=()=>sendUser($("#chatInput").value);
+  $("#chatInput").onkeydown=(e)=>{ if(e.key==="Enter") sendUser($("#chatInput").value); };
+  $("#chatMic").onclick=startVoice;
+  // generic modal backdrop
+  $("#genericModal").addEventListener("click",(e)=>{ if(e.target.id==="genericModal") closeGenericModal(); });
+
+  // ===== GLOBAL EVENT DELEGATION =====
+  document.addEventListener("click",(e)=>{
+    const t=e.target;
+    // tts buttons
+    const tt=t.closest("[data-tts]"); if(tt){ speak(tt.dataset.tts); return; }
+    // nav-to cards
+    const nv=t.closest("[data-nav-to]"); if(nv){ go(nv.dataset.navTo); return; }
+    // level open
+    const lv=t.closest("[data-level]"); if(lv){ renderLessonsForLevel(lv.dataset.level); window.scrollTo(0,0); return; }
+    const lc=t.closest("[data-level-ch]"); if(lc){ renderLessonsForLevel(lc.dataset.levelCh); return; }
+    const co=t.closest("[data-course]"); if(co){ renderCourse(co.dataset.course); window.scrollTo(0,0); return; }
+    const back=t.closest("[data-back]"); if(back){ if(back.dataset.back==="learn") go("learn"); else go("home"); return; }
+    // lesson open
+    const ls=t.closest("[data-lesson]"); if(ls){ openLesson(ls.dataset.lesson); return; }
+    const qz=t.closest("[data-quiz]"); if(qz){ startQuiz(qz.dataset.quiz); return; }
+    const cl=t.closest("[data-close-lesson]"); if(cl){ $("#lessonOverlay").classList.add("hidden"); if(currentTab==="learn") go("learn"); return; }
+    // scenario
+    const sc=t.closest("[data-scenario]"); if(sc){ openChat(sc.dataset.scenario); return; }
+    // kids
+    const kl=t.closest("[data-letter]"); if(kl){ kidLetterTap(kl.dataset.letter); return; }
+    const kg=t.closest("[data-kgame]"); if(kg){ kidGame(kg.dataset.kgame); return; }
+  });
+
+  // hash nav for debugging / deep links
+  if(location.hash==="#admin") $("#btnAdmin").click();
+});
+
+/* admin login (admin.js hooks) */
+function tryAdminLogin(){
+  const v=$("#adminPin").value.trim();
+  if(v===S.pin){ $("#adminGate").classList.add("hidden"); openAdminPanel(); }
+  else { $("#pinErr").classList.remove("hidden"); }
+}
+</script><script>/* ============================================================
+   English Guru — admin.js (Admin Panel)
+   ============================================================ */
+
+function openAdminPanel(){ $("#adminPanel").classList.remove("hidden"); $("#bottomnav").style.display="none"; $("#topbar").style.visibility="hidden"; renderAdminTab("branding"); }
+function closeAdminPanel(){ $("#adminPanel").classList.add("hidden"); $("#bottomnav").style.display=""; $("#topbar").style.visibility=""; }
+$("#adminBack").onclick=closeAdminPanel;
+
+$$(".atab").forEach(b=>b.onclick=()=>{ $$(".atab").forEach(x=>x.classList.toggle("active",x===b)); renderAdminTab(b.dataset.atab); });
+
+function renderAdminTab(tab){
+  const body=$("#adminBody"); body.innerHTML="";
+  $("#adminSaveBar").classList.add("hidden");
+  if(tab==="branding") adminBranding(body);
+  else if(tab==="content") adminContent(body);
+  else if(tab==="ai") adminAI(body);
+  else if(tab==="data") adminData(body);
+}
+
+/* ---------------- BRANDING ---------------- */
+const ACCENTS=["#0e9f6e","#2563eb","#9333ea","#ef4444","#f59e0b","#0ea5e9","#ec4899","#14b8a6"];
+function adminBranding(body){
+  body.innerHTML=`
+    <div class="admin-card">
+      <h4>📱 অ্যাপ নাম</h4><div class="ac-sub">অ্যাপের নাম বদলান</div>
+      <input class="field" id="abName" value="${esc(S.appName)}">
+    </div>
+    <div class="admin-card">
+      <h4>🎨 রঙ</h4><div class="ac-sub">অ্যাপের প্রধান রঙ</div>
+      <div class="swatches">
+        ${ACCENTS.map(c=>`<button class="sw ${S.accent===c?'active':''}" data-acc="${c}" style="background:${c}"></button>`).join("")}
+        <input type="color" id="abColor" value="${S.accent}" title="কাস্টম রঙ">
+      </div>
+    </div>
+    <div class="admin-card">
+      <h4>📢 ঘোষণা</h4><div class="ac-sub">হোম স্ক্রিনে ব্যানার দেখাবে</div>
+      <input class="field" id="abAnn" placeholder="যেমন: আজ রাত ১২টায় নতুন লেসন!" value="${esc(S.announcement)}">
+    </div>
+    <div class="admin-card">
+      <h4>🔐 পিন বদলান</h4><div class="ac-sub">অ্যাডমিন প্যানেলের পিন</div>
+      <input class="field" id="abPin" type="password" inputmode="numeric" maxlength="8" value="${esc(S.pin)}">
+    </div>
+    <div class="admin-card">
+      <h4>🧩 সেকশন দেখান/লুকান</h4><div class="ac-sub">হোম স্ক্রিনে কোন কার্ড থাকবে</div>
+      <div class="content-row"><div class="cr-main"><b>🧒 কিডস ইংলিশ</b></div><span class="toggle ${S.showKids?'on':''}" id="abKids"></span></div>
+      <div class="content-row"><div class="cr-main"><b>⚡ Fast ট্রিক্স</b></div><span class="toggle ${S.showShortcuts?'on':''}" id="abShort"></span></div>
+    </div>
+  `;
+  const updSave=()=>$("#adminSaveBar").classList.remove("hidden");
+  $("#abName").oninput=updSave;
+  $("#abAnn").oninput=updSave;
+  $("#abPin").oninput=updSave;
+  $$(".sw",body).forEach(s=>s.onclick=()=>{ S.accent=s.dataset.acc; applyBranding(); $$(".sw",body).forEach(x=>x.classList.toggle("active",x===s)); updSave(); });
+  $("#abColor").oninput=(e)=>{ S.accent=e.target.value; applyBranding(); updSave(); };
+  $("#abKids").onclick=()=>{ S.showKids=!S.showKids; $("#abKids").classList.toggle("on",S.showKids); updSave(); };
+  $("#abShort").onclick=()=>{ S.showShortcuts=!S.showShortcuts; $("#abShort").classList.toggle("on",S.showShortcuts); updSave(); };
+  $("#adminSaveBtn").onclick=()=>{
+    S.appName=$("#abName").value.trim()||"English Guru";
+    S.announcement=$("#abAnn").value.trim();
+    S.pin=$("#abPin").value.trim()||"1234";
+    persist(); applyBranding();
+    $("#adminSaveBar").classList.add("hidden");
+    toast("✓ সেভ হয়েছে");
+  };
+}
+
+/* ---------------- CONTENT ---------------- */
+function adminContent(body){
+  body.innerHTML=`
+    <div class="admin-card">
+      <h4>📖 কাস্টম শব্দ (${(S.customContent.dict||[]).length}টি)</h4><div class="ac-sub">বিল্ট-ইন ${DEFAULT_DICT.length}টি শব্দের সাথে যোগ হবে</div>
+      <div id="acDict"></div>
+      <button class="add-btn" id="acAddDict">➕ নতুন শব্দ যোগ করুন</button>
+    </div>
+    <div class="admin-card">
+      <h4>📚 কাস্টম লেসন (${(S.customContent.lessons||[]).length}টি)</h4><div class="ac-sub">আপনার নিজের লেসন যোগ করুন</div>
+      <div id="acLessons"></div>
+      <button class="add-btn" id="acAddLesson">➕ নতুন লেসন যোগ করুন</button>
+    </div>
+    <div class="admin-card">
+      <h4>💬 কাস্টম প্র্যাকটিস সিনারিও (${(S.customContent.scenarios||[]).length}টি)</h4><div class="ac-sub">নিজের কথোপকথনের দৃশ্য যোগ করুন</div>
+      <div id="acScen"></div>
+      <button class="add-btn" id="acAddScen">➕ নতুন সিনারিও যোগ করুন</button>
+    </div>
+  `;
+  drawAdminDict(); drawAdminLessons(); drawAdminScen();
+
+  $("#acAddDict").onclick=()=>{ S.customContent.dict.push({en:"new word", ph:"", bn:"বাংলা অর্থ", pos:"noun", cat:"Custom", ex:"Example sentence.", exBn:""}); persist(); drawAdminDict(); editDictItem(S.customContent.dict.length-1); };
+  $("#acAddLesson").onclick=()=>{
+    $("#genericModalBox").innerHTML=`
+      <h3 class="modal-title">নতুন লেসন</h3>
+      <div class="edit-form">
+        <label class="field-label">লেসনের নাম</label><input class="field" id="nlTitle" placeholder="যেমন: বাজারের ইংরেজি">
+        <label class="field-label">লেভেল</label>
+        <select class="field" id="nlLevel"><option value="beginner">বিগিনার</option><option value="inter">ইন্টারমিডিয়েট</option><option value="adv">অ্যাডভান্সড</option></select>
+        <label class="field-label">ভূমিকা</label><input class="field" id="nlIntro" placeholder="এই লেসনে কী শেখা হবে">
+        <label class="field-label">শব্দ (প্রতি লাইনে একটি: english = বাংলা)</label>
+        <textarea class="field" id="nlWords" placeholder="market = বাজার&#10;price = দাম"></textarea>
+        <div class="modal-row"><button class="btn ghost" id="nlCancel">বাতিল</button><button class="btn primary" id="nlSave">তৈরি করুন</button></div>
+      </div>`;
+    $("#genericModal").classList.remove("hidden");
+    $("#nlCancel").onclick=closeGenericModal;
+    $("#nlSave").onclick=()=>{
+      const title=$("#nlTitle").value.trim(); if(!title){ toast("নাম দিন"); return; }
+      const words=$("#nlWords").value.split("\n").filter(x=>x.includes("=")).map(x=>{ const [en,bn]=x.split("="); return {en:en.trim(), bn:bn.trim()}; });
+      const id="c"+Date.now();
+      S.customContent.lessons.push({ id, level:$("#nlLevel").value, title, intro:$("#nlIntro").value.trim()||"নতুন লেসন", words:words.length?words:[{en:"word",bn:"শব্দ"}], rules:[], quiz:[{q:"\"word\" এর বাংলা কী?", opts:["শব্দ","কথা","লেখা"], a:0}] });
+      persist(); closeGenericModal(); drawAdminLessons(); toast("✓ লেসন তৈরি হয়েছে");
+    };
+  };
+  $("#acAddScen").onclick=()=>{
+    $("#genericModalBox").innerHTML=`
+      <h3 class="modal-title">নতুন প্র্যাকটিস সিনারিও</h3>
+      <div class="edit-form">
+        <label class="field-label">নাম (ইংরেজি)</label><input class="field" id="nsTitle" placeholder="Bank">
+        <label class="field-label">বর্ণনা (বাংলা)</label><input class="field" id="nsSub" placeholder="ব্যাংকে হিসাব খোলা">
+        <label class="field-label">ইমোজি</label><input class="field" id="nsIcon" value="🏦" maxlength="4">
+        <label class="field-label">AI-এর প্রথম কথা (ইংরেজি)</label>
+        <textarea class="field" id="nsPrompt" placeholder="Welcome to the bank! How can I help you today?"></textarea>
+        <div class="modal-row"><button class="btn ghost" id="nsCancel">বাতিল</button><button class="btn primary" id="nsSave">তৈরি করুন</button></div>
+      </div>`;
+    $("#genericModal").classList.remove("hidden");
+    $("#nsCancel").onclick=closeGenericModal;
+    $("#nsSave").onclick=()=>{
+      const title=$("#nsTitle").value.trim(); if(!title){ toast("নাম দিন"); return; }
+      S.customContent.scenarios.push({
+        id:"c"+Date.now(), icon:$("#nsIcon").value.trim()||"💬", title,
+        sub:$("#nsSub").value.trim()||"প্র্যাকটিস",
+        prompt:$("#nsPrompt").value.trim()||"Hello! Let's practice English together.",
+        hints:[], aiNote:"You are a role-play partner for a Bangladeshi English learner. Scenario: "+title+". Keep replies short and correct gently."
+      });
+      persist(); closeGenericModal(); drawAdminScen(); toast("✓ সিনারিও তৈরি হয়েছে");
+    };
+  };
+}
+
+function drawAdminDict(){
+  const box=$("#acDict"); if(!box) return;
+  const custom=S.customContent.dict||[];
+  box.innerHTML= custom.length? custom.map((d,i)=>`
+    <div class="content-row">
+      <div class="cr-main"><b>${esc(d.en)}</b><small>${esc(d.bn)}</small></div>
+      <div class="cr-btns"><button class="minibtn" data-edict="${i}">✏️</button><button class="minibtn del" data-deldict="${i}">🗑</button></div>
+    </div>`).join("")
+    : `<div class="empty-note">কাস্টম শব্দ নেই</div>`;
+  $$("[data-edict]",box).forEach(b=>b.onclick=()=>editDictItem(parseInt(b.dataset.edict)));
+  $$("[data-deldict]",box).forEach(b=>b.onclick=()=>{ S.customContent.dict.splice(parseInt(b.dataset.deldict),1); persist(); drawAdminDict(); });
+}
+
+function editDictItem(i){
+  const d=S.customContent.dict[i]; if(!d) return;
+  $("#genericModalBox").innerHTML=`
+    <h3 class="modal-title">শব্দ সম্পাদনা</h3>
+    <div class="edit-form">
+      <label class="field-label">ইংরেজি শব্দ</label><input class="field" id="edEn" value="${esc(d.en)}">
+      <label class="field-label">বাংলা অর্থ</label><input class="field" id="edBn" value="${esc(d.bn)}">
+      <label class="field-label">উচ্চারণ (ঐচ্ছিক)</label><input class="field" id="edPh" value="${esc(d.ph||"")}">
+      <label class="field-label">উদাহরণ (ঐচ্ছিক)</label><input class="field" id="edEx" value="${esc(d.ex||"")}">
+      <div class="modal-row"><button class="btn ghost" id="edCancel">বাতিল</button><button class="btn primary" id="edSave">সেভ</button></div>
+    </div>`;
+  $("#genericModal").classList.remove("hidden");
+  $("#edCancel").onclick=closeGenericModal;
+  $("#edSave").onclick=()=>{
+    d.en=$("#edEn").value.trim()||d.en; d.bn=$("#edBn").value.trim()||d.bn;
+    d.ph=$("#edPh").value.trim(); d.ex=$("#edEx").value.trim();
+    persist(); closeGenericModal(); drawAdminDict(); toast("✓ সেভ হয়েছে");
+  };
+}
+
+function drawAdminLessons(){
+  const box=$("#acLessons"); if(!box) return;
+  const custom=S.customContent.lessons||[];
+  box.innerHTML= custom.length? custom.map((l,i)=>`
+    <div class="content-row">
+      <div class="cr-main"><b>${esc(l.title)}</b><small>${(l.words||[]).length} শব্দ · ${esc(l.level)}</small></div>
+      <div class="cr-btns"><button class="minibtn del" data-dellesson="${i}">🗑</button></div>
+    </div>`).join("")
+    : `<div class="empty-note">কাস্টম লেসন নেই</div>`;
+  $$("[data-dellesson]",box).forEach(b=>b.onclick=()=>{ S.customContent.lessons.splice(parseInt(b.dataset.dellesson),1); persist(); drawAdminLessons(); });
+}
+
+function drawAdminScen(){
+  const box=$("#acScen"); if(!box) return;
+  const custom=S.customContent.scenarios||[];
+  box.innerHTML= custom.length? custom.map((s,i)=>`
+    <div class="content-row">
+      <div class="cr-main"><b>${esc(s.icon+" "+s.title)}</b><small>${esc(s.sub)}</small></div>
+      <div class="cr-btns"><button class="minibtn del" data-delscen="${i}">🗑</button></div>
+    </div>`).join("")
+    : `<div class="empty-note">কাস্টম সিনারিও নেই — বিল্ট-ইন ${DEFAULT_SCENARIOS.length}টি আছে</div>`;
+  $$("[data-delscen]",box).forEach(b=>b.onclick=()=>{ S.customContent.scenarios.splice(parseInt(b.dataset.delscen),1); persist(); drawAdminScen(); });
+}
+
+/* ---------------- AI ---------------- */
+function adminAI(body){
+  body.innerHTML=`
+    <div class="admin-card">
+      <h4>🤖 AI সেটিংস</h4>
+      <div class="ac-sub">Groq ব্যবহার করুন (ফ্রি, দ্রুত) — <b>console.groq.com</b> থেকে ফ্রি API key নিন। OpenAI-compatible যেকোনো API-ও চলবে।</div>
+      <label class="field-label">API Key</label>
+      <input class="field" id="aaKey" type="password" placeholder="gsk_..." value="${esc(S.ai.apiKey||"")}">
+      <label class="field-label">API Base URL</label>
+      <input class="field" id="aaBase" value="${esc(S.ai.baseUrl)}">
+      <label class="field-label">Chat Model</label>
+      <input class="field" id="aaModel" value="${esc(S.ai.chatModel)}">
+      <label class="field-label">Speech-to-Text Model (ভয়েস ইনপুটের জন্য)</label>
+      <input class="field" id="aaStt" value="${esc(S.ai.sttModel)}">
+      <button class="btn soft wide mt14" id="aaTest">🔬 সংযোগ পরীক্ষা</button>
+      <div id="aaTestOut" class="mt8" style="font-size:13px"></div>
+    </div>
+    <div class="admin-card">
+      <h4>ℹ️ কীভাবে কাজ করে</h4>
+      <div class="ac-sub" style="line-height:1.8">
+        • <b>টেক্সট চ্যাট:</b> AI দিয়ে চলে — key লাগবে<br>
+        • <b>ভয়েস ইনপুট:</b> ব্রাউজারে ফ্রি SpeechRecognition; APK-তে Whisper STT (এই key দিয়েই)<br>
+        • <b>AI-এর উত্তর শোনা:</b> ফোনের বিল্ট-ইন Text-to-Speech — ফ্রি<br>
+        • Key শুধু আপনার ফোনে সেভ থাকে
+      </div>
+    </div>`;
+  $("#adminSaveBar").classList.remove("hidden");
+  $("#adminSaveBtn").onclick=()=>{
+    S.ai.apiKey=$("#aaKey").value.trim();
+    S.ai.baseUrl=$("#aaBase").value.trim()||"https://api.groq.com/openai/v1";
+    S.ai.chatModel=$("#aaModel").value.trim()||"llama-3.3-70b-versatile";
+    S.ai.sttModel=$("#aaStt").value.trim()||"whisper-large-v3-turbo";
+    persist();
+    $("#adminSaveBar").classList.add("hidden");
+    toast("✓ AI সেটিংস সেভ হয়েছে");
+  };
+  $("#aaTest").onclick=async()=>{
+    const out=$("#aaTestOut"); out.textContent="পরীক্ষা চলছে...";
+    const key=$("#aaKey").value.trim(), base=$("#aaBase").value.trim().replace(/\/+$/,""), model=$("#aaModel").value.trim();
+    try{
+      const res=await fetch(base+"/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},body:JSON.stringify({model, messages:[{role:"user",content:"Say OK"}], max_tokens:5})});
+      const j=await res.json();
+      out.innerHTML= res.ok? `<span style="color:var(--brand-deep)">✓ সংযোগ সফল! AI বলল: "${esc((j.choices?.[0]?.message?.content||"OK").trim())}"</span>` : `<span style="color:var(--danger)">✗ সমস্যা: ${esc(String(j.error?.message||res.status).slice(0,150))}</span>`;
+    }catch(e){ out.innerHTML=`<span style="color:var(--danger)">✗ সংযোগ ব্যর্থ — ইন্টারনেট/URL চেক করুন</span>`; }
+  };
+}
+
+/* ---------------- DATA ---------------- */
+function adminData(body){
+  body.innerHTML=`
+    <div class="admin-card">
+      <h4>💾 ব্যাকআপ ও রিস্টোর</h4>
+      <div class="ac-sub">সব কনটেন্ট ও সেটিংস ফাইল হিসেবে সেভ/লোড করুন</div>
+      <button class="btn primary wide" id="adExport">⬇️ ব্যাকআপ ডাউনলোড (JSON)</button>
+      <div class="mt8"></div>
+      <label class="btn ghost wide" style="border:1.5px dashed var(--line)">⬆️ ব্যাকআপ লোড করুন<input type="file" id="adImport" accept=".json" style="display:none"></label>
+      <div class="divider"></div>
+      <button class="btn danger wide" id="adResetAll">⚠️ সব ডেটা রিসেট (ফ্যাক্টরি)</button>
+    </div>
+    <div class="admin-card">
+      <h4>📊 পরিসংখ্যান</h4>
+      <div class="content-row"><div class="cr-main"><b>ডিকশনারি শব্দ</b></div><span class="badge-soft">${allDict().length}</span></div>
+      <div class="content-row"><div class="cr-main"><b>লেসন</b></div><span class="badge-soft">${allLessons().length}</span></div>
+      <div class="content-row"><div class="cr-main"><b>প্র্যাকটিস সিনারিও</b></div><span class="badge-soft">${allScenarios().length}</span></div>
+      <div class="content-row"><div class="cr-main"><b>শর্টকাট</b></div><span class="badge-soft">${DEFAULT_SHORTCUTS.length}</span></div>
+      <div class="content-row"><div class="cr-main"><b>কিডস আইটেম</b></div><span class="badge-soft">${KID_FIRST_WORDS.length+KIDS_LETTERS.length}</span></div>
+    </div>`;
+  $("#adExport").onclick=()=>{
+    const data={appName:S.appName, accent:S.accent, announcement:S.announcement, pin:S.pin, showKids:S.showKids, showShortcuts:S.showShortcuts, ai:S.ai, customContent:S.customContent, exportedAt:new Date().toISOString()};
+    const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+    a.download="english-guru-backup-"+todayKey()+".json"; a.click();
+  };
+  $("#adImport").onchange=(e)=>{
+    const f=e.target.files[0]; if(!f) return;
+    const r=new FileReader();
+    r.onload=()=>{
+      try{
+        const j=JSON.parse(r.result);
+        if(j.appName)S.appName=j.appName; if(j.accent)S.accent=j.accent; if(j.announcement!==undefined)S.announcement=j.announcement;
+        if(j.pin)S.pin=j.pin; if(j.showKids!==undefined)S.showKids=j.showKids; if(j.showShortcuts!==undefined)S.showShortcuts=j.showShortcuts;
+        if(j.ai)S.ai=j.ai; if(j.customContent)S.customContent=j.customContent;
+        persist(); applyBranding(); renderAdminTab("data"); toast("✓ ব্যাকআপ লোড হয়েছে");
+      }catch(err){ toast("ভুল ফাইল ফরম্যাট"); }
+    };
+    r.readAsText(f);
+  };
+  $("#adResetAll").onclick=()=>{
+    if(confirm("সব সেটিংস, কনটেন্ট ও প্রোগ্রেস মুছে যাবে। নিশ্চিত?")){
+      Object.keys(localStorage).filter(k=>k.startsWith("eg_")).forEach(k=>localStorage.removeItem(k));
+      S=defaultState(); applyBranding(); closeAdminPanel(); go("home"); toast("ফ্যাক্টরি রিসেট সম্পন্ন");
+    }
+  };
+}
+</script></body>
+</html>

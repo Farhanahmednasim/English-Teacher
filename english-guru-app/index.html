@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0e9f6e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>English Guru — ইংরেজি শেখার সহজ উপায়</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230e9f6e'/><text x='50' y='72' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'>E</text></svg>">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===================== SPLASH ===================== -->
+  <div id="splash">
+    <div class="splash-logo">
+      <div class="splash-emblem"><span>E</span></div>
+      <h1 class="app-title splash-title">English Guru</h1>
+      <p class="splash-tag">ইংরেজি শেখার সহজ উপায়</p>
+    </div>
+  </div>
+
+  <!-- ===================== ONBOARDING ===================== -->
+  <div id="onboarding" class="hidden">
+    <div class="onb-slides">
+      <div class="onb-slide" data-step="0">
+        <div class="onb-art"><div class="onb-art-inner">📚</div></div>
+        <h2>ইংরেজি শেখা এখন সহজ</h2>
+        <p>সংক্ষিপ্ত ক্লাস, কুইজ আর প্রতিদিনের অভ্যাস দিয়ে বেগিনার থেকে অ্যাডভান্সড পর্যন্ত শিখুন।</p>
+      </div>
+      <div class="onb-slide hidden" data-step="1">
+        <div class="onb-art"><div class="onb-art-inner">🎯</div></div>
+        <h2>ট্র্যাক করুন আপনার অগ্রগতি</h2>
+        <p>মাসিক টার্গেট, স্ট্রিক আর XP দিয়ে নিজের উন্নতি চোখে দেখুন।</p>
+      </div>
+      <div class="onb-slide hidden" data-step="2">
+        <div class="onb-art"><div class="onb-art-inner">💬</div></div>
+        <h2>প্র্যাকটিস করুন আত্মবিশ্বাসে</h2>
+        <p>চ্যাট-ভিত্তিক কনভারসেশন প্র্যাকটিস — রিয়েল লাইফ সিনারিও দিয়ে কথা বলার ক্ষমতা পরখ করুন।</p>
+      </div>
+      <div class="onb-slide hidden" data-step="3">
+        <div class="onb-art"><div class="onb-art-inner">🧒</div></div>
+        <h2>বাচ্চাদের জন্য আলাদা জগৎ</h2>
+        <p>ABC থেকে শুরু করে ছোটদের জন্য রঙিন, মজার ইংলিশ — সাউন্ডসহ!</p>
+      </div>
+    </div>
+    <div class="onb-footer">
+      <div class="onb-dots">
+        <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div class="onb-row">
+        <button class="btn ghost" id="onbSkip">স্কিপ</button>
+        <button class="btn primary" id="onbNext">পরবর্তী</button>
+      </div>
+      <input id="onbName" class="field hidden" type="text" placeholder="আপনার নাম (ঐচ্ছিক)" maxlength="20">
+    </div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="main" class="hidden">
+
+    <header id="topbar">
+      <div class="top-left">
+        <div class="app-emblem sm"><span>E</span></div>
+        <h1 class="app-title topbar-title">English Guru</h1>
+      </div>
+      <div class="top-right">
+        <button class="icon-btn" id="btnTheme" title="থিম বদলান"><span class="ic" id="themeIc">🌙</span></button>
+        <button class="icon-btn" id="btnAdmin" title="অ্যাডমিন"><span class="ic">⚙️</span></button>
+      </div>
+    </header>
+
+    <main id="view"></main>
+
+    <nav id="bottomnav">
+      <button class="nav-btn active" data-nav="home"><span class="nv">🏠</span><span>হোম</span></button>
+      <button class="nav-btn" data-nav="learn"><span class="nv">📚</span><span>লার্ন</span></button>
+      <button class="nav-btn" data-nav="dict"><span class="nv">📖</span><span>ডিকশনারি</span></button>
+      <button class="nav-btn" data-nav="practice"><span class="nv">💬</span><span>প্র্যাকটিস</span></button>
+      <button class="nav-btn" data-nav="profile"><span class="nv">👤</span><span>প্রোফাইল</span></button>
+    </nav>
+  </div>
+
+  <!-- ===================== ADMIN GATE ===================== -->
+  <div class="modal-back hidden" id="adminGate">
+    <div class="modal">
+      <h3 class="modal-title">🔐 অ্যাডমিন প্যানেল</h3>
+      <p class="modal-sub">পিন দিন (ডিফল্ট: 1234)</p>
+      <input id="adminPin" class="field center pin-field" type="password" inputmode="numeric" maxlength="8" placeholder="••••">
+      <p class="modal-error hidden" id="pinErr">ভুল পিন!</p>
+      <div class="modal-row">
+        <button class="btn ghost" id="adminCancel">বাতিল</button>
+        <button class="btn primary" id="adminEnter">প্রবেশ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ADMIN PANEL ===================== -->
+  <div id="adminPanel" class="hidden">
+    <header id="adminTop">
+      <button class="icon-btn" id="adminBack"><span class="ic">←</span></button>
+      <h2 class="admin-head">⚙️ অ্যাডমিন প্যানেল</h2>
+    </header>
+    <div class="admin-tabs">
+      <button class="atab active" data-atab="branding">🎨 ব্র্যান্ডিং</button>
+      <button class="atab" data-atab="content">📚 কনটেন্ট</button>
+      <button class="atab" data-atab="ai">🤖 AI</button>
+      <button class="atab" data-atab="data">💾 ডেটা</button>
+    </div>
+    <div id="adminBody"></div>
+    <div id="adminSaveBar" class="hidden">
+      <button class="btn primary wide" id="adminSaveBtn">✓ সেভ করুন</button>
+    </div>
+  </div>
+
+  <!-- ===================== LESSON OVERLAY ===================== -->
+  <div id="lessonOverlay" class="hidden">
+    <header class="lesson-top">
+      <button class="icon-btn" id="lessonClose"><span class="ic">✕</span></button>
+      <div class="lesson-prog"><div class="lesson-prog-fill" id="lessonProgFill"></div></div>
+    </header>
+    <div id="lessonBody"></div>
+  </div>
+
+  <!-- ===================== PRACTICE CHAT ===================== -->
+  <div id="chatOverlay" class="hidden">
+    <header class="chat-top">
+      <button class="icon-btn" id="chatBack"><span class="ic">←</span></button>
+      <div class="chat-head-info"><h3 id="chatTitle">Practice</h3><span class="chat-sub" id="chatSub"></span></div>
+      <button class="icon-btn hidden" id="chatAutoBtn" title="অটো ভয়েস কথোপকথন"><span class="ic">🎧</span></button>
+      <button class="icon-btn hidden" id="chatTtsToggle" title="শব্দ চালু/বন্ধ"><span class="ic" id="chatTtsIc">🔊</span></button>
+    </header>
+    <div id="chatBody"></div>
+    <div class="chat-foot">
+      <div id="chatSuggestions"></div>
+      <div class="chat-input-row">
+        <button class="mic-btn" id="chatMic" title="ভয়েস ইনপুট">🎤</button>
+        <input id="chatInput" class="field" type="text" placeholder="ইংরেজিতে লিখুন বা মাইকে বলুন..." autocomplete="off">
+        <button class="send-btn" id="chatSend">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== GENERIC MODAL ===================== -->
+  <div class="modal-back hidden" id="genericModal">
+    <div class="modal" id="genericModalBox"></div>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+</div>
+
+<script src="js/core-data.js"></script>
+<script src="js/learning-path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
